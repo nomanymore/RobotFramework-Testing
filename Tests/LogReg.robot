@@ -11,6 +11,8 @@ Test Teardown  Common.End Web Test
 *** Variables ***
 
 *** Test Cases ***
+
+#------------------ All user login tests----------------------------------
 Reviewer BBI-1 Login Test
     [Documentation]         Test login as Reviewer BBI-1
     [Tags]                  Reviewer    Login    BBI
@@ -60,3 +62,5 @@ Admin Login Test
     [Documentation]         Test login as Administrator
     [Tags]                  Admin    Login
     bnfinApp.Login as User Type    ADMIN
+
+    

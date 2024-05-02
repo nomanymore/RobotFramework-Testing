@@ -15,4 +15,8 @@ Begin Web Test
     Set Selenium Speed    1s
 
 End Web Test
-    Close Browser
+    Close All Browsers
+    Log Test Case Status
+    
+Log Test Case Status
+    Run Keyword If    '${TEST STATUS}' != 'PASS'    Log    Test failed: ${TEST NAME}

@@ -6,7 +6,7 @@ ${DASH_URL}=    https://bnfin-staging.curbza.com/home
 ${HOMEDASH_HEADER_LABEL}=    Home
 
 *** Keywords ***
-Navigate To
+Navigate To Dash
     go to                       ${DASH_URL}
 
 Verify Page Loaded
