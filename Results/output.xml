@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.12.3 on win32)" generated="2024-05-01T06:30:07.908223" rpa="false" schemaversion="5">
+<suite id="s1" name="Logreg" source="F:\NSCC-Courses\Semester-2\Work Placement\Automated Tests\BNFIN\tests\logreg.robot">
+<test id="s1-t1" name="Sign In To Website" line="13">
+<kw name="Begin Web Test" owner="Common" type="SETUP">
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2024-05-01T06:30:08.356917" level="INFO">${auth_url} = https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/</msg>
+<var>${auth_url}</var>
+<arg>SEPARATOR=</arg>
+<arg>https://${USERNAME}:${PASSWORD}@${START_URL}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2024-05-01T06:30:08.355921" elapsed="0.000996"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-05-01T06:30:08.356917" level="INFO">Opening browser 'edge' to base url 'https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/'.</msg>
+<arg>${auth_url}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-05-01T06:30:08.356917" elapsed="3.689978"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-05-01T06:30:12.046895" elapsed="0.875495"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>3s</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2024-05-01T06:30:12.923389" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2024-05-01T06:30:08.354923" elapsed="4.568466"/>
+</kw>
+<kw name="Go To Login Page" owner="SignIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//a[@href='/login' and contains(@class, 'btn-outline-white')]</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-01T06:30:12.924388" elapsed="6.039213"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-01T06:30:18.963601" level="INFO">Clicking element 'xpath=//a[@href='/login' and contains(@class, 'btn-outline-white')]'.</msg>
+<arg>xpath=//a[@href='/login' and contains(@class, 'btn-outline-white')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-01T06:30:18.963601" elapsed="6.146681"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Welcome Back</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-05-01T06:30:25.110810" elapsed="3.022913"/>
+</kw>
+<status status="PASS" start="2024-05-01T06:30:12.923389" elapsed="15.210334"/>
+</kw>
+<kw name="Enter Username" owner="SignIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-01T06:30:28.135239" level="INFO">Typing text 'victoria.administrator' into text field 'id=username'.</msg>
+<arg>id=username</arg>
+<arg>${USER_ADMIN}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-01T06:30:28.135239" elapsed="9.251666"/>
+</kw>
+<status status="PASS" start="2024-05-01T06:30:28.134231" elapsed="9.252674"/>
+</kw>
+<kw name="Enter Password" owner="SignIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-01T06:30:37.388955" level="INFO">Typing text 'ÔúiNÛONä½I' into text field 'id=password'.</msg>
+<arg>id=password</arg>
+<arg>${PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-01T06:30:37.388955" elapsed="9.170643"/>
+</kw>
+<status status="PASS" start="2024-05-01T06:30:37.387964" elapsed="9.171634"/>
+</kw>
+<kw name="End Web Test" owner="Common" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-05-01T06:30:46.560608" elapsed="5.256395"/>
+</kw>
+<status status="PASS" start="2024-05-01T06:30:46.560608" elapsed="5.256934"/>
+</kw>
+<status status="PASS" start="2024-05-01T06:30:08.353931" elapsed="43.463611"/>
+</test>
+<doc>This testing suite will check for the functionality of user login, registration and password reset</doc>
+<status status="PASS" start="2024-05-01T06:30:07.912242" elapsed="43.907317"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Logreg">Logreg</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
