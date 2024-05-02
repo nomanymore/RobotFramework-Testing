@@ -1,94 +1,1599 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.0 (Python 3.12.3 on win32)" generated="2024-05-01T06:30:07.908223" rpa="false" schemaversion="5">
+<robot generator="Robot 7.0 (Python 3.12.3 on win32)" generated="2024-05-02T06:23:18.783774" rpa="false" schemaversion="5">
 <suite id="s1" name="Logreg" source="F:\NSCC-Courses\Semester-2\Work Placement\Automated Tests\BNFIN\tests\logreg.robot">
-<test id="s1-t1" name="Sign In To Website" line="13">
+<test id="s1-t1" name="Reviewer BBI-1 Login Test" line="14">
 <kw name="Begin Web Test" owner="Common" type="SETUP">
 <kw name="Catenate" owner="BuiltIn">
-<msg time="2024-05-01T06:30:08.356917" level="INFO">${auth_url} = https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/</msg>
+<msg time="2024-05-02T06:23:19.194768" level="INFO">${auth_url} = https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/</msg>
 <var>${auth_url}</var>
 <arg>SEPARATOR=</arg>
-<arg>https://${USERNAME}:${PASSWORD}@${START_URL}</arg>
+<arg>https://${USERNAME}:${WEBPASSWORD}@${START_URL}</arg>
 <doc>Catenates the given items together and returns the resulted string.</doc>
-<status status="PASS" start="2024-05-01T06:30:08.355921" elapsed="0.000996"/>
+<status status="PASS" start="2024-05-02T06:23:19.194768" elapsed="0.000000"/>
 </kw>
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2024-05-01T06:30:08.356917" level="INFO">Opening browser 'edge' to base url 'https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/'.</msg>
+<msg time="2024-05-02T06:23:19.194768" level="INFO">Opening browser 'edge' to base url 'https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/'.</msg>
 <arg>${auth_url}</arg>
 <arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2024-05-01T06:30:08.356917" elapsed="3.689978"/>
+<status status="PASS" start="2024-05-02T06:23:19.194768" elapsed="4.087776"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2024-05-01T06:30:12.046895" elapsed="0.875495"/>
+<status status="PASS" start="2024-05-02T06:23:23.282544" elapsed="0.717443"/>
 </kw>
 <kw name="Set Selenium Speed" owner="SeleniumLibrary">
-<arg>3s</arg>
+<arg>1s</arg>
 <doc>Sets the delay that is waited after each Selenium command.</doc>
-<status status="PASS" start="2024-05-01T06:30:12.923389" elapsed="0.000000"/>
+<status status="PASS" start="2024-05-02T06:23:23.999987" elapsed="0.001000"/>
 </kw>
-<status status="PASS" start="2024-05-01T06:30:08.354923" elapsed="4.568466"/>
+<status status="PASS" start="2024-05-02T06:23:19.194768" elapsed="4.806219"/>
+</kw>
+<kw name="Login as User Type" owner="bnfinApp">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Set Variable" owner="BuiltIn">
+<arg>${USER_REVIEWER}[${user_index}]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-02T06:23:24.002982" elapsed="0.001007"/>
+</kw>
+<msg time="2024-05-02T06:23:24.003989" level="INFO">${email} = victoria.reviewer-bbi-1</msg>
+<var>${email}</var>
+<arg>'${user_type}'=='ADMIN'</arg>
+<arg>Set Variable</arg>
+<arg>${USER_ADMIN}</arg>
+<arg>ELSE IF</arg>
+<arg>'${user_type}'=='LEAD_REVIEWER'</arg>
+<arg>Set Variable</arg>
+<arg>${USER_LEAD_REVIEWER}[${user_index}]</arg>
+<arg>ELSE IF</arg>
+<arg>'${user_type}'=='REVIEWER'</arg>
+<arg>Set Variable</arg>
+<arg>${USER_REVIEWER}[${user_index}]</arg>
+<arg>ELSE IF</arg>
+<arg>'${user_type}'=='APPLICANT'</arg>
+<arg>Set Variable</arg>
+<arg>${USER_APPLICANT}[${user_index}]</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>${None}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-05-02T06:23:24.001984" elapsed="0.002005"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-02T06:23:24.004990" level="INFO">${password} = test</msg>
+<var>${password}</var>
+<arg>${PASSWORD}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-02T06:23:24.003989" elapsed="0.001001"/>
 </kw>
 <kw name="Go To Login Page" owner="SignIn">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>xpath=//a[@href='/login' and contains(@class, 'btn-outline-white')]</arg>
+<arg>${LOGIN_BUTTON}</arg>
 <arg>10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-05-01T06:30:12.924388" elapsed="6.039213"/>
+<status status="PASS" start="2024-05-02T06:23:24.005985" elapsed="2.041768"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-05-01T06:30:18.963601" level="INFO">Clicking element 'xpath=//a[@href='/login' and contains(@class, 'btn-outline-white')]'.</msg>
-<arg>xpath=//a[@href='/login' and contains(@class, 'btn-outline-white')]</arg>
+<msg time="2024-05-02T06:23:26.047753" level="INFO">Clicking element 'xpath=//a[@href='/login' and contains(@class, 'btn-outline-white')]'.</msg>
+<arg>${LOGIN_BUTTON}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-01T06:30:18.963601" elapsed="6.146681"/>
+<status status="PASS" start="2024-05-02T06:23:26.047753" elapsed="2.278928"/>
 </kw>
 <kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>Welcome Back</arg>
+<arg>${LOGIN_HEADER_LABEL}</arg>
 <doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2024-05-01T06:30:25.110810" elapsed="3.022913"/>
+<status status="PASS" start="2024-05-02T06:23:28.326681" elapsed="1.017636"/>
 </kw>
-<status status="PASS" start="2024-05-01T06:30:12.923389" elapsed="15.210334"/>
+<status status="PASS" start="2024-05-02T06:23:24.004990" elapsed="5.339327"/>
 </kw>
-<kw name="Enter Username" owner="SignIn">
+<kw name="Login With Valid Credentials" owner="SignIn">
+<kw name="Fill &quot;Email&quot; Field" owner="SignIn">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-05-01T06:30:28.135239" level="INFO">Typing text 'victoria.administrator' into text field 'id=username'.</msg>
-<arg>id=username</arg>
-<arg>${USER_ADMIN}</arg>
+<msg time="2024-05-02T06:23:29.345377" level="INFO">Typing text 'victoria.reviewer-bbi-1' into text field 'id=username'.</msg>
+<arg>${LOGIN_EMAIL_TEXTBOX}</arg>
+<arg>${Email}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-01T06:30:28.135239" elapsed="9.251666"/>
+<status status="PASS" start="2024-05-02T06:23:29.345377" elapsed="3.246183"/>
 </kw>
-<status status="PASS" start="2024-05-01T06:30:28.134231" elapsed="9.252674"/>
+<arg>${Email}</arg>
+<status status="PASS" start="2024-05-02T06:23:29.344848" elapsed="3.246712"/>
 </kw>
-<kw name="Enter Password" owner="SignIn">
+<kw name="Fill &quot;Password&quot; Field" owner="SignIn">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-05-01T06:30:37.388955" level="INFO">Typing text 'ÔúiNÛONä½I' into text field 'id=password'.</msg>
-<arg>id=password</arg>
-<arg>${PASSWORD}</arg>
+<msg time="2024-05-02T06:23:32.592747" level="INFO">Typing text 'test' into text field 'id=password'.</msg>
+<arg>${LOGIN_PASSWORD_TEXTBOX}</arg>
+<arg>${Password}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-01T06:30:37.388955" elapsed="9.170643"/>
+<status status="PASS" start="2024-05-02T06:23:32.592747" elapsed="3.128267"/>
 </kw>
-<status status="PASS" start="2024-05-01T06:30:37.387964" elapsed="9.171634"/>
+<arg>${Password}</arg>
+<status status="PASS" start="2024-05-02T06:23:32.591560" elapsed="3.129454"/>
+</kw>
+<kw name="Click &quot;Submit&quot; Button" owner="SignIn">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-05-02T06:23:35.722037" level="INFO">Clicking button 'xpath=//*[@id="app"]/div[4]/div/div[2]/form/button'.</msg>
+<arg>${LOGIN_SUBMIT_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-02T06:23:35.722037" elapsed="5.109112"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:23:35.721014" elapsed="5.110135"/>
+</kw>
+<arg>${email}</arg>
+<arg>${password}</arg>
+<status status="PASS" start="2024-05-02T06:23:29.344848" elapsed="11.486301"/>
+</kw>
+<kw name="Go to &quot;Home&quot; Dashboard" owner="bnfinApp">
+<kw name="Navigate To" owner="HomeDashboard">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-05-02T06:23:40.832173" level="INFO">Opening url 'https://bnfin-staging.curbza.com/home'</msg>
+<arg>${DASH_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-05-02T06:23:40.832173" elapsed="1.323505"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:23:40.832173" elapsed="1.323505"/>
+</kw>
+<kw name="Verify Page Loaded" owner="HomeDashboard">
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${HOMEDASH_HEADER_LABEL}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-05-02T06:23:42.156392" elapsed="1.018829"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:23:42.156392" elapsed="1.018829"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:23:40.831149" elapsed="2.344072"/>
+</kw>
+<arg>REVIEWER</arg>
+<arg>0</arg>
+<status status="PASS" start="2024-05-02T06:23:24.001984" elapsed="19.173237"/>
 </kw>
 <kw name="End Web Test" owner="Common" type="TEARDOWN">
 <kw name="Close Browser" owner="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2024-05-01T06:30:46.560608" elapsed="5.256395"/>
+<status status="PASS" start="2024-05-02T06:23:43.176598" elapsed="3.316941"/>
 </kw>
-<status status="PASS" start="2024-05-01T06:30:46.560608" elapsed="5.256934"/>
+<status status="PASS" start="2024-05-02T06:23:43.176598" elapsed="3.316941"/>
 </kw>
-<status status="PASS" start="2024-05-01T06:30:08.353931" elapsed="43.463611"/>
+<doc>Test login as Reviewer BBI-1</doc>
+<tag>BBI</tag>
+<tag>Login</tag>
+<tag>Reviewer</tag>
+<status status="PASS" start="2024-05-02T06:23:19.194768" elapsed="27.298771"/>
+</test>
+<test id="s1-t2" name="Reviewer BBI-2 Login Test" line="19">
+<kw name="Begin Web Test" owner="Common" type="SETUP">
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2024-05-02T06:23:46.493539" level="INFO">${auth_url} = https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/</msg>
+<var>${auth_url}</var>
+<arg>SEPARATOR=</arg>
+<arg>https://${USERNAME}:${WEBPASSWORD}@${START_URL}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2024-05-02T06:23:46.493539" elapsed="0.000000"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-05-02T06:23:46.493539" level="INFO">Opening browser 'edge' to base url 'https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/'.</msg>
+<arg>${auth_url}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-05-02T06:23:46.493539" elapsed="4.453635"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-05-02T06:23:50.947174" elapsed="1.043651"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>1s</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2024-05-02T06:23:51.991348" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:23:46.493539" elapsed="5.498328"/>
+</kw>
+<kw name="Login as User Type" owner="bnfinApp">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Set Variable" owner="BuiltIn">
+<arg>${USER_REVIEWER}[${user_index}]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-02T06:23:51.993234" elapsed="0.000564"/>
+</kw>
+<msg time="2024-05-02T06:23:51.993798" level="INFO">${email} = victoria.reviewer-bbi-2</msg>
+<var>${email}</var>
+<arg>'${user_type}'=='ADMIN'</arg>
+<arg>Set Variable</arg>
+<arg>${USER_ADMIN}</arg>
+<arg>ELSE IF</arg>
+<arg>'${user_type}'=='LEAD_REVIEWER'</arg>
+<arg>Set Variable</arg>
+<arg>${USER_LEAD_REVIEWER}[${user_index}]</arg>
+<arg>ELSE IF</arg>
+<arg>'${user_type}'=='REVIEWER'</arg>
+<arg>Set Variable</arg>
+<arg>${USER_REVIEWER}[${user_index}]</arg>
+<arg>ELSE IF</arg>
+<arg>'${user_type}'=='APPLICANT'</arg>
+<arg>Set Variable</arg>
+<arg>${USER_APPLICANT}[${user_index}]</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>${None}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-05-02T06:23:51.993025" elapsed="0.000773"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-02T06:23:51.994358" level="INFO">${password} = test</msg>
+<var>${password}</var>
+<arg>${PASSWORD}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-02T06:23:51.994358" elapsed="0.000000"/>
+</kw>
+<kw name="Go To Login Page" owner="SignIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOGIN_BUTTON}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-02T06:23:51.994899" elapsed="2.122605"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-02T06:23:54.117504" level="INFO">Clicking element 'xpath=//a[@href='/login' and contains(@class, 'btn-outline-white')]'.</msg>
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-02T06:23:54.117504" elapsed="2.135863"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${LOGIN_HEADER_LABEL}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-05-02T06:23:56.253367" elapsed="1.016789"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:23:51.994358" elapsed="5.276307"/>
+</kw>
+<kw name="Login With Valid Credentials" owner="SignIn">
+<kw name="Fill &quot;Email&quot; Field" owner="SignIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-02T06:23:57.271672" level="INFO">Typing text 'victoria.reviewer-bbi-2' into text field 'id=username'.</msg>
+<arg>${LOGIN_EMAIL_TEXTBOX}</arg>
+<arg>${Email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-02T06:23:57.271672" elapsed="3.217688"/>
+</kw>
+<arg>${Email}</arg>
+<status status="PASS" start="2024-05-02T06:23:57.270665" elapsed="3.218695"/>
+</kw>
+<kw name="Fill &quot;Password&quot; Field" owner="SignIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-02T06:24:00.491773" level="INFO">Typing text 'test' into text field 'id=password'.</msg>
+<arg>${LOGIN_PASSWORD_TEXTBOX}</arg>
+<arg>${Password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-02T06:24:00.490769" elapsed="3.134947"/>
+</kw>
+<arg>${Password}</arg>
+<status status="PASS" start="2024-05-02T06:24:00.490769" elapsed="3.134947"/>
+</kw>
+<kw name="Click &quot;Submit&quot; Button" owner="SignIn">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-05-02T06:24:03.626722" level="INFO">Clicking button 'xpath=//*[@id="app"]/div[4]/div/div[2]/form/button'.</msg>
+<arg>${LOGIN_SUBMIT_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-02T06:24:03.625716" elapsed="5.118933"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:24:03.625716" elapsed="5.118933"/>
+</kw>
+<arg>${email}</arg>
+<arg>${password}</arg>
+<status status="PASS" start="2024-05-02T06:23:57.270665" elapsed="11.473984"/>
+</kw>
+<kw name="Go to &quot;Home&quot; Dashboard" owner="bnfinApp">
+<kw name="Navigate To" owner="HomeDashboard">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-05-02T06:24:08.745691" level="INFO">Opening url 'https://bnfin-staging.curbza.com/home'</msg>
+<arg>${DASH_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-05-02T06:24:08.745691" elapsed="1.307718"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:24:08.745691" elapsed="1.307718"/>
+</kw>
+<kw name="Verify Page Loaded" owner="HomeDashboard">
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${HOMEDASH_HEADER_LABEL}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-05-02T06:24:10.054516" elapsed="1.020277"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:24:10.054007" elapsed="1.020786"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:24:08.744649" elapsed="2.330144"/>
+</kw>
+<arg>REVIEWER</arg>
+<arg>1</arg>
+<status status="PASS" start="2024-05-02T06:23:51.992395" elapsed="19.082398"/>
+</kw>
+<kw name="End Web Test" owner="Common" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-05-02T06:24:11.076108" elapsed="3.186279"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:24:11.076108" elapsed="3.186279"/>
+</kw>
+<doc>Test login as Reviewer BBI-2</doc>
+<tag>BBI</tag>
+<tag>Login</tag>
+<tag>Reviewer</tag>
+<status status="PASS" start="2024-05-02T06:23:46.493539" elapsed="27.768848"/>
+</test>
+<test id="s1-t3" name="Reviewer Tropicana-1 Login Test" line="24">
+<kw name="Begin Web Test" owner="Common" type="SETUP">
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2024-05-02T06:24:14.268476" level="INFO">${auth_url} = https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/</msg>
+<var>${auth_url}</var>
+<arg>SEPARATOR=</arg>
+<arg>https://${USERNAME}:${WEBPASSWORD}@${START_URL}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2024-05-02T06:24:14.268476" elapsed="0.000000"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-05-02T06:24:14.269498" level="INFO">Opening browser 'edge' to base url 'https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/'.</msg>
+<arg>${auth_url}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-05-02T06:24:14.268476" elapsed="4.348230"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-05-02T06:24:18.616706" elapsed="1.057969"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>1s</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2024-05-02T06:24:19.674864" elapsed="0.001001"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:24:14.267444" elapsed="5.408421"/>
+</kw>
+<kw name="Login as User Type" owner="bnfinApp">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Set Variable" owner="BuiltIn">
+<arg>${USER_REVIEWER}[${user_index}]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-02T06:24:19.676868" elapsed="0.000000"/>
+</kw>
+<msg time="2024-05-02T06:24:19.677865" level="INFO">${email} = victoria.reviewer-tropicana-1</msg>
+<var>${email}</var>
+<arg>'${user_type}'=='ADMIN'</arg>
+<arg>Set Variable</arg>
+<arg>${USER_ADMIN}</arg>
+<arg>ELSE IF</arg>
+<arg>'${user_type}'=='LEAD_REVIEWER'</arg>
+<arg>Set Variable</arg>
+<arg>${USER_LEAD_REVIEWER}[${user_index}]</arg>
+<arg>ELSE IF</arg>
+<arg>'${user_type}'=='REVIEWER'</arg>
+<arg>Set Variable</arg>
+<arg>${USER_REVIEWER}[${user_index}]</arg>
+<arg>ELSE IF</arg>
+<arg>'${user_type}'=='APPLICANT'</arg>
+<arg>Set Variable</arg>
+<arg>${USER_APPLICANT}[${user_index}]</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>${None}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-05-02T06:24:19.676868" elapsed="0.000997"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-02T06:24:19.677865" level="INFO">${password} = test</msg>
+<var>${password}</var>
+<arg>${PASSWORD}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-02T06:24:19.677865" elapsed="0.000000"/>
+</kw>
+<kw name="Go To Login Page" owner="SignIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOGIN_BUTTON}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-02T06:24:19.677865" elapsed="2.031092"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-02T06:24:21.709965" level="INFO">Clicking element 'xpath=//a[@href='/login' and contains(@class, 'btn-outline-white')]'.</msg>
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-02T06:24:21.708957" elapsed="2.128942"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${LOGIN_HEADER_LABEL}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-05-02T06:24:23.838422" elapsed="1.016462"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:24:19.677865" elapsed="5.177019"/>
+</kw>
+<kw name="Login With Valid Credentials" owner="SignIn">
+<kw name="Fill &quot;Email&quot; Field" owner="SignIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-02T06:24:24.855392" level="INFO">Typing text 'victoria.reviewer-tropicana-1' into text field 'id=username'.</msg>
+<arg>${LOGIN_EMAIL_TEXTBOX}</arg>
+<arg>${Email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-02T06:24:24.855392" elapsed="3.250076"/>
+</kw>
+<arg>${Email}</arg>
+<status status="PASS" start="2024-05-02T06:24:24.855392" elapsed="3.250361"/>
+</kw>
+<kw name="Fill &quot;Password&quot; Field" owner="SignIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-02T06:24:28.107088" level="INFO">Typing text 'test' into text field 'id=password'.</msg>
+<arg>${LOGIN_PASSWORD_TEXTBOX}</arg>
+<arg>${Password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-02T06:24:28.106872" elapsed="3.150285"/>
+</kw>
+<arg>${Password}</arg>
+<status status="PASS" start="2024-05-02T06:24:28.105753" elapsed="3.151662"/>
+</kw>
+<kw name="Click &quot;Submit&quot; Button" owner="SignIn">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-05-02T06:24:31.258428" level="INFO">Clicking button 'xpath=//*[@id="app"]/div[4]/div/div[2]/form/button'.</msg>
+<arg>${LOGIN_SUBMIT_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-02T06:24:31.257415" elapsed="5.121984"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:24:31.257415" elapsed="5.121984"/>
+</kw>
+<arg>${email}</arg>
+<arg>${password}</arg>
+<status status="PASS" start="2024-05-02T06:24:24.855392" elapsed="11.524007"/>
+</kw>
+<kw name="Go to &quot;Home&quot; Dashboard" owner="bnfinApp">
+<kw name="Navigate To" owner="HomeDashboard">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-05-02T06:24:36.380417" level="INFO">Opening url 'https://bnfin-staging.curbza.com/home'</msg>
+<arg>${DASH_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-05-02T06:24:36.380417" elapsed="1.324227"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:24:36.380417" elapsed="1.325146"/>
+</kw>
+<kw name="Verify Page Loaded" owner="HomeDashboard">
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${HOMEDASH_HEADER_LABEL}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-05-02T06:24:37.707445" elapsed="1.018819"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:24:37.707445" elapsed="1.018819"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:24:36.379399" elapsed="2.346865"/>
+</kw>
+<arg>REVIEWER</arg>
+<arg>2</arg>
+<status status="PASS" start="2024-05-02T06:24:19.675865" elapsed="19.050399"/>
+</kw>
+<kw name="End Web Test" owner="Common" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-05-02T06:24:38.727285" elapsed="3.210695"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:24:38.727285" elapsed="3.210695"/>
+</kw>
+<doc>Test login as Reviewer Tropicana-1</doc>
+<tag>Login</tag>
+<tag>Reviewer</tag>
+<tag>Tropicana</tag>
+<status status="PASS" start="2024-05-02T06:24:14.266401" elapsed="27.671579"/>
+</test>
+<test id="s1-t4" name="Reviewer Tropicana-2 Login Test" line="29">
+<kw name="Begin Web Test" owner="Common" type="SETUP">
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2024-05-02T06:24:41.937980" level="INFO">${auth_url} = https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/</msg>
+<var>${auth_url}</var>
+<arg>SEPARATOR=</arg>
+<arg>https://${USERNAME}:${WEBPASSWORD}@${START_URL}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2024-05-02T06:24:41.937980" elapsed="0.000000"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-05-02T06:24:41.937980" level="INFO">Opening browser 'edge' to base url 'https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/'.</msg>
+<arg>${auth_url}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-05-02T06:24:41.937980" elapsed="4.406061"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-05-02T06:24:46.344554" elapsed="1.055624"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>1s</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2024-05-02T06:24:47.400178" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:24:41.937980" elapsed="5.462198"/>
+</kw>
+<kw name="Login as User Type" owner="bnfinApp">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Set Variable" owner="BuiltIn">
+<arg>${USER_REVIEWER}[${user_index}]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-02T06:24:47.402186" elapsed="0.000000"/>
+</kw>
+<msg time="2024-05-02T06:24:47.402186" level="INFO">${email} = victoria.reviewer-tropicana-2</msg>
+<var>${email}</var>
+<arg>'${user_type}'=='ADMIN'</arg>
+<arg>Set Variable</arg>
+<arg>${USER_ADMIN}</arg>
+<arg>ELSE IF</arg>
+<arg>'${user_type}'=='LEAD_REVIEWER'</arg>
+<arg>Set Variable</arg>
+<arg>${USER_LEAD_REVIEWER}[${user_index}]</arg>
+<arg>ELSE IF</arg>
+<arg>'${user_type}'=='REVIEWER'</arg>
+<arg>Set Variable</arg>
+<arg>${USER_REVIEWER}[${user_index}]</arg>
+<arg>ELSE IF</arg>
+<arg>'${user_type}'=='APPLICANT'</arg>
+<arg>Set Variable</arg>
+<arg>${USER_APPLICANT}[${user_index}]</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>${None}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-05-02T06:24:47.401187" elapsed="0.000999"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-02T06:24:47.403237" level="INFO">${password} = test</msg>
+<var>${password}</var>
+<arg>${PASSWORD}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-02T06:24:47.403237" elapsed="0.000273"/>
+</kw>
+<kw name="Go To Login Page" owner="SignIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOGIN_BUTTON}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-02T06:24:47.403510" elapsed="2.069873"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-02T06:24:49.473383" level="INFO">Clicking element 'xpath=//a[@href='/login' and contains(@class, 'btn-outline-white')]'.</msg>
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-02T06:24:49.473383" elapsed="2.123347"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${LOGIN_HEADER_LABEL}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-05-02T06:24:51.596730" elapsed="1.016860"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:24:47.403510" elapsed="5.210080"/>
+</kw>
+<kw name="Login With Valid Credentials" owner="SignIn">
+<kw name="Fill &quot;Email&quot; Field" owner="SignIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-02T06:24:52.614597" level="INFO">Typing text 'victoria.reviewer-tropicana-2' into text field 'id=username'.</msg>
+<arg>${LOGIN_EMAIL_TEXTBOX}</arg>
+<arg>${Email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-02T06:24:52.614597" elapsed="3.236252"/>
+</kw>
+<arg>${Email}</arg>
+<status status="PASS" start="2024-05-02T06:24:52.614597" elapsed="3.236252"/>
+</kw>
+<kw name="Fill &quot;Password&quot; Field" owner="SignIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-02T06:24:55.851860" level="INFO">Typing text 'test' into text field 'id=password'.</msg>
+<arg>${LOGIN_PASSWORD_TEXTBOX}</arg>
+<arg>${Password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-02T06:24:55.851860" elapsed="3.131859"/>
+</kw>
+<arg>${Password}</arg>
+<status status="PASS" start="2024-05-02T06:24:55.850849" elapsed="3.132870"/>
+</kw>
+<kw name="Click &quot;Submit&quot; Button" owner="SignIn">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-05-02T06:24:58.984726" level="INFO">Clicking button 'xpath=//*[@id="app"]/div[4]/div/div[2]/form/button'.</msg>
+<arg>${LOGIN_SUBMIT_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-02T06:24:58.984726" elapsed="5.115033"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:24:58.983719" elapsed="5.116040"/>
+</kw>
+<arg>${email}</arg>
+<arg>${password}</arg>
+<status status="PASS" start="2024-05-02T06:24:52.613590" elapsed="11.486169"/>
+</kw>
+<kw name="Go to &quot;Home&quot; Dashboard" owner="bnfinApp">
+<kw name="Navigate To" owner="HomeDashboard">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-05-02T06:25:04.100768" level="INFO">Opening url 'https://bnfin-staging.curbza.com/home'</msg>
+<arg>${DASH_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-05-02T06:25:04.100768" elapsed="1.312840"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:25:04.100768" elapsed="1.313339"/>
+</kw>
+<kw name="Verify Page Loaded" owner="HomeDashboard">
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${HOMEDASH_HEADER_LABEL}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-05-02T06:25:05.414432" elapsed="1.018458"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:25:05.414432" elapsed="1.018966"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:25:04.099759" elapsed="2.333639"/>
+</kw>
+<arg>REVIEWER</arg>
+<arg>3</arg>
+<status status="PASS" start="2024-05-02T06:24:47.401187" elapsed="19.032211"/>
+</kw>
+<kw name="End Web Test" owner="Common" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-05-02T06:25:06.434408" elapsed="3.161904"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:25:06.434408" elapsed="3.161904"/>
+</kw>
+<doc>Test login as Reviewer Tropicana-2</doc>
+<tag>Login</tag>
+<tag>Reviewer</tag>
+<tag>Tropicana</tag>
+<status status="PASS" start="2024-05-02T06:24:41.937980" elapsed="27.658332"/>
+</test>
+<test id="s1-t5" name="Applicant-1 Login Test" line="34">
+<kw name="Begin Web Test" owner="Common" type="SETUP">
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2024-05-02T06:25:09.596312" level="INFO">${auth_url} = https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/</msg>
+<var>${auth_url}</var>
+<arg>SEPARATOR=</arg>
+<arg>https://${USERNAME}:${WEBPASSWORD}@${START_URL}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2024-05-02T06:25:09.596312" elapsed="0.000000"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-05-02T06:25:09.596312" level="INFO">Opening browser 'edge' to base url 'https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/'.</msg>
+<arg>${auth_url}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-05-02T06:25:09.596312" elapsed="4.300483"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-05-02T06:25:13.896795" elapsed="1.060727"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>1s</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2024-05-02T06:25:14.957522" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:25:09.596312" elapsed="5.361210"/>
+</kw>
+<kw name="Login as User Type" owner="bnfinApp">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Set Variable" owner="BuiltIn">
+<arg>${USER_APPLICANT}[${user_index}]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-02T06:25:14.959535" elapsed="0.001002"/>
+</kw>
+<msg time="2024-05-02T06:25:14.960537" level="INFO">${email} = victoria.applicant-1</msg>
+<var>${email}</var>
+<arg>'${user_type}'=='ADMIN'</arg>
+<arg>Set Variable</arg>
+<arg>${USER_ADMIN}</arg>
+<arg>ELSE IF</arg>
+<arg>'${user_type}'=='LEAD_REVIEWER'</arg>
+<arg>Set Variable</arg>
+<arg>${USER_LEAD_REVIEWER}[${user_index}]</arg>
+<arg>ELSE IF</arg>
+<arg>'${user_type}'=='REVIEWER'</arg>
+<arg>Set Variable</arg>
+<arg>${USER_REVIEWER}[${user_index}]</arg>
+<arg>ELSE IF</arg>
+<arg>'${user_type}'=='APPLICANT'</arg>
+<arg>Set Variable</arg>
+<arg>${USER_APPLICANT}[${user_index}]</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>${None}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-05-02T06:25:14.959535" elapsed="0.001002"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-02T06:25:14.960537" level="INFO">${password} = test</msg>
+<var>${password}</var>
+<arg>${PASSWORD}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-02T06:25:14.960537" elapsed="0.000000"/>
+</kw>
+<kw name="Go To Login Page" owner="SignIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOGIN_BUTTON}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-02T06:25:14.961530" elapsed="2.036247"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-02T06:25:16.997777" level="INFO">Clicking element 'xpath=//a[@href='/login' and contains(@class, 'btn-outline-white')]'.</msg>
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-02T06:25:16.997777" elapsed="2.136805"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${LOGIN_HEADER_LABEL}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-05-02T06:25:19.134582" elapsed="1.015700"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:25:14.961530" elapsed="5.188752"/>
+</kw>
+<kw name="Login With Valid Credentials" owner="SignIn">
+<kw name="Fill &quot;Email&quot; Field" owner="SignIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-02T06:25:20.152841" level="INFO">Typing text 'victoria.applicant-1' into text field 'id=username'.</msg>
+<arg>${LOGIN_EMAIL_TEXTBOX}</arg>
+<arg>${Email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-02T06:25:20.152841" elapsed="3.205223"/>
+</kw>
+<arg>${Email}</arg>
+<status status="PASS" start="2024-05-02T06:25:20.151825" elapsed="3.206239"/>
+</kw>
+<kw name="Fill &quot;Password&quot; Field" owner="SignIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-02T06:25:23.359105" level="INFO">Typing text 'test' into text field 'id=password'.</msg>
+<arg>${LOGIN_PASSWORD_TEXTBOX}</arg>
+<arg>${Password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-02T06:25:23.359105" elapsed="3.165351"/>
+</kw>
+<arg>${Password}</arg>
+<status status="PASS" start="2024-05-02T06:25:23.358064" elapsed="3.166392"/>
+</kw>
+<kw name="Click &quot;Submit&quot; Button" owner="SignIn">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-05-02T06:25:26.524456" level="INFO">Clicking button 'xpath=//*[@id="app"]/div[4]/div/div[2]/form/button'.</msg>
+<arg>${LOGIN_SUBMIT_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-02T06:25:26.524456" elapsed="5.110925"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:25:26.524456" elapsed="5.110925"/>
+</kw>
+<arg>${email}</arg>
+<arg>${password}</arg>
+<status status="PASS" start="2024-05-02T06:25:20.151351" elapsed="11.484030"/>
+</kw>
+<kw name="Go to &quot;Home&quot; Dashboard" owner="bnfinApp">
+<kw name="Navigate To" owner="HomeDashboard">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-05-02T06:25:31.635889" level="INFO">Opening url 'https://bnfin-staging.curbza.com/home'</msg>
+<arg>${DASH_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-05-02T06:25:31.635889" elapsed="1.310307"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:25:31.635889" elapsed="1.310307"/>
+</kw>
+<kw name="Verify Page Loaded" owner="HomeDashboard">
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${HOMEDASH_HEADER_LABEL}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-05-02T06:25:32.946703" elapsed="1.017198"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:25:32.946703" elapsed="1.017198"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:25:31.635889" elapsed="2.328012"/>
+</kw>
+<arg>APPLICANT</arg>
+<arg>0</arg>
+<status status="PASS" start="2024-05-02T06:25:14.958534" elapsed="19.005367"/>
+</kw>
+<kw name="End Web Test" owner="Common" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-05-02T06:25:33.964911" elapsed="3.170360"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:25:33.964911" elapsed="3.170360"/>
+</kw>
+<doc>Test login as Applicant-1</doc>
+<tag>Applicant</tag>
+<tag>Login</tag>
+<status status="PASS" start="2024-05-02T06:25:09.596312" elapsed="27.538959"/>
+</test>
+<test id="s1-t6" name="Applicant-2 Login Test" line="39">
+<kw name="Begin Web Test" owner="Common" type="SETUP">
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2024-05-02T06:25:37.138396" level="INFO">${auth_url} = https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/</msg>
+<var>${auth_url}</var>
+<arg>SEPARATOR=</arg>
+<arg>https://${USERNAME}:${WEBPASSWORD}@${START_URL}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2024-05-02T06:25:37.138396" elapsed="0.000000"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-05-02T06:25:37.139436" level="INFO">Opening browser 'edge' to base url 'https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/'.</msg>
+<arg>${auth_url}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-05-02T06:25:37.138396" elapsed="3.125094"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-05-02T06:25:40.264002" elapsed="1.776867"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>1s</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2024-05-02T06:25:42.040869" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:25:37.137353" elapsed="4.903516"/>
+</kw>
+<kw name="Login as User Type" owner="bnfinApp">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Set Variable" owner="BuiltIn">
+<arg>${USER_APPLICANT}[${user_index}]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-02T06:25:42.042882" elapsed="0.000000"/>
+</kw>
+<msg time="2024-05-02T06:25:42.042882" level="INFO">${email} = victoria.applicant-2</msg>
+<var>${email}</var>
+<arg>'${user_type}'=='ADMIN'</arg>
+<arg>Set Variable</arg>
+<arg>${USER_ADMIN}</arg>
+<arg>ELSE IF</arg>
+<arg>'${user_type}'=='LEAD_REVIEWER'</arg>
+<arg>Set Variable</arg>
+<arg>${USER_LEAD_REVIEWER}[${user_index}]</arg>
+<arg>ELSE IF</arg>
+<arg>'${user_type}'=='REVIEWER'</arg>
+<arg>Set Variable</arg>
+<arg>${USER_REVIEWER}[${user_index}]</arg>
+<arg>ELSE IF</arg>
+<arg>'${user_type}'=='APPLICANT'</arg>
+<arg>Set Variable</arg>
+<arg>${USER_APPLICANT}[${user_index}]</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>${None}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-05-02T06:25:42.042882" elapsed="0.000994"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-02T06:25:42.044024" level="INFO">${password} = test</msg>
+<var>${password}</var>
+<arg>${PASSWORD}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-02T06:25:42.044024" elapsed="0.000000"/>
+</kw>
+<kw name="Go To Login Page" owner="SignIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOGIN_BUTTON}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-02T06:25:42.044024" elapsed="2.037306"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-02T06:25:44.082356" level="INFO">Clicking element 'xpath=//a[@href='/login' and contains(@class, 'btn-outline-white')]'.</msg>
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-02T06:25:44.082356" elapsed="2.126592"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${LOGIN_HEADER_LABEL}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-05-02T06:25:46.209251" elapsed="1.019203"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:25:42.044024" elapsed="5.185110"/>
+</kw>
+<kw name="Login With Valid Credentials" owner="SignIn">
+<kw name="Fill &quot;Email&quot; Field" owner="SignIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-02T06:25:47.230153" level="INFO">Typing text 'victoria.applicant-2' into text field 'id=username'.</msg>
+<arg>${LOGIN_EMAIL_TEXTBOX}</arg>
+<arg>${Email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-02T06:25:47.230153" elapsed="3.221812"/>
+</kw>
+<arg>${Email}</arg>
+<status status="PASS" start="2024-05-02T06:25:47.229134" elapsed="3.222831"/>
+</kw>
+<kw name="Fill &quot;Password&quot; Field" owner="SignIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-02T06:25:50.452990" level="INFO">Typing text 'test' into text field 'id=password'.</msg>
+<arg>${LOGIN_PASSWORD_TEXTBOX}</arg>
+<arg>${Password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-02T06:25:50.452990" elapsed="3.131440"/>
+</kw>
+<arg>${Password}</arg>
+<status status="PASS" start="2024-05-02T06:25:50.451965" elapsed="3.132465"/>
+</kw>
+<kw name="Click &quot;Submit&quot; Button" owner="SignIn">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-05-02T06:25:53.585864" level="INFO">Clicking button 'xpath=//*[@id="app"]/div[4]/div/div[2]/form/button'.</msg>
+<arg>${LOGIN_SUBMIT_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-02T06:25:53.585864" elapsed="5.102375"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:25:53.584430" elapsed="5.103809"/>
+</kw>
+<arg>${email}</arg>
+<arg>${password}</arg>
+<status status="PASS" start="2024-05-02T06:25:47.229134" elapsed="11.459105"/>
+</kw>
+<kw name="Go to &quot;Home&quot; Dashboard" owner="bnfinApp">
+<kw name="Navigate To" owner="HomeDashboard">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-05-02T06:25:58.689246" level="INFO">Opening url 'https://bnfin-staging.curbza.com/home'</msg>
+<arg>${DASH_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-05-02T06:25:58.689246" elapsed="1.364881"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:25:58.689246" elapsed="1.364881"/>
+</kw>
+<kw name="Verify Page Loaded" owner="HomeDashboard">
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${HOMEDASH_HEADER_LABEL}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-05-02T06:26:00.055194" elapsed="1.018622"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:26:00.054127" elapsed="1.019689"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:25:58.688239" elapsed="2.385577"/>
+</kw>
+<arg>APPLICANT</arg>
+<arg>1</arg>
+<status status="PASS" start="2024-05-02T06:25:42.041876" elapsed="19.031940"/>
+</kw>
+<kw name="End Web Test" owner="Common" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-05-02T06:26:01.076176" elapsed="3.256796"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:26:01.075177" elapsed="3.257795"/>
+</kw>
+<doc>Test login as Applicant-2</doc>
+<tag>Applicant</tag>
+<tag>Login</tag>
+<status status="PASS" start="2024-05-02T06:25:37.137353" elapsed="27.195619"/>
+</test>
+<test id="s1-t7" name="Applicant-3 Login Test" line="44">
+<kw name="Begin Web Test" owner="Common" type="SETUP">
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2024-05-02T06:26:04.332972" level="INFO">${auth_url} = https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/</msg>
+<var>${auth_url}</var>
+<arg>SEPARATOR=</arg>
+<arg>https://${USERNAME}:${WEBPASSWORD}@${START_URL}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2024-05-02T06:26:04.332972" elapsed="0.000000"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-05-02T06:26:04.332972" level="INFO">Opening browser 'edge' to base url 'https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/'.</msg>
+<arg>${auth_url}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-05-02T06:26:04.332972" elapsed="4.836828"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-05-02T06:26:09.169800" elapsed="1.060140"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>1s</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2024-05-02T06:26:10.229940" elapsed="0.000509"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:26:04.332972" elapsed="5.897477"/>
+</kw>
+<kw name="Login as User Type" owner="bnfinApp">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Set Variable" owner="BuiltIn">
+<arg>${USER_APPLICANT}[${user_index}]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-02T06:26:10.232457" elapsed="0.000182"/>
+</kw>
+<msg time="2024-05-02T06:26:10.232639" level="INFO">${email} = victoria.applicant-3</msg>
+<var>${email}</var>
+<arg>'${user_type}'=='ADMIN'</arg>
+<arg>Set Variable</arg>
+<arg>${USER_ADMIN}</arg>
+<arg>ELSE IF</arg>
+<arg>'${user_type}'=='LEAD_REVIEWER'</arg>
+<arg>Set Variable</arg>
+<arg>${USER_LEAD_REVIEWER}[${user_index}]</arg>
+<arg>ELSE IF</arg>
+<arg>'${user_type}'=='REVIEWER'</arg>
+<arg>Set Variable</arg>
+<arg>${USER_REVIEWER}[${user_index}]</arg>
+<arg>ELSE IF</arg>
+<arg>'${user_type}'=='APPLICANT'</arg>
+<arg>Set Variable</arg>
+<arg>${USER_APPLICANT}[${user_index}]</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>${None}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-05-02T06:26:10.231455" elapsed="0.001184"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-02T06:26:10.232639" level="INFO">${password} = test</msg>
+<var>${password}</var>
+<arg>${PASSWORD}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-02T06:26:10.232639" elapsed="0.000000"/>
+</kw>
+<kw name="Go To Login Page" owner="SignIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOGIN_BUTTON}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-02T06:26:10.233639" elapsed="2.033535"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-02T06:26:12.267682" level="INFO">Clicking element 'xpath=//a[@href='/login' and contains(@class, 'btn-outline-white')]'.</msg>
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-02T06:26:12.267682" elapsed="2.135030"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${LOGIN_HEADER_LABEL}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-05-02T06:26:14.402712" elapsed="1.025004"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:26:10.232639" elapsed="5.195077"/>
+</kw>
+<kw name="Login With Valid Credentials" owner="SignIn">
+<kw name="Fill &quot;Email&quot; Field" owner="SignIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-02T06:26:15.429230" level="INFO">Typing text 'victoria.applicant-3' into text field 'id=username'.</msg>
+<arg>${LOGIN_EMAIL_TEXTBOX}</arg>
+<arg>${Email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-02T06:26:15.429230" elapsed="3.211303"/>
+</kw>
+<arg>${Email}</arg>
+<status status="PASS" start="2024-05-02T06:26:15.428223" elapsed="3.212310"/>
+</kw>
+<kw name="Fill &quot;Password&quot; Field" owner="SignIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-02T06:26:18.641540" level="INFO">Typing text 'test' into text field 'id=password'.</msg>
+<arg>${LOGIN_PASSWORD_TEXTBOX}</arg>
+<arg>${Password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-02T06:26:18.641540" elapsed="3.129926"/>
+</kw>
+<arg>${Password}</arg>
+<status status="PASS" start="2024-05-02T06:26:18.640533" elapsed="3.131135"/>
+</kw>
+<kw name="Click &quot;Submit&quot; Button" owner="SignIn">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-05-02T06:26:21.772669" level="INFO">Clicking button 'xpath=//*[@id="app"]/div[4]/div/div[2]/form/button'.</msg>
+<arg>${LOGIN_SUBMIT_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-02T06:26:21.771668" elapsed="5.104558"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:26:21.771668" elapsed="5.104558"/>
+</kw>
+<arg>${email}</arg>
+<arg>${password}</arg>
+<status status="PASS" start="2024-05-02T06:26:15.428223" elapsed="11.448003"/>
+</kw>
+<kw name="Go to &quot;Home&quot; Dashboard" owner="bnfinApp">
+<kw name="Navigate To" owner="HomeDashboard">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-05-02T06:26:26.877304" level="INFO">Opening url 'https://bnfin-staging.curbza.com/home'</msg>
+<arg>${DASH_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-05-02T06:26:26.877304" elapsed="1.338664"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:26:26.877304" elapsed="1.338664"/>
+</kw>
+<kw name="Verify Page Loaded" owner="HomeDashboard">
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${HOMEDASH_HEADER_LABEL}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-05-02T06:26:28.217181" elapsed="1.018406"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:26:28.215968" elapsed="1.019619"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:26:26.876226" elapsed="2.360357"/>
+</kw>
+<arg>APPLICANT</arg>
+<arg>2</arg>
+<status status="PASS" start="2024-05-02T06:26:10.231455" elapsed="19.005128"/>
+</kw>
+<kw name="End Web Test" owner="Common" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-05-02T06:26:29.238602" elapsed="3.309010"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:26:29.237599" elapsed="3.310013"/>
+</kw>
+<doc>Test login as Applicant-3</doc>
+<tag>Applicant</tag>
+<tag>Login</tag>
+<status status="PASS" start="2024-05-02T06:26:04.332972" elapsed="28.214640"/>
+</test>
+<test id="s1-t8" name="Lead-Reviewer BBI Login Test" line="49">
+<kw name="Begin Web Test" owner="Common" type="SETUP">
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2024-05-02T06:26:32.553503" level="INFO">${auth_url} = https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/</msg>
+<var>${auth_url}</var>
+<arg>SEPARATOR=</arg>
+<arg>https://${USERNAME}:${WEBPASSWORD}@${START_URL}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2024-05-02T06:26:32.552373" elapsed="0.001130"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-05-02T06:26:32.554772" level="INFO">Opening browser 'edge' to base url 'https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/'.</msg>
+<arg>${auth_url}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-05-02T06:26:32.553503" elapsed="5.142354"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-05-02T06:26:37.695857" elapsed="1.050205"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>1s</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2024-05-02T06:26:38.747096" elapsed="0.001996"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:26:32.552373" elapsed="6.196719"/>
+</kw>
+<kw name="Login as User Type" owner="bnfinApp">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Set Variable" owner="BuiltIn">
+<arg>${USER_LEAD_REVIEWER}[${user_index}]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-02T06:26:38.753562" elapsed="0.000000"/>
+</kw>
+<msg time="2024-05-02T06:26:38.753562" level="INFO">${email} = victoria.lead-bbi</msg>
+<var>${email}</var>
+<arg>'${user_type}'=='ADMIN'</arg>
+<arg>Set Variable</arg>
+<arg>${USER_ADMIN}</arg>
+<arg>ELSE IF</arg>
+<arg>'${user_type}'=='LEAD_REVIEWER'</arg>
+<arg>Set Variable</arg>
+<arg>${USER_LEAD_REVIEWER}[${user_index}]</arg>
+<arg>ELSE IF</arg>
+<arg>'${user_type}'=='REVIEWER'</arg>
+<arg>Set Variable</arg>
+<arg>${USER_REVIEWER}[${user_index}]</arg>
+<arg>ELSE IF</arg>
+<arg>'${user_type}'=='APPLICANT'</arg>
+<arg>Set Variable</arg>
+<arg>${USER_APPLICANT}[${user_index}]</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>${None}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-05-02T06:26:38.751564" elapsed="0.001998"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-02T06:26:38.754563" level="INFO">${password} = test</msg>
+<var>${password}</var>
+<arg>${PASSWORD}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-02T06:26:38.754563" elapsed="0.000000"/>
+</kw>
+<kw name="Go To Login Page" owner="SignIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOGIN_BUTTON}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-02T06:26:38.757566" elapsed="2.052859"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-02T06:26:40.810831" level="INFO">Clicking element 'xpath=//a[@href='/login' and contains(@class, 'btn-outline-white')]'.</msg>
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-02T06:26:40.810831" elapsed="2.116584"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${LOGIN_HEADER_LABEL}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-05-02T06:26:42.927415" elapsed="1.016309"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:26:38.755560" elapsed="5.188164"/>
+</kw>
+<kw name="Login With Valid Credentials" owner="SignIn">
+<kw name="Fill &quot;Email&quot; Field" owner="SignIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-02T06:26:43.944742" level="INFO">Typing text 'victoria.lead-bbi' into text field 'id=username'.</msg>
+<arg>${LOGIN_EMAIL_TEXTBOX}</arg>
+<arg>${Email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-02T06:26:43.944742" elapsed="3.200903"/>
+</kw>
+<arg>${Email}</arg>
+<status status="PASS" start="2024-05-02T06:26:43.943724" elapsed="3.201921"/>
+</kw>
+<kw name="Fill &quot;Password&quot; Field" owner="SignIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-02T06:26:47.146153" level="INFO">Typing text 'test' into text field 'id=password'.</msg>
+<arg>${LOGIN_PASSWORD_TEXTBOX}</arg>
+<arg>${Password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-02T06:26:47.146153" elapsed="3.143693"/>
+</kw>
+<arg>${Password}</arg>
+<status status="PASS" start="2024-05-02T06:26:47.146153" elapsed="3.143693"/>
+</kw>
+<kw name="Click &quot;Submit&quot; Button" owner="SignIn">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-05-02T06:26:50.290858" level="INFO">Clicking button 'xpath=//*[@id="app"]/div[4]/div/div[2]/form/button'.</msg>
+<arg>${LOGIN_SUBMIT_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-02T06:26:50.290858" elapsed="5.109012"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:26:50.289846" elapsed="5.110024"/>
+</kw>
+<arg>${email}</arg>
+<arg>${password}</arg>
+<status status="PASS" start="2024-05-02T06:26:43.943724" elapsed="11.456146"/>
+</kw>
+<kw name="Go to &quot;Home&quot; Dashboard" owner="bnfinApp">
+<kw name="Navigate To" owner="HomeDashboard">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-05-02T06:26:55.400883" level="INFO">Opening url 'https://bnfin-staging.curbza.com/home'</msg>
+<arg>${DASH_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-05-02T06:26:55.400883" elapsed="1.328861"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:26:55.400883" elapsed="1.329691"/>
+</kw>
+<kw name="Verify Page Loaded" owner="HomeDashboard">
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${HOMEDASH_HEADER_LABEL}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-05-02T06:26:56.731903" elapsed="1.018166"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:26:56.730899" elapsed="1.019170"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:26:55.399870" elapsed="2.350199"/>
+</kw>
+<arg>LEAD_REVIEWER</arg>
+<arg>0</arg>
+<status status="PASS" start="2024-05-02T06:26:38.750560" elapsed="18.999509"/>
+</kw>
+<kw name="End Web Test" owner="Common" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-05-02T06:26:57.751092" elapsed="3.203138"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:26:57.751092" elapsed="3.203138"/>
+</kw>
+<doc>Test login as Lead Reviewer BBI</doc>
+<tag>BBI</tag>
+<tag>Lead-Reviewer</tag>
+<tag>Login</tag>
+<status status="PASS" start="2024-05-02T06:26:32.547612" elapsed="28.406618"/>
+</test>
+<test id="s1-t9" name="Lead-Reviewer Tropicana Login Test" line="54">
+<kw name="Begin Web Test" owner="Common" type="SETUP">
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2024-05-02T06:27:00.954230" level="INFO">${auth_url} = https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/</msg>
+<var>${auth_url}</var>
+<arg>SEPARATOR=</arg>
+<arg>https://${USERNAME}:${WEBPASSWORD}@${START_URL}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2024-05-02T06:27:00.954230" elapsed="0.000000"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-05-02T06:27:00.954230" level="INFO">Opening browser 'edge' to base url 'https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/'.</msg>
+<arg>${auth_url}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-05-02T06:27:00.954230" elapsed="4.820986"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-05-02T06:27:05.775216" elapsed="1.056992"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>1s</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2024-05-02T06:27:06.832735" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:27:00.954230" elapsed="5.878505"/>
+</kw>
+<kw name="Login as User Type" owner="bnfinApp">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Set Variable" owner="BuiltIn">
+<arg>${USER_LEAD_REVIEWER}[${user_index}]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-02T06:27:06.834758" elapsed="0.001020"/>
+</kw>
+<msg time="2024-05-02T06:27:06.836808" level="INFO">${email} = victoria.lead-tropicana</msg>
+<var>${email}</var>
+<arg>'${user_type}'=='ADMIN'</arg>
+<arg>Set Variable</arg>
+<arg>${USER_ADMIN}</arg>
+<arg>ELSE IF</arg>
+<arg>'${user_type}'=='LEAD_REVIEWER'</arg>
+<arg>Set Variable</arg>
+<arg>${USER_LEAD_REVIEWER}[${user_index}]</arg>
+<arg>ELSE IF</arg>
+<arg>'${user_type}'=='REVIEWER'</arg>
+<arg>Set Variable</arg>
+<arg>${USER_REVIEWER}[${user_index}]</arg>
+<arg>ELSE IF</arg>
+<arg>'${user_type}'=='APPLICANT'</arg>
+<arg>Set Variable</arg>
+<arg>${USER_APPLICANT}[${user_index}]</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>${None}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-05-02T06:27:06.833750" elapsed="0.003058"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-02T06:27:06.837865" level="INFO">${password} = test</msg>
+<var>${password}</var>
+<arg>${PASSWORD}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-02T06:27:06.836808" elapsed="0.001057"/>
+</kw>
+<kw name="Go To Login Page" owner="SignIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOGIN_BUTTON}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-02T06:27:06.838509" elapsed="2.038470"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-02T06:27:08.876979" level="INFO">Clicking element 'xpath=//a[@href='/login' and contains(@class, 'btn-outline-white')]'.</msg>
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-02T06:27:08.876979" elapsed="2.135091"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${LOGIN_HEADER_LABEL}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-05-02T06:27:11.012070" elapsed="1.017536"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:27:06.838509" elapsed="5.192146"/>
+</kw>
+<kw name="Login With Valid Credentials" owner="SignIn">
+<kw name="Fill &quot;Email&quot; Field" owner="SignIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-02T06:27:12.034347" level="INFO">Typing text 'victoria.lead-tropicana' into text field 'id=username'.</msg>
+<arg>${LOGIN_EMAIL_TEXTBOX}</arg>
+<arg>${Email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-02T06:27:12.033017" elapsed="3.241728"/>
+</kw>
+<arg>${Email}</arg>
+<status status="PASS" start="2024-05-02T06:27:12.033017" elapsed="3.241728"/>
+</kw>
+<kw name="Fill &quot;Password&quot; Field" owner="SignIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-02T06:27:15.275827" level="INFO">Typing text 'test' into text field 'id=password'.</msg>
+<arg>${LOGIN_PASSWORD_TEXTBOX}</arg>
+<arg>${Password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-02T06:27:15.275287" elapsed="3.133669"/>
+</kw>
+<arg>${Password}</arg>
+<status status="PASS" start="2024-05-02T06:27:15.275287" elapsed="3.133669"/>
+</kw>
+<kw name="Click &quot;Submit&quot; Button" owner="SignIn">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-05-02T06:27:18.409979" level="INFO">Clicking button 'xpath=//*[@id="app"]/div[4]/div/div[2]/form/button'.</msg>
+<arg>${LOGIN_SUBMIT_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-02T06:27:18.409979" elapsed="5.102761"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:27:18.408956" elapsed="5.103784"/>
+</kw>
+<arg>${email}</arg>
+<arg>${password}</arg>
+<status status="PASS" start="2024-05-02T06:27:12.031674" elapsed="11.481066"/>
+</kw>
+<kw name="Go to &quot;Home&quot; Dashboard" owner="bnfinApp">
+<kw name="Navigate To" owner="HomeDashboard">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-05-02T06:27:23.513761" level="INFO">Opening url 'https://bnfin-staging.curbza.com/home'</msg>
+<arg>${DASH_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-05-02T06:27:23.513761" elapsed="1.322542"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:27:23.513761" elapsed="1.322542"/>
+</kw>
+<kw name="Verify Page Loaded" owner="HomeDashboard">
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${HOMEDASH_HEADER_LABEL}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-05-02T06:27:24.837514" elapsed="1.018478"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:27:24.837514" elapsed="1.018478"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:27:23.512740" elapsed="2.343252"/>
+</kw>
+<arg>LEAD_REVIEWER</arg>
+<arg>1</arg>
+<status status="PASS" start="2024-05-02T06:27:06.833750" elapsed="19.022242"/>
+</kw>
+<kw name="End Web Test" owner="Common" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-05-02T06:27:25.857010" elapsed="3.210272"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:27:25.857010" elapsed="3.210272"/>
+</kw>
+<doc>Test login as Lead Reviewer Tropicana</doc>
+<tag>Lead-Reviewer</tag>
+<tag>Login</tag>
+<tag>Tropicana</tag>
+<status status="PASS" start="2024-05-02T06:27:00.954230" elapsed="28.113052"/>
+</test>
+<test id="s1-t10" name="Admin Login Test" line="59">
+<kw name="Begin Web Test" owner="Common" type="SETUP">
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2024-05-02T06:27:29.067282" level="INFO">${auth_url} = https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/</msg>
+<var>${auth_url}</var>
+<arg>SEPARATOR=</arg>
+<arg>https://${USERNAME}:${WEBPASSWORD}@${START_URL}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2024-05-02T06:27:29.067282" elapsed="0.000000"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-05-02T06:27:29.067282" level="INFO">Opening browser 'edge' to base url 'https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/'.</msg>
+<arg>${auth_url}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-05-02T06:27:29.067282" elapsed="4.955897"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-05-02T06:27:34.023695" elapsed="1.065695"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>1s</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2024-05-02T06:27:35.089913" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:27:29.067282" elapsed="6.023987"/>
+</kw>
+<kw name="Login as User Type" owner="bnfinApp">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Set Variable" owner="BuiltIn">
+<arg>${USER_ADMIN}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-02T06:27:35.100801" elapsed="0.000993"/>
+</kw>
+<msg time="2024-05-02T06:27:35.101794" level="INFO">${email} = victoria.administrator</msg>
+<var>${email}</var>
+<arg>'${user_type}'=='ADMIN'</arg>
+<arg>Set Variable</arg>
+<arg>${USER_ADMIN}</arg>
+<arg>ELSE IF</arg>
+<arg>'${user_type}'=='LEAD_REVIEWER'</arg>
+<arg>Set Variable</arg>
+<arg>${USER_LEAD_REVIEWER}[${user_index}]</arg>
+<arg>ELSE IF</arg>
+<arg>'${user_type}'=='REVIEWER'</arg>
+<arg>Set Variable</arg>
+<arg>${USER_REVIEWER}[${user_index}]</arg>
+<arg>ELSE IF</arg>
+<arg>'${user_type}'=='APPLICANT'</arg>
+<arg>Set Variable</arg>
+<arg>${USER_APPLICANT}[${user_index}]</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>${None}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-05-02T06:27:35.099792" elapsed="0.002002"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-02T06:27:35.102802" level="INFO">${password} = test</msg>
+<var>${password}</var>
+<arg>${PASSWORD}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-02T06:27:35.101794" elapsed="0.001008"/>
+</kw>
+<kw name="Go To Login Page" owner="SignIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOGIN_BUTTON}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-02T06:27:35.103795" elapsed="2.076324"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-02T06:27:37.180119" level="INFO">Clicking element 'xpath=//a[@href='/login' and contains(@class, 'btn-outline-white')]'.</msg>
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-02T06:27:37.180119" elapsed="2.158103"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${LOGIN_HEADER_LABEL}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-05-02T06:27:39.338786" elapsed="1.015797"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:27:35.102802" elapsed="5.252183"/>
+</kw>
+<kw name="Login With Valid Credentials" owner="SignIn">
+<kw name="Fill &quot;Email&quot; Field" owner="SignIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-02T06:27:40.357034" level="INFO">Typing text 'victoria.administrator' into text field 'id=username'.</msg>
+<arg>${LOGIN_EMAIL_TEXTBOX}</arg>
+<arg>${Email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-02T06:27:40.356035" elapsed="3.213307"/>
+</kw>
+<arg>${Email}</arg>
+<status status="PASS" start="2024-05-02T06:27:40.356035" elapsed="3.213307"/>
+</kw>
+<kw name="Fill &quot;Password&quot; Field" owner="SignIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-02T06:27:43.570432" level="INFO">Typing text 'test' into text field 'id=password'.</msg>
+<arg>${LOGIN_PASSWORD_TEXTBOX}</arg>
+<arg>${Password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-02T06:27:43.569342" elapsed="3.126945"/>
+</kw>
+<arg>${Password}</arg>
+<status status="PASS" start="2024-05-02T06:27:43.569342" elapsed="3.126945"/>
+</kw>
+<kw name="Click &quot;Submit&quot; Button" owner="SignIn">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-05-02T06:27:46.696795" level="INFO">Clicking button 'xpath=//*[@id="app"]/div[4]/div/div[2]/form/button'.</msg>
+<arg>${LOGIN_SUBMIT_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-02T06:27:46.696795" elapsed="5.110151"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:27:46.696795" elapsed="5.110151"/>
+</kw>
+<arg>${email}</arg>
+<arg>${password}</arg>
+<status status="PASS" start="2024-05-02T06:27:40.354985" elapsed="11.451961"/>
+</kw>
+<kw name="Go to &quot;Home&quot; Dashboard" owner="bnfinApp">
+<kw name="Navigate To" owner="HomeDashboard">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-05-02T06:27:51.808478" level="INFO">Opening url 'https://bnfin-staging.curbza.com/home'</msg>
+<arg>${DASH_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-05-02T06:27:51.808478" elapsed="1.344850"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:27:51.807455" elapsed="1.346381"/>
+</kw>
+<kw name="Verify Page Loaded" owner="HomeDashboard">
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${HOMEDASH_HEADER_LABEL}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-05-02T06:27:53.154842" elapsed="1.017511"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:27:53.153836" elapsed="1.018517"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:27:51.807455" elapsed="2.364898"/>
+</kw>
+<arg>ADMIN</arg>
+<status status="PASS" start="2024-05-02T06:27:35.098531" elapsed="19.073822"/>
+</kw>
+<kw name="End Web Test" owner="Common" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-05-02T06:27:54.172859" elapsed="3.280596"/>
+</kw>
+<status status="PASS" start="2024-05-02T06:27:54.172859" elapsed="3.280596"/>
+</kw>
+<doc>Test login as Administrator</doc>
+<tag>Admin</tag>
+<tag>Login</tag>
+<status status="PASS" start="2024-05-02T06:27:29.067282" elapsed="28.386173"/>
 </test>
 <doc>This testing suite will check for the functionality of user login, registration and password reset</doc>
-<status status="PASS" start="2024-05-01T06:30:07.912242" elapsed="43.907317"/>
+<status status="PASS" start="2024-05-02T06:23:18.783774" elapsed="278.669681"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="10" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
+<stat pass="1" fail="0" skip="0">Admin</stat>
+<stat pass="3" fail="0" skip="0">Applicant</stat>
+<stat pass="3" fail="0" skip="0">BBI</stat>
+<stat pass="2" fail="0" skip="0">Lead-Reviewer</stat>
+<stat pass="10" fail="0" skip="0">Login</stat>
+<stat pass="4" fail="0" skip="0">Reviewer</stat>
+<stat pass="3" fail="0" skip="0">Tropicana</stat>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Logreg">Logreg</stat>
+<stat pass="10" fail="0" skip="0" id="s1" name="Logreg">Logreg</stat>
 </suite>
 </statistics>
 <errors>

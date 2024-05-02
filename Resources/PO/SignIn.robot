@@ -3,23 +3,35 @@ Library  SeleniumLibrary
 
 
 *** Variables ***
-${USER_ADMIN}    victoria.administrator
-@{USER_LEAD_REVIEWER}    victoria.lead-bbi    victoria.lead-tropicana
-@{USER_REVIEWER}    victoria.reviewer-bbi-1    victoria.reviewer-bbi-2     victoria.reviewer-tropicana-1    victoria.reviewer-tropicana-2
-@{USER_APPLICANT}    victoria.applicant-1    victoria.applicant-2    victoria.applicant-3
-${PASSWORD}    test
-
+${USER_ADMIN}=    victoria.administrator
+@{USER_LEAD_REVIEWER}=    victoria.lead-bbi    victoria.lead-tropicana
+@{USER_REVIEWER}=    victoria.reviewer-bbi-1    victoria.reviewer-bbi-2     victoria.reviewer-tropicana-1    victoria.reviewer-tropicana-2
+@{USER_APPLICANT}=    victoria.applicant-1    victoria.applicant-2    victoria.applicant-3
+${PASSWORD}=    test
+${LOGIN_BUTTON}=    xpath=//a[@href='/login' and contains(@class, 'btn-outline-white')]
+${LOGIN_HEADER_LABEL}=     Welcome Back
+${LOGIN_EMAIL_TEXTBOX}=    id=username
+${LOGIN_PASSWORD_TEXTBOX}=    id=password
+${LOGIN_SUBMIT_BUTTON}=     xpath=//*[@id="app"]/div[4]/div/div[2]/form/button
 *** Keywords ***
 Go To Login Page
-    Wait Until Element Is Visible    xpath=//a[@href='/login' and contains(@class, 'btn-outline-white')]    10s
-    # Scroll Element Into View    xpath=//a[@href='/login' and contains(@class, 'btn-outline-white')]
-    # Wait For Condition    return document.readyState == 'complete'
-    # Wait Until Element Is Enabled    xpath=//a[@href='/login' and contains(@class, 'btn-outline-white')]
-    Click Element    xpath=//a[@href='/login' and contains(@class, 'btn-outline-white')]
-    Wait Until Page Contains    Welcome Back
+    Wait Until Element Is Visible    ${LOGIN_BUTTON}     10s
+    Click Element    ${LOGIN_BUTTON} 
+    Wait Until Page Contains    ${LOGIN_HEADER_LABEL}
 
-Enter Username
-    Input Text    id=username    ${USER_ADMIN}
+Login With Valid Credentials
+    [Arguments]    ${Email}     ${Password}
+    Fill "Email" Field          ${Email}
+    Fill "Password" Field       ${Password}
+    Click "Submit" Button
 
-Enter Password
-    Input Text    id=password    ${PASSWORD}
+Fill "Email" Field
+    [Arguments]    ${Email}
+    input text    ${LOGIN_EMAIL_TEXTBOX}    ${Email}
+
+Fill "Password" Field
+    [Arguments]    ${Password}
+    input text    ${LOGIN_PASSWORD_TEXTBOX}    ${Password}
+
+Click "Submit" Button
+    click button    ${LOGIN_SUBMIT_BUTTON}
