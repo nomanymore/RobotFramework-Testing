@@ -1,100 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.0 (Python 3.12.3 on win32)" generated="2024-05-04T06:01:31.151947" rpa="false" schemaversion="5">
-<suite id="s1" name="Publicpagelinks" source="F:\NSCC-Courses\Semester-2\Work Placement\Automated Tests\BNFIN\tests\publicpagelinks.robot">
-<test id="s1-t1" name="Test Language Toggle" line="76">
-<kw name="Begin Web Test" owner="Common" type="SETUP">
-<kw name="Catenate" owner="BuiltIn">
-<msg time="2024-05-04T06:01:31.597415" level="INFO">${auth_url} = https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/</msg>
-<var>${auth_url}</var>
-<arg>SEPARATOR=</arg>
-<arg>https://${USERNAME}:${WEBPASSWORD}@${START_URL}</arg>
-<doc>Catenates the given items together and returns the resulted string.</doc>
-<status status="PASS" start="2024-05-04T06:01:31.596876" elapsed="0.000539"/>
-</kw>
+<robot generator="Robot 7.0 (Python 3.12.3 on win32)" generated="2024-05-04T06:42:46.351241" rpa="false" schemaversion="5">
+<suite id="s1" name="Accessibilitychecker" source="F:\NSCC-Courses\Semester-2\Work Placement\Automated Tests\BNFIN\tests\accessibilitychecker.robot">
+<test id="s1-t1" name="Login and Check All Images Have Alt Text" line="12">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2024-05-04T06:01:31.598482" level="INFO">Opening browser 'chrome' to base url 'https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/'.</msg>
-<arg>${auth_url}</arg>
+<msg time="2024-05-04T06:42:46.752456" level="INFO">Opening browser 'chrome' to base url 'https://bnfin-staging.curbza.com/about-info'.</msg>
+<arg>${START_URL}</arg>
 <arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2024-05-04T06:01:31.597957" elapsed="3.400816"/>
+<status status="PASS" start="2024-05-04T06:42:46.751913" elapsed="2.153177"/>
 </kw>
-<kw name="Maximize Browser Window" owner="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2024-05-04T06:01:34.998773" elapsed="0.718688"/>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-04T06:42:48.908108" level="INFO">Typing text 'bnfin_demo' into text field 'id=username_field'.</msg>
+<msg time="2024-05-04T06:42:49.073559" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-7.png"&gt;&lt;img src="selenium-screenshot-7.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2024-05-04T06:42:49.073916" level="FAIL">Element with locator 'id=username_field' not found.</msg>
+<arg>id=username_field</arg>
+<arg>${USERNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="FAIL" start="2024-05-04T06:42:48.906105" elapsed="0.187417">Element with locator 'id=username_field' not found.</status>
 </kw>
-<kw name="Set Selenium Speed" owner="SeleniumLibrary">
-<arg>1s</arg>
-<doc>Sets the delay that is waited after each Selenium command.</doc>
-<status status="PASS" start="2024-05-04T06:01:35.717461" elapsed="0.000994"/>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>id=password_field</arg>
+<arg>${WEBPASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-05-04T06:42:49.094076" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2024-05-04T06:01:31.595544" elapsed="4.122911"/>
+<kw name="Click Button" owner="SeleniumLibrary">
+<arg>id=login_button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-05-04T06:42:49.094076" elapsed="0.001017"/>
 </kw>
-<kw name="Change Language" owner="PublicPages">
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-05-04T06:01:35.719450" level="INFO">Clicking element 'xpath=//*[@id="navbarSupportedContent"]/ul/li[5]/button'.</msg>
-<arg>${LANGUAGE_BUTTON}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-04T06:01:35.719450" elapsed="2.086249"/>
+<kw name="Wait For Condition" owner="SeleniumLibrary">
+<arg>return document.readyState == 'complete'</arg>
+<doc>Waits until ``condition`` is true or ``timeout`` expires.</doc>
+<status status="NOT RUN" start="2024-05-04T06:42:49.095093" elapsed="0.000000"/>
 </kw>
-<kw name="Select Radio Button" owner="SeleniumLibrary">
-<msg time="2024-05-04T06:01:37.805699" level="INFO">Selecting 'fr' from radio button 'language'.</msg>
-<arg>language</arg>
-<arg>${LANGUAGE_FRENCH}</arg>
-<doc>Sets the radio button group ``group_name`` to ``value``.</doc>
-<status status="PASS" start="2024-05-04T06:01:37.805699" elapsed="3.108506"/>
+<kw name="Get Webelements">
+<var>${images}</var>
+<arg>css:img</arg>
+<status status="NOT RUN" start="2024-05-04T06:42:49.096121" elapsed="0.000000"/>
 </kw>
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>Réseau national</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2024-05-04T06:01:40.914205" elapsed="1.016826"/>
+<for flavor="IN">
+<iter>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<var>${alt_text}</var>
+<arg>${image}</arg>
+<arg>alt</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="NOT RUN" start="2024-05-04T06:42:49.097087" elapsed="0.000000"/>
 </kw>
-<kw name="Select Radio Button" owner="SeleniumLibrary">
-<msg time="2024-05-04T06:01:41.931031" level="INFO">Selecting 'en' from radio button 'language'.</msg>
-<arg>language</arg>
-<arg>${LANGUAGE_ENGLISH}</arg>
-<doc>Sets the radio button group ``group_name`` to ``value``.</doc>
-<status status="PASS" start="2024-05-04T06:01:41.931031" elapsed="3.097541"/>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<arg>${alt_text}</arg>
+<arg>msg=Image at ${image} does not have non-empty alt text</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="NOT RUN" start="2024-05-04T06:42:49.097087" elapsed="0.000000"/>
 </kw>
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>National Funders</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2024-05-04T06:01:45.028572" elapsed="1.018090"/>
+<var name="${image}"/>
+<status status="NOT RUN" start="2024-05-04T06:42:49.097087" elapsed="0.000000"/>
+</iter>
+<var>${image}</var>
+<value>@{images}</value>
+<status status="NOT RUN" start="2024-05-04T06:42:49.096121" elapsed="0.000966"/>
+</for>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" start="2024-05-04T06:42:49.097087" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2024-05-04T06:01:35.719450" elapsed="10.327212"/>
-</kw>
-<kw name="End Web Test" owner="Common" type="TEARDOWN">
-<kw name="Close All Browsers" owner="SeleniumLibrary">
-<doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2024-05-04T06:01:46.047176" elapsed="3.196436"/>
-</kw>
-<kw name="Log Test Case Status" owner="Common">
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>'${TEST STATUS}' != 'PASS'</arg>
-<arg>Log</arg>
-<arg>Test failed: ${TEST NAME}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-05-04T06:01:49.243612" elapsed="0.000000"/>
-</kw>
-<status status="PASS" start="2024-05-04T06:01:49.243612" elapsed="0.000000"/>
-</kw>
-<status status="PASS" start="2024-05-04T06:01:46.047176" elapsed="3.196436"/>
-</kw>
-<doc>Verify the page turns from English to French and vice versa</doc>
-<tag>Language</tag>
-<status status="PASS" start="2024-05-04T06:01:31.594434" elapsed="17.649178"/>
+<status status="FAIL" start="2024-05-04T06:42:46.750819" elapsed="2.347268">Element with locator 'id=username_field' not found.</status>
 </test>
-<doc>This testing suite will check for the functionality of all links on the publicly available website</doc>
-<status status="PASS" start="2024-05-04T06:01:31.151947" elapsed="18.091665"/>
+<status status="FAIL" start="2024-05-04T06:42:46.351241" elapsed="2.748844"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="1" fail="0" skip="0">Language</stat>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Publicpagelinks">Publicpagelinks</stat>
+<stat pass="0" fail="1" skip="0" id="s1" name="Accessibilitychecker">Accessibilitychecker</stat>
 </suite>
 </statistics>
 <errors>
