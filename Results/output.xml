@@ -1,1202 +1,226 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.0 (Python 3.12.3 on win32)" generated="2024-05-02T16:36:22.554985" rpa="false" schemaversion="5">
+<robot generator="Robot 7.0 (Python 3.12.3 on win32)" generated="2024-05-04T04:11:29.060312" rpa="false" schemaversion="5">
 <suite id="s1" name="Publicpagelinks" source="F:\NSCC-Courses\Semester-2\Work Placement\Automated Tests\BNFIN\tests\publicpagelinks.robot">
-<test id="s1-t1" name="Test Home Page Link" line="15">
+<test id="s1-t1" name="Test &quot;Facebook&quot; Page Link" line="61">
 <kw name="Begin Web Test" owner="Common" type="SETUP">
 <kw name="Catenate" owner="BuiltIn">
-<msg time="2024-05-02T16:36:22.975092" level="INFO">${auth_url} = https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/</msg>
+<msg time="2024-05-04T04:11:29.457385" level="INFO">${auth_url} = https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/</msg>
 <var>${auth_url}</var>
 <arg>SEPARATOR=</arg>
 <arg>https://${USERNAME}:${WEBPASSWORD}@${START_URL}</arg>
 <doc>Catenates the given items together and returns the resulted string.</doc>
-<status status="PASS" start="2024-05-02T16:36:22.975092" elapsed="0.000000"/>
+<status status="PASS" start="2024-05-04T04:11:29.457385" elapsed="0.000000"/>
 </kw>
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2024-05-02T16:36:22.976084" level="INFO">Opening browser 'edge' to base url 'https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/'.</msg>
+<msg time="2024-05-04T04:11:29.457385" level="INFO">Opening browser 'chrome' to base url 'https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/'.</msg>
 <arg>${auth_url}</arg>
 <arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2024-05-02T16:36:22.976084" elapsed="3.786476"/>
+<status status="PASS" start="2024-05-04T04:11:29.457385" elapsed="4.104112"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2024-05-02T16:36:26.762560" elapsed="0.978571"/>
+<status status="PASS" start="2024-05-04T04:11:33.561497" elapsed="0.041539"/>
 </kw>
-<kw name="Set Selenium Speed" owner="SeleniumLibrary">
-<arg>1s</arg>
-<doc>Sets the delay that is waited after each Selenium command.</doc>
-<status status="PASS" start="2024-05-02T16:36:27.741131" elapsed="0.000998"/>
-</kw>
-<status status="PASS" start="2024-05-02T16:36:22.974093" elapsed="4.768036"/>
-</kw>
-<kw name="Navigate To &quot;Home&quot; Page" owner="PublicPages">
-<kw name="Go To" owner="SeleniumLibrary">
-<msg time="2024-05-02T16:36:27.743129" level="INFO">Opening url 'https://bnfin-staging.curbza.com'</msg>
-<arg>${HOMEPAGE_URL}</arg>
-<doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2024-05-02T16:36:27.742129" elapsed="1.383861"/>
-</kw>
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>${HOME_SUBTITLE}</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2024-05-02T16:36:29.125990" elapsed="1.015912"/>
-</kw>
-<status status="PASS" start="2024-05-02T16:36:27.742129" elapsed="2.399773"/>
-</kw>
-<kw name="End Web Test" owner="Common" type="TEARDOWN">
-<kw name="Close All Browsers" owner="SeleniumLibrary">
-<doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2024-05-02T16:36:30.142406" elapsed="3.991373"/>
-</kw>
-<kw name="Log Test Case Status" owner="Common">
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>'${TEST STATUS}' != 'PASS'</arg>
-<arg>Log</arg>
-<arg>Test failed: ${TEST NAME}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-05-02T16:36:34.134783" elapsed="0.000999"/>
-</kw>
-<status status="PASS" start="2024-05-02T16:36:34.134783" elapsed="0.000999"/>
-</kw>
-<status status="PASS" start="2024-05-02T16:36:30.142406" elapsed="3.993376"/>
-</kw>
-<doc>Verify the home page link</doc>
-<tag>Links</tag>
-<status status="PASS" start="2024-05-02T16:36:22.972094" elapsed="11.164683"/>
-</test>
-<test id="s1-t2" name="Test About Us Page Link" line="20">
-<kw name="Begin Web Test" owner="Common" type="SETUP">
-<kw name="Catenate" owner="BuiltIn">
-<msg time="2024-05-02T16:36:34.139759" level="INFO">${auth_url} = https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/</msg>
-<var>${auth_url}</var>
-<arg>SEPARATOR=</arg>
-<arg>https://${USERNAME}:${WEBPASSWORD}@${START_URL}</arg>
-<doc>Catenates the given items together and returns the resulted string.</doc>
-<status status="PASS" start="2024-05-02T16:36:34.139759" elapsed="0.001000"/>
-</kw>
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2024-05-02T16:36:34.140759" level="INFO">Opening browser 'edge' to base url 'https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/'.</msg>
-<arg>${auth_url}</arg>
-<arg>${BROWSER}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2024-05-02T16:36:34.140759" elapsed="4.518616"/>
-</kw>
-<kw name="Maximize Browser Window" owner="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2024-05-02T16:36:38.659375" elapsed="1.056524"/>
-</kw>
-<kw name="Set Selenium Speed" owner="SeleniumLibrary">
-<arg>1s</arg>
-<doc>Sets the delay that is waited after each Selenium command.</doc>
-<status status="PASS" start="2024-05-02T16:36:39.715899" elapsed="0.001027"/>
-</kw>
-<status status="PASS" start="2024-05-02T16:36:34.139759" elapsed="5.577167"/>
-</kw>
-<kw name="Navigate To &quot;About Us&quot; Page" owner="PublicPages">
-<kw name="Go To" owner="SeleniumLibrary">
-<msg time="2024-05-02T16:36:39.717912" level="INFO">Opening url 'https://bnfin-staging.curbza.com/about-info'</msg>
-<arg>${ABOUT_US_URL}</arg>
-<doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2024-05-02T16:36:39.717912" elapsed="1.384627"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${ABOUT_SUBTITLE}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-05-02T16:36:41.102539" elapsed="2.032280"/>
-</kw>
-<status status="PASS" start="2024-05-02T16:36:39.717912" elapsed="3.416907"/>
-</kw>
-<kw name="End Web Test" owner="Common" type="TEARDOWN">
-<kw name="Close All Browsers" owner="SeleniumLibrary">
-<doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2024-05-02T16:36:43.136836" elapsed="3.256154"/>
-</kw>
-<kw name="Log Test Case Status" owner="Common">
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>'${TEST STATUS}' != 'PASS'</arg>
-<arg>Log</arg>
-<arg>Test failed: ${TEST NAME}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-05-02T16:36:46.393995" elapsed="0.000999"/>
-</kw>
-<status status="PASS" start="2024-05-02T16:36:46.393995" elapsed="0.000999"/>
-</kw>
-<status status="PASS" start="2024-05-02T16:36:43.135841" elapsed="3.259153"/>
-</kw>
-<doc>Verify the "About Us" page link</doc>
-<tag>Links</tag>
-<status status="PASS" start="2024-05-02T16:36:34.138779" elapsed="12.257213"/>
-</test>
-<test id="s1-t3" name="Test Contact Us Page Link" line="25">
-<kw name="Begin Web Test" owner="Common" type="SETUP">
-<kw name="Catenate" owner="BuiltIn">
-<msg time="2024-05-02T16:36:46.397993" level="INFO">${auth_url} = https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/</msg>
-<var>${auth_url}</var>
-<arg>SEPARATOR=</arg>
-<arg>https://${USERNAME}:${WEBPASSWORD}@${START_URL}</arg>
-<doc>Catenates the given items together and returns the resulted string.</doc>
-<status status="PASS" start="2024-05-02T16:36:46.397993" elapsed="0.000000"/>
-</kw>
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2024-05-02T16:36:46.398996" level="INFO">Opening browser 'edge' to base url 'https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/'.</msg>
-<arg>${auth_url}</arg>
-<arg>${BROWSER}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2024-05-02T16:36:46.398996" elapsed="5.474524"/>
-</kw>
-<kw name="Maximize Browser Window" owner="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2024-05-02T16:36:51.873520" elapsed="1.051550"/>
-</kw>
-<kw name="Set Selenium Speed" owner="SeleniumLibrary">
-<arg>1s</arg>
-<doc>Sets the delay that is waited after each Selenium command.</doc>
-<status status="PASS" start="2024-05-02T16:36:52.925070" elapsed="0.001012"/>
-</kw>
-<status status="PASS" start="2024-05-02T16:36:46.397993" elapsed="6.528089"/>
-</kw>
-<kw name="Navigate To &quot;Contact Us&quot; Page" owner="PublicPages">
-<kw name="Go To" owner="SeleniumLibrary">
-<msg time="2024-05-02T16:36:52.929087" level="INFO">Opening url 'https://bnfin-staging.curbza.com/contact-info'</msg>
-<arg>${CONTACT_US_URL}</arg>
-<doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2024-05-02T16:36:52.928083" elapsed="1.457050"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${CONTACT_TITLE}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-05-02T16:36:54.385133" elapsed="2.030028"/>
-</kw>
-<status status="PASS" start="2024-05-02T16:36:52.927086" elapsed="3.488075"/>
-</kw>
-<kw name="End Web Test" owner="Common" type="TEARDOWN">
-<kw name="Close All Browsers" owner="SeleniumLibrary">
-<doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2024-05-02T16:36:56.416171" elapsed="3.143739"/>
-</kw>
-<kw name="Log Test Case Status" owner="Common">
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>'${TEST STATUS}' != 'PASS'</arg>
-<arg>Log</arg>
-<arg>Test failed: ${TEST NAME}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-05-02T16:36:59.560897" elapsed="0.000000"/>
-</kw>
-<status status="PASS" start="2024-05-02T16:36:59.560897" elapsed="0.000000"/>
-</kw>
-<status status="PASS" start="2024-05-02T16:36:56.416171" elapsed="3.144726"/>
-</kw>
-<doc>Verify the "Contact Us" page link</doc>
-<tag>Links</tag>
-<status status="PASS" start="2024-05-02T16:36:46.396992" elapsed="13.164926"/>
-</test>
-<test id="s1-t4" name="Test &quot;Grants&quot; Page Link" line="30">
-<kw name="Begin Web Test" owner="Common" type="SETUP">
-<kw name="Catenate" owner="BuiltIn">
-<msg time="2024-05-02T16:36:59.563911" level="INFO">${auth_url} = https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/</msg>
-<var>${auth_url}</var>
-<arg>SEPARATOR=</arg>
-<arg>https://${USERNAME}:${WEBPASSWORD}@${START_URL}</arg>
-<doc>Catenates the given items together and returns the resulted string.</doc>
-<status status="PASS" start="2024-05-02T16:36:59.563911" elapsed="0.000000"/>
-</kw>
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2024-05-02T16:36:59.564909" level="INFO">Opening browser 'edge' to base url 'https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/'.</msg>
-<arg>${auth_url}</arg>
-<arg>${BROWSER}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2024-05-02T16:36:59.564909" elapsed="4.581280"/>
-</kw>
-<kw name="Maximize Browser Window" owner="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2024-05-02T16:37:04.146189" elapsed="1.064930"/>
-</kw>
-<kw name="Set Selenium Speed" owner="SeleniumLibrary">
-<arg>1s</arg>
-<doc>Sets the delay that is waited after each Selenium command.</doc>
-<status status="PASS" start="2024-05-02T16:37:05.211119" elapsed="0.000000"/>
-</kw>
-<status status="PASS" start="2024-05-02T16:36:59.563911" elapsed="5.648221"/>
-</kw>
-<kw name="Navigate To &quot;Grants&quot; Page" owner="PublicPages">
-<kw name="Go To" owner="SeleniumLibrary">
-<msg time="2024-05-02T16:37:05.213126" level="INFO">Opening url 'https://bnfin-staging.curbza.com/grants-info'</msg>
-<arg>${GRANTS_URL}</arg>
-<doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2024-05-02T16:37:05.213126" elapsed="1.352329"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${GRANTS_SUBTITLE}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-05-02T16:37:06.565965" elapsed="6.088908"/>
-</kw>
-<status status="PASS" start="2024-05-02T16:37:05.212132" elapsed="7.442741"/>
-</kw>
-<kw name="End Web Test" owner="Common" type="TEARDOWN">
-<kw name="Close All Browsers" owner="SeleniumLibrary">
-<doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2024-05-02T16:37:12.656398" elapsed="3.241254"/>
-</kw>
-<kw name="Log Test Case Status" owner="Common">
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>'${TEST STATUS}' != 'PASS'</arg>
-<arg>Log</arg>
-<arg>Test failed: ${TEST NAME}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-05-02T16:37:15.898723" elapsed="0.000998"/>
-</kw>
-<status status="PASS" start="2024-05-02T16:37:15.898723" elapsed="0.000998"/>
-</kw>
-<status status="PASS" start="2024-05-02T16:37:12.655383" elapsed="3.244338"/>
-</kw>
-<doc>Verify the "Grants" page link</doc>
-<tag>Links</tag>
-<status status="PASS" start="2024-05-02T16:36:59.562890" elapsed="16.336831"/>
-</test>
-<test id="s1-t5" name="Test &quot;Sign Up&quot; Page Link" line="35">
-<kw name="Begin Web Test" owner="Common" type="SETUP">
-<kw name="Catenate" owner="BuiltIn">
-<msg time="2024-05-02T16:37:15.902708" level="INFO">${auth_url} = https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/</msg>
-<var>${auth_url}</var>
-<arg>SEPARATOR=</arg>
-<arg>https://${USERNAME}:${WEBPASSWORD}@${START_URL}</arg>
-<doc>Catenates the given items together and returns the resulted string.</doc>
-<status status="PASS" start="2024-05-02T16:37:15.902708" elapsed="0.000000"/>
-</kw>
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2024-05-02T16:37:15.902708" level="INFO">Opening browser 'edge' to base url 'https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/'.</msg>
-<arg>${auth_url}</arg>
-<arg>${BROWSER}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2024-05-02T16:37:15.902708" elapsed="4.480025"/>
-</kw>
-<kw name="Maximize Browser Window" owner="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2024-05-02T16:37:20.382733" elapsed="1.061349"/>
-</kw>
-<kw name="Set Selenium Speed" owner="SeleniumLibrary">
-<arg>1s</arg>
-<doc>Sets the delay that is waited after each Selenium command.</doc>
-<status status="PASS" start="2024-05-02T16:37:21.444082" elapsed="0.000512"/>
-</kw>
-<status status="PASS" start="2024-05-02T16:37:15.901708" elapsed="5.542886"/>
-</kw>
-<kw name="Navigate To &quot;Sign Up&quot; Page" owner="PublicPages">
-<kw name="Go To" owner="SeleniumLibrary">
-<msg time="2024-05-02T16:37:21.445610" level="INFO">Opening url 'https://bnfin-staging.curbza.com/sign-up'</msg>
-<arg>${SIGN_UP_URL}</arg>
-<doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2024-05-02T16:37:21.445610" elapsed="1.381624"/>
-</kw>
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>${SIGNUP_SUBTITLE}</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2024-05-02T16:37:22.827234" elapsed="1.016921"/>
-</kw>
-<status status="PASS" start="2024-05-02T16:37:21.444594" elapsed="2.399561"/>
-</kw>
-<kw name="End Web Test" owner="Common" type="TEARDOWN">
-<kw name="Close All Browsers" owner="SeleniumLibrary">
-<doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2024-05-02T16:37:23.845168" elapsed="3.991897"/>
-</kw>
-<kw name="Log Test Case Status" owner="Common">
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>'${TEST STATUS}' != 'PASS'</arg>
-<arg>Log</arg>
-<arg>Test failed: ${TEST NAME}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-05-02T16:37:27.838071" elapsed="0.001000"/>
-</kw>
-<status status="PASS" start="2024-05-02T16:37:27.838071" elapsed="0.001000"/>
-</kw>
-<status status="PASS" start="2024-05-02T16:37:23.845168" elapsed="3.993903"/>
-</kw>
-<doc>Verify the "Sign Up" page link</doc>
-<tag>Links</tag>
-<status status="PASS" start="2024-05-02T16:37:15.901708" elapsed="11.937363"/>
-</test>
-<test id="s1-t6" name="Test &quot;Cookie Policy&quot; Page Link" line="40">
-<kw name="Begin Web Test" owner="Common" type="SETUP">
-<kw name="Catenate" owner="BuiltIn">
-<msg time="2024-05-02T16:37:27.842066" level="INFO">${auth_url} = https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/</msg>
-<var>${auth_url}</var>
-<arg>SEPARATOR=</arg>
-<arg>https://${USERNAME}:${WEBPASSWORD}@${START_URL}</arg>
-<doc>Catenates the given items together and returns the resulted string.</doc>
-<status status="PASS" start="2024-05-02T16:37:27.842066" elapsed="0.000000"/>
-</kw>
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2024-05-02T16:37:27.843064" level="INFO">Opening browser 'edge' to base url 'https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/'.</msg>
-<arg>${auth_url}</arg>
-<arg>${BROWSER}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2024-05-02T16:37:27.843064" elapsed="5.329050"/>
-</kw>
-<kw name="Maximize Browser Window" owner="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2024-05-02T16:37:33.172114" elapsed="1.048717"/>
-</kw>
-<kw name="Set Selenium Speed" owner="SeleniumLibrary">
-<arg>1s</arg>
-<doc>Sets the delay that is waited after each Selenium command.</doc>
-<status status="PASS" start="2024-05-02T16:37:34.220831" elapsed="0.000000"/>
-</kw>
-<status status="PASS" start="2024-05-02T16:37:27.841077" elapsed="6.379754"/>
-</kw>
-<kw name="Navigate To &quot;Cookie Policy&quot; Page" owner="PublicPages">
-<kw name="Go To" owner="SeleniumLibrary">
-<msg time="2024-05-02T16:37:34.222850" level="INFO">Opening url 'https://bnfin-staging.curbza.com/cookie-policy'</msg>
-<arg>${COOKIE_POLICY_URL}</arg>
-<doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2024-05-02T16:37:34.222850" elapsed="1.485522"/>
-</kw>
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>${COOKIE_POLICY_TITLE}</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2024-05-02T16:37:35.708892" elapsed="1.016844"/>
-</kw>
-<status status="PASS" start="2024-05-02T16:37:34.221846" elapsed="2.503890"/>
-</kw>
-<kw name="End Web Test" owner="Common" type="TEARDOWN">
-<kw name="Close All Browsers" owner="SeleniumLibrary">
-<doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2024-05-02T16:37:36.727774" elapsed="7.328046"/>
-</kw>
-<kw name="Log Test Case Status" owner="Common">
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>'${TEST STATUS}' != 'PASS'</arg>
-<arg>Log</arg>
-<arg>Test failed: ${TEST NAME}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-05-02T16:37:44.056862" elapsed="0.000992"/>
-</kw>
-<status status="PASS" start="2024-05-02T16:37:44.056862" elapsed="0.000992"/>
-</kw>
-<status status="PASS" start="2024-05-02T16:37:36.726773" elapsed="7.331081"/>
-</kw>
-<doc>Verify the "Cookie Policy" page link</doc>
-<tag>Links</tag>
-<status status="PASS" start="2024-05-02T16:37:27.840066" elapsed="16.218788"/>
-</test>
-<test id="s1-t7" name="Test &quot;Privacy Policy&quot; Page Link" line="45">
-<kw name="Begin Web Test" owner="Common" type="SETUP">
-<kw name="Catenate" owner="BuiltIn">
-<msg time="2024-05-02T16:37:44.061857" level="INFO">${auth_url} = https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/</msg>
-<var>${auth_url}</var>
-<arg>SEPARATOR=</arg>
-<arg>https://${USERNAME}:${WEBPASSWORD}@${START_URL}</arg>
-<doc>Catenates the given items together and returns the resulted string.</doc>
-<status status="PASS" start="2024-05-02T16:37:44.061857" elapsed="0.000000"/>
-</kw>
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2024-05-02T16:37:44.062859" level="INFO">Opening browser 'edge' to base url 'https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/'.</msg>
-<arg>${auth_url}</arg>
-<arg>${BROWSER}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2024-05-02T16:37:44.062859" elapsed="4.759572"/>
-</kw>
-<kw name="Maximize Browser Window" owner="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2024-05-02T16:37:48.822431" elapsed="1.048588"/>
-</kw>
-<kw name="Set Selenium Speed" owner="SeleniumLibrary">
-<arg>1s</arg>
-<doc>Sets the delay that is waited after each Selenium command.</doc>
-<status status="PASS" start="2024-05-02T16:37:49.871543" elapsed="0.000000"/>
-</kw>
-<status status="PASS" start="2024-05-02T16:37:44.061857" elapsed="5.809686"/>
-</kw>
-<kw name="Navigate To &quot;Privacy Policy&quot; Page" owner="PublicPages">
-<kw name="Go To" owner="SeleniumLibrary">
-<msg time="2024-05-02T16:37:49.873553" level="INFO">Opening url 'https://bnfin-staging.curbza.com/privacy-policy'</msg>
-<arg>${PRIVACY_POLICY_URL}</arg>
-<doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2024-05-02T16:37:49.872558" elapsed="1.366110"/>
-</kw>
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>${PRIVACY_POLICY_TITLE}</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2024-05-02T16:37:51.238668" elapsed="1.016597"/>
-</kw>
-<status status="PASS" start="2024-05-02T16:37:49.872558" elapsed="2.382707"/>
-</kw>
-<kw name="End Web Test" owner="Common" type="TEARDOWN">
-<kw name="Close All Browsers" owner="SeleniumLibrary">
-<doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2024-05-02T16:37:52.256282" elapsed="3.202236"/>
-</kw>
-<kw name="Log Test Case Status" owner="Common">
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>'${TEST STATUS}' != 'PASS'</arg>
-<arg>Log</arg>
-<arg>Test failed: ${TEST NAME}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-05-02T16:37:55.459509" elapsed="0.000000"/>
-</kw>
-<status status="PASS" start="2024-05-02T16:37:55.458518" elapsed="0.001990"/>
-</kw>
-<status status="PASS" start="2024-05-02T16:37:52.256282" elapsed="3.204226"/>
-</kw>
-<doc>Verify the "Privacy Policy" page link</doc>
-<tag>Links</tag>
-<status status="PASS" start="2024-05-02T16:37:44.060862" elapsed="11.399646"/>
-</test>
-<test id="s1-t8" name="Test &quot;Terms of Use&quot; Page Link" line="50">
-<kw name="Begin Web Test" owner="Common" type="SETUP">
-<kw name="Catenate" owner="BuiltIn">
-<msg time="2024-05-02T16:37:55.463510" level="INFO">${auth_url} = https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/</msg>
-<var>${auth_url}</var>
-<arg>SEPARATOR=</arg>
-<arg>https://${USERNAME}:${WEBPASSWORD}@${START_URL}</arg>
-<doc>Catenates the given items together and returns the resulted string.</doc>
-<status status="PASS" start="2024-05-02T16:37:55.463510" elapsed="0.000000"/>
-</kw>
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2024-05-02T16:37:55.464510" level="INFO">Opening browser 'edge' to base url 'https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/'.</msg>
-<arg>${auth_url}</arg>
-<arg>${BROWSER}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2024-05-02T16:37:55.463510" elapsed="5.507814"/>
-</kw>
-<kw name="Maximize Browser Window" owner="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2024-05-02T16:38:00.971324" elapsed="1.050921"/>
-</kw>
-<kw name="Set Selenium Speed" owner="SeleniumLibrary">
-<arg>1s</arg>
-<doc>Sets the delay that is waited after each Selenium command.</doc>
-<status status="PASS" start="2024-05-02T16:38:02.022245" elapsed="0.000000"/>
-</kw>
-<status status="PASS" start="2024-05-02T16:37:55.462511" elapsed="6.559734"/>
-</kw>
-<kw name="Navigate To &quot;Terms Of Use&quot; Page" owner="PublicPages">
-<kw name="Go To" owner="SeleniumLibrary">
-<msg time="2024-05-02T16:38:02.024442" level="INFO">Opening url 'https://bnfin-staging.curbza.com/terms-of-use'</msg>
-<arg>${TERMS_OF_USE_URL}</arg>
-<doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2024-05-02T16:38:02.024442" elapsed="1.563692"/>
-</kw>
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>${TERMS_OF_USE_TITLE}</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2024-05-02T16:38:03.588134" elapsed="1.015944"/>
-</kw>
-<status status="PASS" start="2024-05-02T16:38:02.023442" elapsed="2.580636"/>
-</kw>
-<kw name="End Web Test" owner="Common" type="TEARDOWN">
-<kw name="Close All Browsers" owner="SeleniumLibrary">
-<doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2024-05-02T16:38:04.605093" elapsed="3.210034"/>
-</kw>
-<kw name="Log Test Case Status" owner="Common">
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>'${TEST STATUS}' != 'PASS'</arg>
-<arg>Log</arg>
-<arg>Test failed: ${TEST NAME}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-05-02T16:38:07.816126" elapsed="0.000000"/>
-</kw>
-<status status="PASS" start="2024-05-02T16:38:07.816126" elapsed="0.000995"/>
-</kw>
-<status status="PASS" start="2024-05-02T16:38:04.604078" elapsed="3.213043"/>
-</kw>
-<doc>Verify the "Terms of Use" page link</doc>
-<tag>Links</tag>
-<status status="PASS" start="2024-05-02T16:37:55.462511" elapsed="12.354610"/>
-</test>
-<test id="s1-t9" name="Test &quot;Disclaimer&quot; Page Link" line="55">
-<kw name="Begin Web Test" owner="Common" type="SETUP">
-<kw name="Catenate" owner="BuiltIn">
-<msg time="2024-05-02T16:38:15.987350" level="INFO">${auth_url} = https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/</msg>
-<var>${auth_url}</var>
-<arg>SEPARATOR=</arg>
-<arg>https://${USERNAME}:${WEBPASSWORD}@${START_URL}</arg>
-<doc>Catenates the given items together and returns the resulted string.</doc>
-<status status="PASS" start="2024-05-02T16:38:15.987350" elapsed="0.000000"/>
-</kw>
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2024-05-02T16:38:15.988347" level="INFO">Opening browser 'edge' to base url 'https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/'.</msg>
-<arg>${auth_url}</arg>
-<arg>${BROWSER}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2024-05-02T16:38:15.987350" elapsed="4.664022"/>
-</kw>
-<kw name="Maximize Browser Window" owner="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2024-05-02T16:38:20.651372" elapsed="1.059199"/>
-</kw>
-<kw name="Set Selenium Speed" owner="SeleniumLibrary">
-<arg>1s</arg>
-<doc>Sets the delay that is waited after each Selenium command.</doc>
-<status status="PASS" start="2024-05-02T16:38:21.710571" elapsed="0.000000"/>
-</kw>
-<status status="PASS" start="2024-05-02T16:38:07.819131" elapsed="13.891440"/>
-</kw>
-<kw name="Navigate To &quot;Disclaimer&quot; Page" owner="PublicPages">
-<kw name="Go To" owner="SeleniumLibrary">
-<msg time="2024-05-02T16:38:21.712592" level="INFO">Opening url 'https://bnfin-staging.curbza.com/disclaimer'</msg>
-<arg>${DISCLAIMER_URL}</arg>
-<doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2024-05-02T16:38:21.712592" elapsed="1.349267"/>
-</kw>
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<msg time="2024-05-02T16:38:30.966761" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6.png"&gt;&lt;img src="selenium-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2024-05-02T16:38:30.966761" level="FAIL">Text 'Disclaimer Policy' did not appear in 5 seconds.</msg>
-<arg>${DISCLAIMER_TITLE}</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="FAIL" start="2024-05-02T16:38:23.061859" elapsed="7.906903">Text 'Disclaimer Policy' did not appear in 5 seconds.</status>
-</kw>
-<status status="FAIL" start="2024-05-02T16:38:21.711585" elapsed="9.258173">Text 'Disclaimer Policy' did not appear in 5 seconds.</status>
-</kw>
-<kw name="End Web Test" owner="Common" type="TEARDOWN">
-<kw name="Close All Browsers" owner="SeleniumLibrary">
-<doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2024-05-02T16:38:30.970773" elapsed="3.298305"/>
-</kw>
-<kw name="Log Test Case Status" owner="Common">
-<kw name="Run Keyword If" owner="BuiltIn">
-<kw name="Log" owner="BuiltIn">
-<msg time="2024-05-02T16:38:34.271109" level="INFO">Test failed: Test "Disclaimer" Page Link</msg>
-<arg>Test failed: ${TEST NAME}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-05-02T16:38:34.271109" elapsed="0.000000"/>
-</kw>
-<arg>'${TEST STATUS}' != 'PASS'</arg>
-<arg>Log</arg>
-<arg>Test failed: ${TEST NAME}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-05-02T16:38:34.270118" elapsed="0.001990"/>
-</kw>
-<status status="PASS" start="2024-05-02T16:38:34.270118" elapsed="0.001990"/>
-</kw>
-<status status="PASS" start="2024-05-02T16:38:30.970773" elapsed="3.301335"/>
-</kw>
-<doc>Verify the "Disclaimer" page link</doc>
-<tag>Links</tag>
-<status status="FAIL" start="2024-05-02T16:38:07.819131" elapsed="26.452977">Text 'Disclaimer Policy' did not appear in 5 seconds.</status>
-</test>
-<test id="s1-t10" name="Test &quot;Facebook&quot; Page Link" line="60">
-<kw name="Begin Web Test" owner="Common" type="SETUP">
-<kw name="Catenate" owner="BuiltIn">
-<msg time="2024-05-02T16:38:34.276108" level="INFO">${auth_url} = https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/</msg>
-<var>${auth_url}</var>
-<arg>SEPARATOR=</arg>
-<arg>https://${USERNAME}:${WEBPASSWORD}@${START_URL}</arg>
-<doc>Catenates the given items together and returns the resulted string.</doc>
-<status status="PASS" start="2024-05-02T16:38:34.276108" elapsed="0.000000"/>
-</kw>
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2024-05-02T16:38:34.277108" level="INFO">Opening browser 'edge' to base url 'https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/'.</msg>
-<arg>${auth_url}</arg>
-<arg>${BROWSER}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2024-05-02T16:38:34.277108" elapsed="4.709070"/>
-</kw>
-<kw name="Maximize Browser Window" owner="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2024-05-02T16:38:38.986178" elapsed="1.053611"/>
-</kw>
-<kw name="Set Selenium Speed" owner="SeleniumLibrary">
-<arg>1s</arg>
-<doc>Sets the delay that is waited after each Selenium command.</doc>
-<status status="PASS" start="2024-05-02T16:38:40.039789" elapsed="0.000000"/>
-</kw>
-<status status="PASS" start="2024-05-02T16:38:34.275108" elapsed="5.765689"/>
+<status status="PASS" start="2024-05-04T04:11:29.457385" elapsed="4.145651"/>
 </kw>
 <kw name="Navigate To &quot;Facebook&quot; Page" owner="PublicPages">
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-05-02T16:38:40.041797" level="INFO">Clicking element 'xpath=//*[@id="footer"]/div/div[1]/div[1]/div/a[1]/img'.</msg>
-<msg time="2024-05-02T16:38:47.667682" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-7.png"&gt;&lt;img src="selenium-screenshot-7.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2024-05-02T16:38:47.668685" level="FAIL">ElementClickInterceptedException: Message: element click intercepted: Element is not clickable at point (107, 3201)
-  (Session info: MicrosoftEdge=124.0.2478.67)
-Stacktrace:
-	GetHandleVerifier [0x00C00483+230755]
-	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00AD7F91+402289]
-	Microsoft::Applications::Events::ILogConfiguration::operator* [0x008E8A10+3568]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009201DE+123982]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x0091EDCA+118842]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x0091D81D+113293]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x0091D169+111577]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x00915BF3+81507]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x0093198C+195580]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009156C1+80177]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x00915640+80048]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x00931CB4+196388]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009156C1+80177]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009463E0+280144]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009315F6+194662]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x00914EC3+78131]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x00913EA5+74005]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009148CD+76605]
-	GetHandleVerifier [0x00CF476C+1230924]
-	Microsoft::Applications::Events::FromJSON [0x00DC57D2+132146]
-	Microsoft::Applications::Events::FromJSON [0x00DC5157+130487]
-	Microsoft::Applications::Events::FromJSON [0x00DBA090+85232]
-	Microsoft::Applications::Events::FromJSON [0x00DC61AB+134667]
-	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00AEAEDF+479935]
-	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00AE0A08+437736]
-	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00AE0B7B+438107]
-	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00ACB214+349684]
-	BaseThreadInitThunk [0x759B7BA9+25]
-	RtlInitializeExceptionChain [0x7704BE3B+107]
-	RtlClearBits [0x7704BDBF+191]
-</msg>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2024-05-04T04:11:33.628810" level="INFO">${fb_link} = https://bnfin-staging.curbza.com/#</msg>
+<var>${fb_link}</var>
 <arg>${FACEBOOK_BUTTON}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="FAIL" start="2024-05-02T16:38:40.040797" elapsed="7.632899">ElementClickInterceptedException: Message: element click intercepted: Element is not clickable at point (107, 3201)
-  (Session info: MicrosoftEdge=124.0.2478.67)
-Stacktrace:
-	GetHandleVerifier [0x00C00483+230755]
-	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00AD7F91+402289]
-	Microsoft::Applications::Events::ILogConfiguration::operator* [0x008E8A10+3568]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009201DE+123982]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x0091EDCA+118842]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x0091D81D+113293]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x0091D169+111577]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x00915BF3+81507]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x0093198C+195580]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009156C1+80177]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x00915640+80048]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x00931CB4+196388]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009156C1+80177]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009463E0+280144]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009315F6+194662]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x00914EC3+78131]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x00913EA5+74005]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009148CD+76605]
-	GetHandleVerifier [0x00CF476C+1230924]
-	Microsoft::Applications::Events::FromJSON [0x00DC57D2+132146]
-	Microsoft::Applications::Events::FromJSON [0x00DC5157+130487]
-	Microsoft::Applications::Events::FromJSON [0x00DBA090+85232]
-	Microsoft::Applications::Events::FromJSON [0x00DC61AB+134667]
-	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00AEAEDF+479935]
-	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00AE0A08+437736]
-	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00AE0B7B+438107]
-	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00ACB214+349684]
-	BaseThreadInitThunk [0x759B7BA9+25]
-	RtlInitializeExceptionChain [0x7704BE3B+107]
-	RtlClearBits [0x7704BDBF+191]
-</status>
+<arg>href</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2024-05-04T04:11:33.605212" elapsed="0.023598"/>
 </kw>
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>${FACEBOOK_TITLE}</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="NOT RUN" start="2024-05-02T16:38:47.674692" elapsed="0.000000"/>
+<kw name="Should Contain" owner="BuiltIn">
+<msg time="2024-05-04T04:11:33.628810" level="FAIL">'https://bnfin-staging.curbza.com/#' does not contain 'https://www.facebook.com/'</msg>
+<arg>${fb_link}</arg>
+<arg>${FACEBOOK_URL}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="FAIL" start="2024-05-04T04:11:33.628810" elapsed="0.000996">'https://bnfin-staging.curbza.com/#' does not contain 'https://www.facebook.com/'</status>
 </kw>
-<status status="FAIL" start="2024-05-02T16:38:40.040797" elapsed="7.633895">ElementClickInterceptedException: Message: element click intercepted: Element is not clickable at point (107, 3201)
-  (Session info: MicrosoftEdge=124.0.2478.67)
-Stacktrace:
-	GetHandleVerifier [0x00C00483+230755]
-	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00AD7F91+402289]
-	Microsoft::Applications::Events::ILogConfiguration::operator* [0x008E8A10+3568]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009201DE+123982]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x0091EDCA+118842]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x0091D81D+113293]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x0091D169+111577]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x00915BF3+81507]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x0093198C+195580]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009156C1+80177]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x00915640+80048]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x00931CB4+196388]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009156C1+80177]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009463E0+280144]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009315F6+194662]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x00914EC3+78131]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x00913EA5+74005]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009148CD+76605]
-	GetHandleVerifier [0x00CF476C+1230924]
-	Microsoft::Applications::Events::FromJSON [0x00DC57D2+132146]
-	Microsoft::Applications::Events::FromJSON [0x00DC5157+130487]
-	Microsoft::Applications::Events::FromJSON [0x00DBA090+85232]
-	Microsoft::Applications::Events::FromJSON [0x00DC61AB+134667]
-	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00AEAEDF+479935]
-	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00AE0A08+437736]
-	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00AE0B7B+438107]
-	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00ACB214+349684]
-	BaseThreadInitThunk [0x759B7BA9+25]
-	RtlInitializeExceptionChain [0x7704BE3B+107]
-	RtlClearBits [0x7704BDBF+191]
-</status>
+<status status="FAIL" start="2024-05-04T04:11:33.604160" elapsed="0.025646">'https://bnfin-staging.curbza.com/#' does not contain 'https://www.facebook.com/'</status>
 </kw>
 <kw name="End Web Test" owner="Common" type="TEARDOWN">
 <kw name="Close All Browsers" owner="SeleniumLibrary">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2024-05-02T16:38:47.675682" elapsed="3.260171"/>
+<status status="PASS" start="2024-05-04T04:11:33.630809" elapsed="6.354361"/>
 </kw>
 <kw name="Log Test Case Status" owner="Common">
 <kw name="Run Keyword If" owner="BuiltIn">
 <kw name="Log" owner="BuiltIn">
-<msg time="2024-05-02T16:38:50.937847" level="INFO">Test failed: Test "Facebook" Page Link</msg>
+<msg time="2024-05-04T04:11:39.986271" level="INFO">Test failed: Test "Facebook" Page Link</msg>
 <arg>Test failed: ${TEST NAME}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-05-02T16:38:50.936850" elapsed="0.000997"/>
+<status status="PASS" start="2024-05-04T04:11:39.986271" elapsed="0.000000"/>
 </kw>
 <arg>'${TEST STATUS}' != 'PASS'</arg>
 <arg>Log</arg>
 <arg>Test failed: ${TEST NAME}</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-05-02T16:38:50.936850" elapsed="0.000997"/>
+<status status="PASS" start="2024-05-04T04:11:39.985710" elapsed="0.001125"/>
 </kw>
-<status status="PASS" start="2024-05-02T16:38:50.935853" elapsed="0.001994"/>
+<status status="PASS" start="2024-05-04T04:11:39.985170" elapsed="0.001665"/>
 </kw>
-<status status="PASS" start="2024-05-02T16:38:47.675682" elapsed="3.262165"/>
+<status status="PASS" start="2024-05-04T04:11:33.630809" elapsed="6.356026"/>
 </kw>
 <doc>Verify the "Facebook" page link</doc>
 <tag>Links</tag>
-<status status="FAIL" start="2024-05-02T16:38:34.274109" elapsed="16.663738">ElementClickInterceptedException: Message: element click intercepted: Element is not clickable at point (107, 3201)
-  (Session info: MicrosoftEdge=124.0.2478.67)
-Stacktrace:
-	GetHandleVerifier [0x00C00483+230755]
-	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00AD7F91+402289]
-	Microsoft::Applications::Events::ILogConfiguration::operator* [0x008E8A10+3568]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009201DE+123982]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x0091EDCA+118842]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x0091D81D+113293]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x0091D169+111577]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x00915BF3+81507]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x0093198C+195580]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009156C1+80177]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x00915640+80048]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x00931CB4+196388]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009156C1+80177]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009463E0+280144]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009315F6+194662]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x00914EC3+78131]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x00913EA5+74005]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009148CD+76605]
-	GetHandleVerifier [0x00CF476C+1230924]
-	Microsoft::Applications::Events::FromJSON [0x00DC57D2+132146]
-	Microsoft::Applications::Events::FromJSON [0x00DC5157+130487]
-	Microsoft::Applications::Events::FromJSON [0x00DBA090+85232]
-	Microsoft::Applications::Events::FromJSON [0x00DC61AB+134667]
-	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00AEAEDF+479935]
-	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00AE0A08+437736]
-	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00AE0B7B+438107]
-	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00ACB214+349684]
-	BaseThreadInitThunk [0x759B7BA9+25]
-	RtlInitializeExceptionChain [0x7704BE3B+107]
-	RtlClearBits [0x7704BDBF+191]
-</status>
+<tag>Socials</tag>
+<status status="FAIL" start="2024-05-04T04:11:29.457385" elapsed="10.530007">'https://bnfin-staging.curbza.com/#' does not contain 'https://www.facebook.com/'</status>
 </test>
-<test id="s1-t11" name="Test &quot;X/Twitter&quot; Page Link" line="65">
+<test id="s1-t2" name="Test &quot;X/Twitter&quot; Page Link" line="66">
 <kw name="Begin Web Test" owner="Common" type="SETUP">
 <kw name="Catenate" owner="BuiltIn">
-<msg time="2024-05-02T16:38:50.943849" level="INFO">${auth_url} = https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/</msg>
+<msg time="2024-05-04T04:11:39.989539" level="INFO">${auth_url} = https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/</msg>
 <var>${auth_url}</var>
 <arg>SEPARATOR=</arg>
 <arg>https://${USERNAME}:${WEBPASSWORD}@${START_URL}</arg>
 <doc>Catenates the given items together and returns the resulted string.</doc>
-<status status="PASS" start="2024-05-02T16:38:50.943849" elapsed="0.000999"/>
+<status status="PASS" start="2024-05-04T04:11:39.989539" elapsed="0.000519"/>
 </kw>
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2024-05-02T16:38:50.944848" level="INFO">Opening browser 'edge' to base url 'https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/'.</msg>
+<msg time="2024-05-04T04:11:39.990058" level="INFO">Opening browser 'chrome' to base url 'https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/'.</msg>
 <arg>${auth_url}</arg>
 <arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2024-05-02T16:38:50.944848" elapsed="4.611615"/>
+<status status="PASS" start="2024-05-04T04:11:39.990058" elapsed="3.206981"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2024-05-02T16:38:55.556463" elapsed="1.055661"/>
+<status status="PASS" start="2024-05-04T04:11:43.197039" elapsed="0.625333"/>
 </kw>
-<kw name="Set Selenium Speed" owner="SeleniumLibrary">
-<arg>1s</arg>
-<doc>Sets the delay that is waited after each Selenium command.</doc>
-<status status="PASS" start="2024-05-02T16:38:56.612124" elapsed="0.001012"/>
-</kw>
-<status status="PASS" start="2024-05-02T16:38:50.943849" elapsed="5.669287"/>
+<status status="PASS" start="2024-05-04T04:11:39.989014" elapsed="3.834361"/>
 </kw>
 <kw name="Navigate To &quot;X/Twitter&quot; Page" owner="PublicPages">
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-05-02T16:38:56.615150" level="INFO">Clicking element 'xpath=//*[@id="footer"]/div/div[1]/div[1]/div/a[3]/img'.</msg>
-<msg time="2024-05-02T16:39:00.081080" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-8.png"&gt;&lt;img src="selenium-screenshot-8.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2024-05-02T16:39:00.081080" level="FAIL">ElementClickInterceptedException: Message: element click intercepted: Element is not clickable at point (231, 3183)
-  (Session info: MicrosoftEdge=124.0.2478.67)
-Stacktrace:
-	GetHandleVerifier [0x00C00483+230755]
-	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00AD7F91+402289]
-	Microsoft::Applications::Events::ILogConfiguration::operator* [0x008E8A10+3568]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009201DE+123982]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x0091EDCA+118842]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x0091D81D+113293]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x0091D169+111577]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x00915BF3+81507]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x0093198C+195580]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009156C1+80177]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x00915640+80048]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x00931CB4+196388]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009156C1+80177]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009463E0+280144]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009315F6+194662]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x00914EC3+78131]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x00913EA5+74005]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009148CD+76605]
-	GetHandleVerifier [0x00CF476C+1230924]
-	Microsoft::Applications::Events::FromJSON [0x00DC57D2+132146]
-	Microsoft::Applications::Events::FromJSON [0x00DC5157+130487]
-	Microsoft::Applications::Events::FromJSON [0x00DBA090+85232]
-	Microsoft::Applications::Events::FromJSON [0x00DC61AB+134667]
-	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00AEAEDF+479935]
-	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00AE0A08+437736]
-	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00AE0B7B+438107]
-	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00ACB214+349684]
-	BaseThreadInitThunk [0x759B7BA9+25]
-	RtlInitializeExceptionChain [0x7704BE3B+107]
-	RtlClearBits [0x7704BDBF+191]
-</msg>
-<arg>${INSTAGRAM_BUTTON}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="FAIL" start="2024-05-02T16:38:56.614145" elapsed="3.468939">ElementClickInterceptedException: Message: element click intercepted: Element is not clickable at point (231, 3183)
-  (Session info: MicrosoftEdge=124.0.2478.67)
-Stacktrace:
-	GetHandleVerifier [0x00C00483+230755]
-	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00AD7F91+402289]
-	Microsoft::Applications::Events::ILogConfiguration::operator* [0x008E8A10+3568]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009201DE+123982]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x0091EDCA+118842]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x0091D81D+113293]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x0091D169+111577]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x00915BF3+81507]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x0093198C+195580]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009156C1+80177]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x00915640+80048]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x00931CB4+196388]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009156C1+80177]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009463E0+280144]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009315F6+194662]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x00914EC3+78131]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x00913EA5+74005]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009148CD+76605]
-	GetHandleVerifier [0x00CF476C+1230924]
-	Microsoft::Applications::Events::FromJSON [0x00DC57D2+132146]
-	Microsoft::Applications::Events::FromJSON [0x00DC5157+130487]
-	Microsoft::Applications::Events::FromJSON [0x00DBA090+85232]
-	Microsoft::Applications::Events::FromJSON [0x00DC61AB+134667]
-	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00AEAEDF+479935]
-	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00AE0A08+437736]
-	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00AE0B7B+438107]
-	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00ACB214+349684]
-	BaseThreadInitThunk [0x759B7BA9+25]
-	RtlInitializeExceptionChain [0x7704BE3B+107]
-	RtlClearBits [0x7704BDBF+191]
-</status>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2024-05-04T04:11:43.846095" level="INFO">${x_link} = https://bnfin-staging.curbza.com/#</msg>
+<var>${x_link}</var>
+<arg>${TWITTER_BUTTON}</arg>
+<arg>href</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2024-05-04T04:11:43.823375" elapsed="0.022720"/>
 </kw>
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>${TWITTER_TITLE}</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="NOT RUN" start="2024-05-02T16:39:00.083084" elapsed="0.000000"/>
+<kw name="Should Contain" owner="BuiltIn">
+<msg time="2024-05-04T04:11:43.847128" level="FAIL">'https://bnfin-staging.curbza.com/#' does not contain 'https://twitter.com/'</msg>
+<arg>${x_link}</arg>
+<arg>${TWITTER_URL}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="FAIL" start="2024-05-04T04:11:43.846095" elapsed="0.001033">'https://bnfin-staging.curbza.com/#' does not contain 'https://twitter.com/'</status>
 </kw>
-<status status="FAIL" start="2024-05-02T16:38:56.614145" elapsed="3.468939">ElementClickInterceptedException: Message: element click intercepted: Element is not clickable at point (231, 3183)
-  (Session info: MicrosoftEdge=124.0.2478.67)
-Stacktrace:
-	GetHandleVerifier [0x00C00483+230755]
-	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00AD7F91+402289]
-	Microsoft::Applications::Events::ILogConfiguration::operator* [0x008E8A10+3568]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009201DE+123982]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x0091EDCA+118842]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x0091D81D+113293]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x0091D169+111577]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x00915BF3+81507]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x0093198C+195580]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009156C1+80177]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x00915640+80048]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x00931CB4+196388]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009156C1+80177]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009463E0+280144]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009315F6+194662]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x00914EC3+78131]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x00913EA5+74005]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009148CD+76605]
-	GetHandleVerifier [0x00CF476C+1230924]
-	Microsoft::Applications::Events::FromJSON [0x00DC57D2+132146]
-	Microsoft::Applications::Events::FromJSON [0x00DC5157+130487]
-	Microsoft::Applications::Events::FromJSON [0x00DBA090+85232]
-	Microsoft::Applications::Events::FromJSON [0x00DC61AB+134667]
-	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00AEAEDF+479935]
-	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00AE0A08+437736]
-	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00AE0B7B+438107]
-	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00ACB214+349684]
-	BaseThreadInitThunk [0x759B7BA9+25]
-	RtlInitializeExceptionChain [0x7704BE3B+107]
-	RtlClearBits [0x7704BDBF+191]
-</status>
+<status status="FAIL" start="2024-05-04T04:11:43.823375" elapsed="0.024749">'https://bnfin-staging.curbza.com/#' does not contain 'https://twitter.com/'</status>
 </kw>
 <kw name="End Web Test" owner="Common" type="TEARDOWN">
 <kw name="Close All Browsers" owner="SeleniumLibrary">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2024-05-02T16:39:00.084075" elapsed="3.212913"/>
+<status status="PASS" start="2024-05-04T04:11:43.849106" elapsed="6.359972"/>
 </kw>
 <kw name="Log Test Case Status" owner="Common">
 <kw name="Run Keyword If" owner="BuiltIn">
 <kw name="Log" owner="BuiltIn">
-<msg time="2024-05-02T16:39:03.297984" level="INFO">Test failed: Test "X/Twitter" Page Link</msg>
+<msg time="2024-05-04T04:11:50.209078" level="INFO">Test failed: Test "X/Twitter" Page Link</msg>
 <arg>Test failed: ${TEST NAME}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-05-02T16:39:03.297984" elapsed="0.000000"/>
+<status status="PASS" start="2024-05-04T04:11:50.209078" elapsed="0.000000"/>
 </kw>
 <arg>'${TEST STATUS}' != 'PASS'</arg>
 <arg>Log</arg>
 <arg>Test failed: ${TEST NAME}</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-05-02T16:39:03.297984" elapsed="0.000997"/>
+<status status="PASS" start="2024-05-04T04:11:50.209078" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2024-05-02T16:39:03.296988" elapsed="0.001993"/>
+<status status="PASS" start="2024-05-04T04:11:50.209078" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2024-05-02T16:39:00.084075" elapsed="3.214906"/>
+<status status="PASS" start="2024-05-04T04:11:43.849106" elapsed="6.359972"/>
 </kw>
 <doc>Verify the "X/Twitter" page link</doc>
 <tag>Links</tag>
-<status status="FAIL" start="2024-05-02T16:38:50.942847" elapsed="12.356134">ElementClickInterceptedException: Message: element click intercepted: Element is not clickable at point (231, 3183)
-  (Session info: MicrosoftEdge=124.0.2478.67)
-Stacktrace:
-	GetHandleVerifier [0x00C00483+230755]
-	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00AD7F91+402289]
-	Microsoft::Applications::Events::ILogConfiguration::operator* [0x008E8A10+3568]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009201DE+123982]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x0091EDCA+118842]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x0091D81D+113293]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x0091D169+111577]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x00915BF3+81507]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x0093198C+195580]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009156C1+80177]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x00915640+80048]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x00931CB4+196388]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009156C1+80177]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009463E0+280144]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009315F6+194662]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x00914EC3+78131]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x00913EA5+74005]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009148CD+76605]
-	GetHandleVerifier [0x00CF476C+1230924]
-	Microsoft::Applications::Events::FromJSON [0x00DC57D2+132146]
-	Microsoft::Applications::Events::FromJSON [0x00DC5157+130487]
-	Microsoft::Applications::Events::FromJSON [0x00DBA090+85232]
-	Microsoft::Applications::Events::FromJSON [0x00DC61AB+134667]
-	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00AEAEDF+479935]
-	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00AE0A08+437736]
-	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00AE0B7B+438107]
-	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00ACB214+349684]
-	BaseThreadInitThunk [0x759B7BA9+25]
-	RtlInitializeExceptionChain [0x7704BE3B+107]
-	RtlClearBits [0x7704BDBF+191]
-</status>
+<tag>Socials</tag>
+<status status="FAIL" start="2024-05-04T04:11:39.988476" elapsed="10.220602">'https://bnfin-staging.curbza.com/#' does not contain 'https://twitter.com/'</status>
 </test>
-<test id="s1-t12" name="Test &quot;Instagram&quot; Page Link" line="70">
+<test id="s1-t3" name="Test &quot;Instagram&quot; Page Link" line="71">
 <kw name="Begin Web Test" owner="Common" type="SETUP">
 <kw name="Catenate" owner="BuiltIn">
-<msg time="2024-05-02T16:39:03.306995" level="INFO">${auth_url} = https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/</msg>
+<msg time="2024-05-04T04:11:50.209078" level="INFO">${auth_url} = https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/</msg>
 <var>${auth_url}</var>
 <arg>SEPARATOR=</arg>
 <arg>https://${USERNAME}:${WEBPASSWORD}@${START_URL}</arg>
 <doc>Catenates the given items together and returns the resulted string.</doc>
-<status status="PASS" start="2024-05-02T16:39:03.306995" elapsed="0.000000"/>
+<status status="PASS" start="2024-05-04T04:11:50.209078" elapsed="0.000000"/>
 </kw>
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2024-05-02T16:39:03.307992" level="INFO">Opening browser 'edge' to base url 'https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/'.</msg>
+<msg time="2024-05-04T04:11:50.209078" level="INFO">Opening browser 'chrome' to base url 'https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/'.</msg>
 <arg>${auth_url}</arg>
 <arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2024-05-02T16:39:03.307992" elapsed="9.502232"/>
+<status status="PASS" start="2024-05-04T04:11:50.209078" elapsed="3.796882"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2024-05-02T16:39:12.810224" elapsed="1.055047"/>
+<status status="PASS" start="2024-05-04T04:11:54.006958" elapsed="0.065817"/>
 </kw>
-<kw name="Set Selenium Speed" owner="SeleniumLibrary">
-<arg>1s</arg>
-<doc>Sets the delay that is waited after each Selenium command.</doc>
-<status status="PASS" start="2024-05-02T16:39:13.865787" elapsed="0.000000"/>
-</kw>
-<status status="PASS" start="2024-05-02T16:39:03.305991" elapsed="10.559796"/>
+<status status="PASS" start="2024-05-04T04:11:50.209078" elapsed="3.863697"/>
 </kw>
 <kw name="Navigate To &quot;Instagram&quot; Page" owner="PublicPages">
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-05-02T16:39:13.866804" level="INFO">Clicking element 'xpath=//*[@id="footer"]/div/div[1]/div[1]/div/a[2]/img'.</msg>
-<msg time="2024-05-02T16:39:17.231287" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-9.png"&gt;&lt;img src="selenium-screenshot-9.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2024-05-02T16:39:17.232283" level="FAIL">ElementClickInterceptedException: Message: element click intercepted: Element is not clickable at point (169, 3201)
-  (Session info: MicrosoftEdge=124.0.2478.67)
-Stacktrace:
-	GetHandleVerifier [0x00C00483+230755]
-	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00AD7F91+402289]
-	Microsoft::Applications::Events::ILogConfiguration::operator* [0x008E8A10+3568]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009201DE+123982]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x0091EDCA+118842]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x0091D81D+113293]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x0091D169+111577]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x00915BF3+81507]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x0093198C+195580]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009156C1+80177]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x00915640+80048]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x00931CB4+196388]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009156C1+80177]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009463E0+280144]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009315F6+194662]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x00914EC3+78131]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x00913EA5+74005]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009148CD+76605]
-	GetHandleVerifier [0x00CF476C+1230924]
-	Microsoft::Applications::Events::FromJSON [0x00DC57D2+132146]
-	Microsoft::Applications::Events::FromJSON [0x00DC5157+130487]
-	Microsoft::Applications::Events::FromJSON [0x00DBA090+85232]
-	Microsoft::Applications::Events::FromJSON [0x00DC61AB+134667]
-	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00AEAEDF+479935]
-	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00AE0A08+437736]
-	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00AE0B7B+438107]
-	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00ACB214+349684]
-	BaseThreadInitThunk [0x759B7BA9+25]
-	RtlInitializeExceptionChain [0x7704BE3B+107]
-	RtlClearBits [0x7704BDBF+191]
-</msg>
-<arg>${TWITTER_BUTTON}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="FAIL" start="2024-05-02T16:39:13.866804" elapsed="3.367469">ElementClickInterceptedException: Message: element click intercepted: Element is not clickable at point (169, 3201)
-  (Session info: MicrosoftEdge=124.0.2478.67)
-Stacktrace:
-	GetHandleVerifier [0x00C00483+230755]
-	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00AD7F91+402289]
-	Microsoft::Applications::Events::ILogConfiguration::operator* [0x008E8A10+3568]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009201DE+123982]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x0091EDCA+118842]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x0091D81D+113293]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x0091D169+111577]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x00915BF3+81507]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x0093198C+195580]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009156C1+80177]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x00915640+80048]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x00931CB4+196388]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009156C1+80177]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009463E0+280144]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009315F6+194662]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x00914EC3+78131]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x00913EA5+74005]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009148CD+76605]
-	GetHandleVerifier [0x00CF476C+1230924]
-	Microsoft::Applications::Events::FromJSON [0x00DC57D2+132146]
-	Microsoft::Applications::Events::FromJSON [0x00DC5157+130487]
-	Microsoft::Applications::Events::FromJSON [0x00DBA090+85232]
-	Microsoft::Applications::Events::FromJSON [0x00DC61AB+134667]
-	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00AEAEDF+479935]
-	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00AE0A08+437736]
-	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00AE0B7B+438107]
-	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00ACB214+349684]
-	BaseThreadInitThunk [0x759B7BA9+25]
-	RtlInitializeExceptionChain [0x7704BE3B+107]
-	RtlClearBits [0x7704BDBF+191]
-</status>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2024-05-04T04:11:54.111987" level="INFO">${ig_link} = https://bnfin-staging.curbza.com/#</msg>
+<var>${ig_link}</var>
+<arg>${INSTAGRAM_BUTTON}</arg>
+<arg>href</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2024-05-04T04:11:54.074595" elapsed="0.037392"/>
 </kw>
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>${INSTAGRAM_TITLE}</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="NOT RUN" start="2024-05-02T16:39:17.234273" elapsed="0.000000"/>
+<kw name="Should Contain" owner="BuiltIn">
+<msg time="2024-05-04T04:11:54.112977" level="FAIL">'https://bnfin-staging.curbza.com/#' does not contain 'https://www.instagram.com/'</msg>
+<arg>${ig_link}</arg>
+<arg>${INSTAGRAM_URL}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="FAIL" start="2024-05-04T04:11:54.112977" elapsed="0.000000">'https://bnfin-staging.curbza.com/#' does not contain 'https://www.instagram.com/'</status>
 </kw>
-<status status="FAIL" start="2024-05-02T16:39:13.866804" elapsed="3.367469">ElementClickInterceptedException: Message: element click intercepted: Element is not clickable at point (169, 3201)
-  (Session info: MicrosoftEdge=124.0.2478.67)
-Stacktrace:
-	GetHandleVerifier [0x00C00483+230755]
-	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00AD7F91+402289]
-	Microsoft::Applications::Events::ILogConfiguration::operator* [0x008E8A10+3568]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009201DE+123982]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x0091EDCA+118842]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x0091D81D+113293]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x0091D169+111577]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x00915BF3+81507]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x0093198C+195580]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009156C1+80177]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x00915640+80048]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x00931CB4+196388]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009156C1+80177]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009463E0+280144]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009315F6+194662]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x00914EC3+78131]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x00913EA5+74005]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009148CD+76605]
-	GetHandleVerifier [0x00CF476C+1230924]
-	Microsoft::Applications::Events::FromJSON [0x00DC57D2+132146]
-	Microsoft::Applications::Events::FromJSON [0x00DC5157+130487]
-	Microsoft::Applications::Events::FromJSON [0x00DBA090+85232]
-	Microsoft::Applications::Events::FromJSON [0x00DC61AB+134667]
-	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00AEAEDF+479935]
-	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00AE0A08+437736]
-	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00AE0B7B+438107]
-	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00ACB214+349684]
-	BaseThreadInitThunk [0x759B7BA9+25]
-	RtlInitializeExceptionChain [0x7704BE3B+107]
-	RtlClearBits [0x7704BDBF+191]
-</status>
+<status status="FAIL" start="2024-05-04T04:11:54.074595" elapsed="0.038382">'https://bnfin-staging.curbza.com/#' does not contain 'https://www.instagram.com/'</status>
 </kw>
 <kw name="End Web Test" owner="Common" type="TEARDOWN">
 <kw name="Close All Browsers" owner="SeleniumLibrary">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2024-05-02T16:39:17.235274" elapsed="3.195100"/>
+<status status="PASS" start="2024-05-04T04:11:54.113976" elapsed="6.306354"/>
 </kw>
 <kw name="Log Test Case Status" owner="Common">
 <kw name="Run Keyword If" owner="BuiltIn">
 <kw name="Log" owner="BuiltIn">
-<msg time="2024-05-02T16:39:20.432418" level="INFO">Test failed: Test "Instagram" Page Link</msg>
+<msg time="2024-05-04T04:12:00.421331" level="INFO">Test failed: Test "Instagram" Page Link</msg>
 <arg>Test failed: ${TEST NAME}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-05-02T16:39:20.432418" elapsed="0.000000"/>
+<status status="PASS" start="2024-05-04T04:12:00.421331" elapsed="0.000000"/>
 </kw>
 <arg>'${TEST STATUS}' != 'PASS'</arg>
 <arg>Log</arg>
 <arg>Test failed: ${TEST NAME}</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-05-02T16:39:20.432418" elapsed="0.000996"/>
+<status status="PASS" start="2024-05-04T04:12:00.421331" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2024-05-02T16:39:20.431429" elapsed="0.001985"/>
+<status status="PASS" start="2024-05-04T04:12:00.420330" elapsed="0.001001"/>
 </kw>
-<status status="PASS" start="2024-05-02T16:39:17.235274" elapsed="3.198140"/>
+<status status="PASS" start="2024-05-04T04:11:54.113976" elapsed="6.308353"/>
 </kw>
 <doc>Verify the "Instagram" page link</doc>
 <tag>Links</tag>
-<status status="FAIL" start="2024-05-02T16:39:03.304986" elapsed="17.128428">ElementClickInterceptedException: Message: element click intercepted: Element is not clickable at point (169, 3201)
-  (Session info: MicrosoftEdge=124.0.2478.67)
-Stacktrace:
-	GetHandleVerifier [0x00C00483+230755]
-	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00AD7F91+402289]
-	Microsoft::Applications::Events::ILogConfiguration::operator* [0x008E8A10+3568]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009201DE+123982]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x0091EDCA+118842]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x0091D81D+113293]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x0091D169+111577]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x00915BF3+81507]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x0093198C+195580]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009156C1+80177]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x00915640+80048]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x00931CB4+196388]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009156C1+80177]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009463E0+280144]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009315F6+194662]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x00914EC3+78131]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x00913EA5+74005]
-	Microsoft::Applications::Events::GUID_t::GUID_t [0x009148CD+76605]
-	GetHandleVerifier [0x00CF476C+1230924]
-	Microsoft::Applications::Events::FromJSON [0x00DC57D2+132146]
-	Microsoft::Applications::Events::FromJSON [0x00DC5157+130487]
-	Microsoft::Applications::Events::FromJSON [0x00DBA090+85232]
-	Microsoft::Applications::Events::FromJSON [0x00DC61AB+134667]
-	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00AEAEDF+479935]
-	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00AE0A08+437736]
-	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00AE0B7B+438107]
-	Microsoft::Applications::Events::time_ticks_t::time_ticks_t [0x00ACB214+349684]
-	BaseThreadInitThunk [0x759B7BA9+25]
-	RtlInitializeExceptionChain [0x7704BE3B+107]
-	RtlClearBits [0x7704BDBF+191]
-</status>
+<tag>Socials</tag>
+<status status="FAIL" start="2024-05-04T04:11:50.209078" elapsed="10.213251">'https://bnfin-staging.curbza.com/#' does not contain 'https://www.instagram.com/'</status>
 </test>
 <doc>This testing suite will check for the functionality of all links on the publicly available website</doc>
-<status status="FAIL" start="2024-05-02T16:36:22.557986" elapsed="177.882429"/>
+<status status="FAIL" start="2024-05-04T04:11:29.060312" elapsed="31.363023"/>
 </suite>
 <statistics>
 <total>
-<stat pass="8" fail="4" skip="0">All Tests</stat>
+<stat pass="0" fail="3" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="8" fail="4" skip="0">Links</stat>
+<stat pass="0" fail="3" skip="0">Links</stat>
+<stat pass="0" fail="3" skip="0">Socials</stat>
 </tag>
 <suite>
-<stat pass="8" fail="4" skip="0" id="s1" name="Publicpagelinks">Publicpagelinks</stat>
+<stat pass="0" fail="3" skip="0" id="s1" name="Publicpagelinks">Publicpagelinks</stat>
 </suite>
 </statistics>
 <errors>

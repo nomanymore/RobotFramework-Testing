@@ -28,10 +28,11 @@ ${TWITTER_TITLE}=            X
 ${INSTAGRAM_TITLE}=          Instagram
 ${DISCLAIMER_TITLE}=         Disclaimer Policy
 
-${TWITTER_BUTTON}=           xpath=//*[@id="footer"]/div/div[1]/div[1]/div/a[2]/img
-${INSTAGRAM_BUTTON}=         xpath=//*[@id="footer"]/div/div[1]/div[1]/div/a[3]/img
-${FACEBOOK_BUTTON}=          xpath=//*[@id="footer"]/div/div[1]/div[1]/div/a[1]/img
-
+${TWITTER_BUTTON}=           xpath=//*[@id="footer"]/div/div[1]/div[1]/div/a[2]
+${INSTAGRAM_BUTTON}=         xpath=//*[@id="footer"]/div/div[1]/div[1]/div/a[3]
+${FACEBOOK_BUTTON}=          xpath=//*[@id="footer"]/div/div[1]/div[1]/div/a[1]
+${JOIN_NOW_BUTTON}=          xpath=//*[@id="footer"]/div/div[1]/div[3]/form/div[2]/input
+${DISCLAIMER_BUTTON}=        xpath=//*[@id="footer"]/div/div[2]/div[2]/a[1]
 
 *** Keywords ***
 
@@ -54,6 +55,9 @@ Navigate To "Contact Us" Page
 Navigate To "Sign Up" Page
     go to                       ${SIGN_UP_URL}
     wait until page contains    ${SIGNUP_SUBTITLE}
+    go to                       ${HOMEPAGE_URL}
+    Click Element               ${JOIN_NOW_BUTTON}
+    wait until page contains    ${SIGNUP_SUBTITLE}
 
 Navigate To "Privacy Policy" Page
     go to                       ${PRIVACY_POLICY_URL}
@@ -68,17 +72,19 @@ Navigate To "Terms Of Use" Page
     wait until page contains    ${TERMS_OF_USE_TITLE}
 
 Navigate To "Facebook" Page
-    Click Element               ${FACEBOOK_BUTTON}
-    wait until page contains    ${FACEBOOK_TITLE}
+# This line checks if the link on the button contains a similar link to the link it should be going to
+    ${fb_link}=    Get Element Attribute    ${FACEBOOK_BUTTON}    href
+    Should Contain    ${fb_link}    ${FACEBOOK_URL}
 
 Navigate To "Instagram" Page
-    Click Element               ${TWITTER_BUTTON}
-    wait until page contains    ${INSTAGRAM_TITLE}
+    ${ig_link}=    Get Element Attribute    ${INSTAGRAM_BUTTON}    href
+    Should Contain    ${ig_link}    ${INSTAGRAM_URL}
 
 Navigate To "X/Twitter" Page
-    Click Element               ${INSTAGRAM_BUTTON}
-    wait until page contains    ${TWITTER_TITLE}
+    ${x_link}=    Get Element Attribute    ${TWITTER_BUTTON}    href
+    Should Contain    ${x_link}    ${TWITTER_URL}
 
 Navigate To "Disclaimer" Page
-    go to                       ${DISCLAIMER_URL}
-    wait until page contains    ${DISCLAIMER_TITLE}
+# This line checks if the link on the button is equal to the link it should be going to
+    ${link}=    Get Element Attribute    ${DISCLAIMER_BUTTON}    href
+    Should Be Equal As Strings    ${link}    ${DISCLAIMER_URL}

@@ -12,6 +12,7 @@ Test Teardown  Common.End Web Test
 
 *** Test Cases ***
 
+# ------------------------------ Test Links on Public Pages ------------------------------
 Test Home Page Link
     [Documentation]    Verify the home page link
     [Tags]             Links
@@ -54,20 +55,20 @@ Test "Terms of Use" Page Link
 
 Test "Disclaimer" Page Link
     [Documentation]    Verify the "Disclaimer" page link
-    [Tags]             Links
+    [Tags]             Links    Disclaimer
     PublicPages.Navigate To "Disclaimer" Page
 
 Test "Facebook" Page Link
     [Documentation]    Verify the "Facebook" page link
-    [Tags]             Links
+    [Tags]             Links    Socials
     PublicPages.Navigate To "Facebook" Page
 
 Test "X/Twitter" Page Link
     [Documentation]    Verify the "X/Twitter" page link
-    [Tags]             Links
+    [Tags]             Links    Socials
     PublicPages.Navigate To "X/Twitter" Page
 
 Test "Instagram" Page Link
     [Documentation]    Verify the "Instagram" page link
-    [Tags]             Links
+    [Tags]             Links    Socials
     PublicPages.Navigate To "Instagram" Page

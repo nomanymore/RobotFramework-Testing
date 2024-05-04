@@ -21,17 +21,3 @@ Go to "Home" Dashboard
     HomeDashboard.Navigate To Dash
     HomeDashboard.Verify Page Loaded
 
-# Check Links
-    
-#     PublicPages.Navigate To "Home" Page
-#     PublicPages.Navigate To "About Us" Page
-#     PublicPages.Navigate To "Grants" Page
-#     PublicPages.Navigate To "Contact Us" Page
-#     PublicPages.Navigate To "Sign Up" Page
-#     PublicPages.Navigate To "Cookie Policy" Page
-#     PublicPages.Navigate To "Disclaimer" Page
-#     PublicPages.Navigate To "Privacy Policy" Page
-#     PublicPages.Navigate To "Terms Of Use" Page
-#     PublicPages.Navigate To "Facebook" Page
-#     PublicPages.Navigate To "Instagram" Page
-#     PublicPages.Navigate To "X/Twitter" Page
