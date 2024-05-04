@@ -34,6 +34,10 @@ ${FACEBOOK_BUTTON}=          xpath=//*[@id="footer"]/div/div[1]/div[1]/div/a[1]
 ${JOIN_NOW_BUTTON}=          xpath=//*[@id="footer"]/div/div[1]/div[3]/form/div[2]/input
 ${DISCLAIMER_BUTTON}=        xpath=//*[@id="footer"]/div/div[2]/div[2]/a[1]
 
+${LANGUAGE_BUTTON}=          xpath=//*[@id="navbarSupportedContent"]/ul/li[5]/button
+${LANGUAGE_FRENCH}=          fr
+${LANGUAGE_ENGLISH}=         en
+
 *** Keywords ***
 
 Navigate To "Home" Page
@@ -88,3 +92,13 @@ Navigate To "Disclaimer" Page
 # This line checks if the link on the button is equal to the link it should be going to
     ${link}=    Get Element Attribute    ${DISCLAIMER_BUTTON}    href
     Should Be Equal As Strings    ${link}    ${DISCLAIMER_URL}
+
+
+# -------------------- Testing language change --------------------
+
+Change Language
+    Click Element    ${LANGUAGE_BUTTON}
+    Select Radio Button    language    ${LANGUAGE_FRENCH}
+    wait until page contains    Réseau national
+    Select Radio Button   language    ${LANGUAGE_ENGLISH}
+    wait until page contains    National Funders

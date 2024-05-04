@@ -12,7 +12,7 @@ Begin Web Test
     ${auth_url}=    Catenate    SEPARATOR=    https://${USERNAME}:${WEBPASSWORD}@${START_URL}
     Open Browser    ${auth_url}    ${BROWSER}
     Maximize Browser Window
-    # Set Selenium Speed    1s
+    Set Selenium Speed    1s
 
 End Web Test
     Close All Browsers

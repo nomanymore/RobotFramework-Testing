@@ -20,4 +20,3 @@ Login as User Type
 Go to "Home" Dashboard
     HomeDashboard.Navigate To Dash
     HomeDashboard.Verify Page Loaded
-

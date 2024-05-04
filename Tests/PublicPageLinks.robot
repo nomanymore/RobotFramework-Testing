@@ -72,3 +72,9 @@ Test "Instagram" Page Link
     [Documentation]    Verify the "Instagram" page link
     [Tags]             Links    Socials
     PublicPages.Navigate To "Instagram" Page
+
+Test Language Toggle
+    [Documentation]    Verify the page turns from English to French and vice versa
+    [Tags]             Language
+    PublicPages.Change Language
+

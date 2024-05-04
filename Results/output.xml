@@ -1,226 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.0 (Python 3.12.3 on win32)" generated="2024-05-04T04:11:29.060312" rpa="false" schemaversion="5">
+<robot generator="Robot 7.0 (Python 3.12.3 on win32)" generated="2024-05-04T06:01:31.151947" rpa="false" schemaversion="5">
 <suite id="s1" name="Publicpagelinks" source="F:\NSCC-Courses\Semester-2\Work Placement\Automated Tests\BNFIN\tests\publicpagelinks.robot">
-<test id="s1-t1" name="Test &quot;Facebook&quot; Page Link" line="61">
+<test id="s1-t1" name="Test Language Toggle" line="76">
 <kw name="Begin Web Test" owner="Common" type="SETUP">
 <kw name="Catenate" owner="BuiltIn">
-<msg time="2024-05-04T04:11:29.457385" level="INFO">${auth_url} = https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/</msg>
+<msg time="2024-05-04T06:01:31.597415" level="INFO">${auth_url} = https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/</msg>
 <var>${auth_url}</var>
 <arg>SEPARATOR=</arg>
 <arg>https://${USERNAME}:${WEBPASSWORD}@${START_URL}</arg>
 <doc>Catenates the given items together and returns the resulted string.</doc>
-<status status="PASS" start="2024-05-04T04:11:29.457385" elapsed="0.000000"/>
+<status status="PASS" start="2024-05-04T06:01:31.596876" elapsed="0.000539"/>
 </kw>
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2024-05-04T04:11:29.457385" level="INFO">Opening browser 'chrome' to base url 'https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/'.</msg>
+<msg time="2024-05-04T06:01:31.598482" level="INFO">Opening browser 'chrome' to base url 'https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/'.</msg>
 <arg>${auth_url}</arg>
 <arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2024-05-04T04:11:29.457385" elapsed="4.104112"/>
+<status status="PASS" start="2024-05-04T06:01:31.597957" elapsed="3.400816"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2024-05-04T04:11:33.561497" elapsed="0.041539"/>
+<status status="PASS" start="2024-05-04T06:01:34.998773" elapsed="0.718688"/>
 </kw>
-<status status="PASS" start="2024-05-04T04:11:29.457385" elapsed="4.145651"/>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>1s</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2024-05-04T06:01:35.717461" elapsed="0.000994"/>
 </kw>
-<kw name="Navigate To &quot;Facebook&quot; Page" owner="PublicPages">
-<kw name="Get Element Attribute" owner="SeleniumLibrary">
-<msg time="2024-05-04T04:11:33.628810" level="INFO">${fb_link} = https://bnfin-staging.curbza.com/#</msg>
-<var>${fb_link}</var>
-<arg>${FACEBOOK_BUTTON}</arg>
-<arg>href</arg>
-<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
-<status status="PASS" start="2024-05-04T04:11:33.605212" elapsed="0.023598"/>
+<status status="PASS" start="2024-05-04T06:01:31.595544" elapsed="4.122911"/>
 </kw>
-<kw name="Should Contain" owner="BuiltIn">
-<msg time="2024-05-04T04:11:33.628810" level="FAIL">'https://bnfin-staging.curbza.com/#' does not contain 'https://www.facebook.com/'</msg>
-<arg>${fb_link}</arg>
-<arg>${FACEBOOK_URL}</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="FAIL" start="2024-05-04T04:11:33.628810" elapsed="0.000996">'https://bnfin-staging.curbza.com/#' does not contain 'https://www.facebook.com/'</status>
+<kw name="Change Language" owner="PublicPages">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-04T06:01:35.719450" level="INFO">Clicking element 'xpath=//*[@id="navbarSupportedContent"]/ul/li[5]/button'.</msg>
+<arg>${LANGUAGE_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-04T06:01:35.719450" elapsed="2.086249"/>
 </kw>
-<status status="FAIL" start="2024-05-04T04:11:33.604160" elapsed="0.025646">'https://bnfin-staging.curbza.com/#' does not contain 'https://www.facebook.com/'</status>
+<kw name="Select Radio Button" owner="SeleniumLibrary">
+<msg time="2024-05-04T06:01:37.805699" level="INFO">Selecting 'fr' from radio button 'language'.</msg>
+<arg>language</arg>
+<arg>${LANGUAGE_FRENCH}</arg>
+<doc>Sets the radio button group ``group_name`` to ``value``.</doc>
+<status status="PASS" start="2024-05-04T06:01:37.805699" elapsed="3.108506"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Réseau national</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-05-04T06:01:40.914205" elapsed="1.016826"/>
+</kw>
+<kw name="Select Radio Button" owner="SeleniumLibrary">
+<msg time="2024-05-04T06:01:41.931031" level="INFO">Selecting 'en' from radio button 'language'.</msg>
+<arg>language</arg>
+<arg>${LANGUAGE_ENGLISH}</arg>
+<doc>Sets the radio button group ``group_name`` to ``value``.</doc>
+<status status="PASS" start="2024-05-04T06:01:41.931031" elapsed="3.097541"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>National Funders</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-05-04T06:01:45.028572" elapsed="1.018090"/>
+</kw>
+<status status="PASS" start="2024-05-04T06:01:35.719450" elapsed="10.327212"/>
 </kw>
 <kw name="End Web Test" owner="Common" type="TEARDOWN">
 <kw name="Close All Browsers" owner="SeleniumLibrary">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2024-05-04T04:11:33.630809" elapsed="6.354361"/>
+<status status="PASS" start="2024-05-04T06:01:46.047176" elapsed="3.196436"/>
 </kw>
 <kw name="Log Test Case Status" owner="Common">
 <kw name="Run Keyword If" owner="BuiltIn">
-<kw name="Log" owner="BuiltIn">
-<msg time="2024-05-04T04:11:39.986271" level="INFO">Test failed: Test "Facebook" Page Link</msg>
-<arg>Test failed: ${TEST NAME}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-05-04T04:11:39.986271" elapsed="0.000000"/>
-</kw>
 <arg>'${TEST STATUS}' != 'PASS'</arg>
 <arg>Log</arg>
 <arg>Test failed: ${TEST NAME}</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-05-04T04:11:39.985710" elapsed="0.001125"/>
+<status status="PASS" start="2024-05-04T06:01:49.243612" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2024-05-04T04:11:39.985170" elapsed="0.001665"/>
+<status status="PASS" start="2024-05-04T06:01:49.243612" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2024-05-04T04:11:33.630809" elapsed="6.356026"/>
+<status status="PASS" start="2024-05-04T06:01:46.047176" elapsed="3.196436"/>
 </kw>
-<doc>Verify the "Facebook" page link</doc>
-<tag>Links</tag>
-<tag>Socials</tag>
-<status status="FAIL" start="2024-05-04T04:11:29.457385" elapsed="10.530007">'https://bnfin-staging.curbza.com/#' does not contain 'https://www.facebook.com/'</status>
-</test>
-<test id="s1-t2" name="Test &quot;X/Twitter&quot; Page Link" line="66">
-<kw name="Begin Web Test" owner="Common" type="SETUP">
-<kw name="Catenate" owner="BuiltIn">
-<msg time="2024-05-04T04:11:39.989539" level="INFO">${auth_url} = https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/</msg>
-<var>${auth_url}</var>
-<arg>SEPARATOR=</arg>
-<arg>https://${USERNAME}:${WEBPASSWORD}@${START_URL}</arg>
-<doc>Catenates the given items together and returns the resulted string.</doc>
-<status status="PASS" start="2024-05-04T04:11:39.989539" elapsed="0.000519"/>
-</kw>
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2024-05-04T04:11:39.990058" level="INFO">Opening browser 'chrome' to base url 'https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/'.</msg>
-<arg>${auth_url}</arg>
-<arg>${BROWSER}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2024-05-04T04:11:39.990058" elapsed="3.206981"/>
-</kw>
-<kw name="Maximize Browser Window" owner="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2024-05-04T04:11:43.197039" elapsed="0.625333"/>
-</kw>
-<status status="PASS" start="2024-05-04T04:11:39.989014" elapsed="3.834361"/>
-</kw>
-<kw name="Navigate To &quot;X/Twitter&quot; Page" owner="PublicPages">
-<kw name="Get Element Attribute" owner="SeleniumLibrary">
-<msg time="2024-05-04T04:11:43.846095" level="INFO">${x_link} = https://bnfin-staging.curbza.com/#</msg>
-<var>${x_link}</var>
-<arg>${TWITTER_BUTTON}</arg>
-<arg>href</arg>
-<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
-<status status="PASS" start="2024-05-04T04:11:43.823375" elapsed="0.022720"/>
-</kw>
-<kw name="Should Contain" owner="BuiltIn">
-<msg time="2024-05-04T04:11:43.847128" level="FAIL">'https://bnfin-staging.curbza.com/#' does not contain 'https://twitter.com/'</msg>
-<arg>${x_link}</arg>
-<arg>${TWITTER_URL}</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="FAIL" start="2024-05-04T04:11:43.846095" elapsed="0.001033">'https://bnfin-staging.curbza.com/#' does not contain 'https://twitter.com/'</status>
-</kw>
-<status status="FAIL" start="2024-05-04T04:11:43.823375" elapsed="0.024749">'https://bnfin-staging.curbza.com/#' does not contain 'https://twitter.com/'</status>
-</kw>
-<kw name="End Web Test" owner="Common" type="TEARDOWN">
-<kw name="Close All Browsers" owner="SeleniumLibrary">
-<doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2024-05-04T04:11:43.849106" elapsed="6.359972"/>
-</kw>
-<kw name="Log Test Case Status" owner="Common">
-<kw name="Run Keyword If" owner="BuiltIn">
-<kw name="Log" owner="BuiltIn">
-<msg time="2024-05-04T04:11:50.209078" level="INFO">Test failed: Test "X/Twitter" Page Link</msg>
-<arg>Test failed: ${TEST NAME}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-05-04T04:11:50.209078" elapsed="0.000000"/>
-</kw>
-<arg>'${TEST STATUS}' != 'PASS'</arg>
-<arg>Log</arg>
-<arg>Test failed: ${TEST NAME}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-05-04T04:11:50.209078" elapsed="0.000000"/>
-</kw>
-<status status="PASS" start="2024-05-04T04:11:50.209078" elapsed="0.000000"/>
-</kw>
-<status status="PASS" start="2024-05-04T04:11:43.849106" elapsed="6.359972"/>
-</kw>
-<doc>Verify the "X/Twitter" page link</doc>
-<tag>Links</tag>
-<tag>Socials</tag>
-<status status="FAIL" start="2024-05-04T04:11:39.988476" elapsed="10.220602">'https://bnfin-staging.curbza.com/#' does not contain 'https://twitter.com/'</status>
-</test>
-<test id="s1-t3" name="Test &quot;Instagram&quot; Page Link" line="71">
-<kw name="Begin Web Test" owner="Common" type="SETUP">
-<kw name="Catenate" owner="BuiltIn">
-<msg time="2024-05-04T04:11:50.209078" level="INFO">${auth_url} = https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/</msg>
-<var>${auth_url}</var>
-<arg>SEPARATOR=</arg>
-<arg>https://${USERNAME}:${WEBPASSWORD}@${START_URL}</arg>
-<doc>Catenates the given items together and returns the resulted string.</doc>
-<status status="PASS" start="2024-05-04T04:11:50.209078" elapsed="0.000000"/>
-</kw>
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2024-05-04T04:11:50.209078" level="INFO">Opening browser 'chrome' to base url 'https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/'.</msg>
-<arg>${auth_url}</arg>
-<arg>${BROWSER}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2024-05-04T04:11:50.209078" elapsed="3.796882"/>
-</kw>
-<kw name="Maximize Browser Window" owner="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2024-05-04T04:11:54.006958" elapsed="0.065817"/>
-</kw>
-<status status="PASS" start="2024-05-04T04:11:50.209078" elapsed="3.863697"/>
-</kw>
-<kw name="Navigate To &quot;Instagram&quot; Page" owner="PublicPages">
-<kw name="Get Element Attribute" owner="SeleniumLibrary">
-<msg time="2024-05-04T04:11:54.111987" level="INFO">${ig_link} = https://bnfin-staging.curbza.com/#</msg>
-<var>${ig_link}</var>
-<arg>${INSTAGRAM_BUTTON}</arg>
-<arg>href</arg>
-<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
-<status status="PASS" start="2024-05-04T04:11:54.074595" elapsed="0.037392"/>
-</kw>
-<kw name="Should Contain" owner="BuiltIn">
-<msg time="2024-05-04T04:11:54.112977" level="FAIL">'https://bnfin-staging.curbza.com/#' does not contain 'https://www.instagram.com/'</msg>
-<arg>${ig_link}</arg>
-<arg>${INSTAGRAM_URL}</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="FAIL" start="2024-05-04T04:11:54.112977" elapsed="0.000000">'https://bnfin-staging.curbza.com/#' does not contain 'https://www.instagram.com/'</status>
-</kw>
-<status status="FAIL" start="2024-05-04T04:11:54.074595" elapsed="0.038382">'https://bnfin-staging.curbza.com/#' does not contain 'https://www.instagram.com/'</status>
-</kw>
-<kw name="End Web Test" owner="Common" type="TEARDOWN">
-<kw name="Close All Browsers" owner="SeleniumLibrary">
-<doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2024-05-04T04:11:54.113976" elapsed="6.306354"/>
-</kw>
-<kw name="Log Test Case Status" owner="Common">
-<kw name="Run Keyword If" owner="BuiltIn">
-<kw name="Log" owner="BuiltIn">
-<msg time="2024-05-04T04:12:00.421331" level="INFO">Test failed: Test "Instagram" Page Link</msg>
-<arg>Test failed: ${TEST NAME}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-05-04T04:12:00.421331" elapsed="0.000000"/>
-</kw>
-<arg>'${TEST STATUS}' != 'PASS'</arg>
-<arg>Log</arg>
-<arg>Test failed: ${TEST NAME}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-05-04T04:12:00.421331" elapsed="0.000000"/>
-</kw>
-<status status="PASS" start="2024-05-04T04:12:00.420330" elapsed="0.001001"/>
-</kw>
-<status status="PASS" start="2024-05-04T04:11:54.113976" elapsed="6.308353"/>
-</kw>
-<doc>Verify the "Instagram" page link</doc>
-<tag>Links</tag>
-<tag>Socials</tag>
-<status status="FAIL" start="2024-05-04T04:11:50.209078" elapsed="10.213251">'https://bnfin-staging.curbza.com/#' does not contain 'https://www.instagram.com/'</status>
+<doc>Verify the page turns from English to French and vice versa</doc>
+<tag>Language</tag>
+<status status="PASS" start="2024-05-04T06:01:31.594434" elapsed="17.649178"/>
 </test>
 <doc>This testing suite will check for the functionality of all links on the publicly available website</doc>
-<status status="FAIL" start="2024-05-04T04:11:29.060312" elapsed="31.363023"/>
+<status status="PASS" start="2024-05-04T06:01:31.151947" elapsed="18.091665"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="3" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="0" fail="3" skip="0">Links</stat>
-<stat pass="0" fail="3" skip="0">Socials</stat>
+<stat pass="1" fail="0" skip="0">Language</stat>
 </tag>
 <suite>
-<stat pass="0" fail="3" skip="0" id="s1" name="Publicpagelinks">Publicpagelinks</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="Publicpagelinks">Publicpagelinks</stat>
 </suite>
 </statistics>
 <errors>
