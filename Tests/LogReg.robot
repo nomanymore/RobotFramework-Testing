@@ -6,7 +6,11 @@ Resource  ../Resources/bnfinApp.robot
 Test Setup  Common.Begin Web Test
 Test Teardown  Common.End Web Test
 
-# To run script: robot -d results tests/logreg.robot
+# --------------------------------------------------------------------------------------------------
+# THIS TEST WILL CHECK FOR THE FUNCTIONALITY OF USER LOGIN, LOGOUT, REGISTRATION AND PASSWORD RESET
+# --------------------------------------------------------------------------------------------------
+
+# To run script: robot -d results/logreg tests/logreg.robot
 
 *** Variables ***
 
@@ -15,7 +19,7 @@ Test Teardown  Common.End Web Test
 #------------------ All user login tests----------------------------------
 Reviewer BBI-1 Login Test
     [Documentation]         Test login as Reviewer BBI-1
-    [Tags]                  Reviewer    Login    BBI
+    [Tags]                  Reviewer    Login    BBI    TEST
     bnfinApp.Login as User Type    REVIEWER    0  
 
 Reviewer BBI-2 Login Test
@@ -63,4 +67,41 @@ Admin Login Test
     [Tags]                  Admin    Login
     bnfinApp.Login as User Type    ADMIN
 
+#------------------Logout test----------------------------------   
+
+Admin Logout Test
+    [Documentation]         Test Logout as Administrator
+    [Tags]                  Admin    Logout
+    bnfinApp.Login as User Type    ADMIN
+    HomeDashboard.Open Top Nav Dropdown
+    HomeDashboard.Click Logout Button
+
+#------------------Forgot Password Tests----------------------------------  
+
+User Should Be Able To Reset Password
+    [Documentation]         Test Forgot Password
+    [Tags]                  Forgot Password
+    SignIn.Navigate to "Forgot Password"
+    SignIn.Forgot Password    ${ACTUAL_EMAIL}
+    Wait Until Page Contains    We've received your request to change your password
     
+User Should Not Be Able To Reset Password With Invalid Email
+    [Documentation]         Test Forgot Password with invalid email
+    [Tags]                  Forgot Password    Ivalid
+    SignIn.Navigate to "Forgot Password"
+    SignIn.Forgot Password    ${INVALID_EMAIL}
+    bnfinApp.User Should See Error Message    Account was not found
+
+User Should Not Be Able To Reset Password With Empty Field
+    [Documentation]         Test Forgot Password with empty email field
+    [Tags]                  Forgot Password    Ivalid
+    SignIn.Navigate to "Forgot Password"
+    SignIn.Forgot Password    ${EMPTY_STRING}
+    bnfinApp.User Should See Error Message    Please fill Email field
+
+User Should Not Be Able To Reset Password With Invalid Email Format
+    [Documentation]         Test Forgot Password with invalid email format field
+    [Tags]                  Forgot Password    Ivalid
+    SignIn.Navigate to "Forgot Password"
+    SignIn.Forgot Password    ${BAD_EMAIL_FORMAT}
+    bnfinApp.User Should See Error Message    Invalid {field} format

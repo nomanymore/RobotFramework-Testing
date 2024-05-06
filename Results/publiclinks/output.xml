@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.12.3 on win32)" generated="2024-05-06T15:04:23.365118" rpa="false" schemaversion="5">
+<suite id="s1" name="Publicpagelinks" source="F:\NSCC-Courses\Semester-2\Work Placement\Automated Tests\BNFIN\tests\publicpagelinks.robot">
+<test id="s1-t1" name="User Should Be Able To Go To To &quot;Home Page&quot; From &quot;Sign Up&quot; Page" line="104">
+<kw name="Begin Web Test" owner="Common" type="SETUP">
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2024-05-06T15:04:23.756146" level="INFO">${auth_url} = https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/</msg>
+<var>${auth_url}</var>
+<arg>SEPARATOR=</arg>
+<arg>https://${USERNAME}:${WEBPASSWORD}@${START_URL}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2024-05-06T15:04:23.756146" elapsed="0.000000"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-05-06T15:04:23.759934" level="INFO">Opening browser 'chrome' to base url 'https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/'.</msg>
+<arg>${auth_url}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-05-06T15:04:23.756146" elapsed="4.150179"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-05-06T15:04:27.907331" elapsed="0.031618"/>
+</kw>
+<status status="PASS" start="2024-05-06T15:04:23.756146" elapsed="4.182803"/>
+</kw>
+<kw name="Go To &quot;Home Page&quot; From &quot;Sign Up&quot; Page" owner="bnfinApp">
+<kw name="Navigate To &quot;Sign Up&quot; Page" owner="PublicPages">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-05-06T15:04:27.941974" level="INFO">Opening url 'https://bnfin-staging.curbza.com/sign-up'</msg>
+<arg>${SIGN_UP_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-05-06T15:04:27.941974" elapsed="0.285167"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${SIGNUP_SUBTITLE}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-05-06T15:04:28.228154" elapsed="0.231911"/>
+</kw>
+<status status="PASS" start="2024-05-06T15:04:27.940954" elapsed="0.519656"/>
+</kw>
+<kw name="Check If Element Exists" owner="bnfinApp">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-06T15:04:28.461685" elapsed="0.033708"/>
+</kw>
+<msg time="2024-05-06T15:04:28.495393" level="INFO">${exists} = True</msg>
+<var>${exists}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${locator}</arg>
+<arg>5s</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2024-05-06T15:04:28.461145" elapsed="0.034248"/>
+</kw>
+<return>
+<value>${exists}</value>
+<status status="PASS" start="2024-05-06T15:04:28.495393" elapsed="0.000539"/>
+</return>
+<msg time="2024-05-06T15:04:28.495932" level="INFO">${button_exists} = True</msg>
+<var>${button_exists}</var>
+<arg>${BNFIN_BUTTON}</arg>
+<status status="PASS" start="2024-05-06T15:04:28.460610" elapsed="0.035322"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Navigate To &quot;Home&quot; Page" owner="PublicPages">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-05-06T15:04:28.496972" level="INFO">Opening url 'https://bnfin-staging.curbza.com'</msg>
+<arg>${HOMEPAGE_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-05-06T15:04:28.496458" elapsed="0.265476"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${HOME_SUBTITLE}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-05-06T15:04:28.762946" elapsed="0.012749"/>
+</kw>
+<status status="PASS" start="2024-05-06T15:04:28.496458" elapsed="0.279237"/>
+</kw>
+<arg>${button_exists}</arg>
+<arg>Navigate To "Home" Page</arg>
+<arg>ELSE</arg>
+<arg>Fail</arg>
+<arg>"BNFIN button does not exist"</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-05-06T15:04:28.495932" elapsed="0.279763"/>
+</kw>
+<status status="PASS" start="2024-05-06T15:04:27.939940" elapsed="0.835755"/>
+</kw>
+<kw name="End Web Test" owner="Common" type="TEARDOWN">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2024-05-06T15:04:28.776692" elapsed="6.387037"/>
+</kw>
+<kw name="Log Test Case Status" owner="Common">
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${TEST STATUS}' != 'PASS'</arg>
+<arg>Log</arg>
+<arg>Test failed: ${TEST NAME}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-05-06T15:04:35.163729" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2024-05-06T15:04:35.163729" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2024-05-06T15:04:28.776692" elapsed="6.388043"/>
+</kw>
+<doc>Navigate to the home page from the sign-up page</doc>
+<tag>Home Page</tag>
+<tag>Links</tag>
+<tag>Sign Up</tag>
+<status status="PASS" start="2024-05-06T15:04:23.756146" elapsed="11.408589"/>
+</test>
+<doc>This testing suite will check for the functionality of all links on the publicly available website</doc>
+<status status="PASS" start="2024-05-06T15:04:23.365118" elapsed="11.800621"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">Home Page</stat>
+<stat pass="1" fail="0" skip="0">Links</stat>
+<stat pass="1" fail="0" skip="0">Sign Up</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Publicpagelinks">Publicpagelinks</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2024-05-06T15:04:23.748919" level="ERROR">Error in file 'F:\NSCC-Courses\Semester-2\Work Placement\Automated Tests\BNFIN\Resources\PO\SignIn.robot' on line 3: Resource file '..\Resources\bnfinApp.robot' does not exist.</msg>
+</errors>
+</robot>

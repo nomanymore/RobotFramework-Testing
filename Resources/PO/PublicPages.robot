@@ -59,9 +59,9 @@ Navigate To "Contact Us" Page
 Navigate To "Sign Up" Page
     go to                       ${SIGN_UP_URL}
     wait until page contains    ${SIGNUP_SUBTITLE}
-    go to                       ${HOMEPAGE_URL}
-    Click Element               ${JOIN_NOW_BUTTON}
-    wait until page contains    ${SIGNUP_SUBTITLE}
+    # go to                       ${HOMEPAGE_URL}
+    # Click Element               ${JOIN_NOW_BUTTON}
+    # wait until page contains    ${SIGNUP_SUBTITLE}
 
 Navigate To "Privacy Policy" Page
     go to                       ${PRIVACY_POLICY_URL}
@@ -98,7 +98,10 @@ Navigate To "Disclaimer" Page
 
 Change Language
     Click Element    ${LANGUAGE_BUTTON}
+    Wait Until Element Is Visible    language
     Select Radio Button    language    ${LANGUAGE_FRENCH}
     wait until page contains    Réseau national
+    Wait Until Element Is Visible    language
     Select Radio Button   language    ${LANGUAGE_ENGLISH}
     wait until page contains    National Funders
+

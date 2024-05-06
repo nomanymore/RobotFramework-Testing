@@ -1,0 +1,4 @@
+Images without 'alt' text:
+https://bnfin-staging.curbza.com/assets/footer_facebook-76b948b8.svg
+https://bnfin-staging.curbza.com/assets/footer_twitter-e95ee002.svg
+https://bnfin-staging.curbza.com/assets/footer_instagram-aa45d006.svg
