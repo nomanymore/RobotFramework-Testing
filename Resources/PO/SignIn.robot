@@ -1,11 +1,11 @@
 *** Settings ***
 Library  SeleniumLibrary
+Library    custom_keywords.py
 Resource  ../bnfinApp.robot
 
 
 *** Variables ***
-${ACTUAL_EMAIL}=    victoria.shmakov@curbza.com
-${INVALID_EMAIL}=     iamaninvalidaemail@example.com
+
 ${EXPECTED_RESET_URL}=
 ${BAD_EMAIL_FORMAT}=   victoria.shmakov
 ${USER_ADMIN}=    victoria.administrator
@@ -24,6 +24,8 @@ ${BNFIN_BUTTON}=     link=BNFIN
 ${FORGOT_PASSWORD_LINK}=    link=Forgot Password?
 ${FORGOT_PASSWORD_EMAIL_TEXTBOX}=    id=email
 ${FORGOT_PASSWORD_SUBMIT_BUTTON}=    xpath=//*[@id="app"]/div[4]/div/div[2]/form/button
+
+${LOGIN_BUTTON}=    xpath=//a[@href='/login' and contains(@class, 'btn-outline-white')]
 
 *** Keywords ***
 Go To Login Page
@@ -66,7 +68,9 @@ Navigate to "Forgot Password"
 Click "Submit" Button For Forgot Password
     bnfinApp.Ensure Element Is Clickable And Click    ${FORGOT_PASSWORD_SUBMIT_BUTTON}
     
-
+Click Back To Login Button
+    Click Sign In Button
+    Wait Until Page Contains    ${LOGIN_HEADER_LABEL}
 
 Fill "Forgot Password" Email Field
     [Arguments]    ${Email}

@@ -82,14 +82,14 @@ User Should Be Able To Reset Password
     [Documentation]         Test Forgot Password
     [Tags]                  Forgot Password
     SignIn.Navigate to "Forgot Password"
-    SignIn.Forgot Password    ${ACTUAL_EMAIL}
+    SignIn.Forgot Password    ${VALID_EMAIL}
     Wait Until Page Contains    We've received your request to change your password
     
 User Should Not Be Able To Reset Password With Invalid Email
     [Documentation]         Test Forgot Password with invalid email
     [Tags]                  Forgot Password    Ivalid
     SignIn.Navigate to "Forgot Password"
-    SignIn.Forgot Password    ${INVALID_EMAIL}
+    SignIn.Forgot Password    ${NOT_IN_SYSTEM_EMAIL}
     bnfinApp.User Should See Error Message    Account was not found
 
 User Should Not Be Able To Reset Password With Empty Field
@@ -105,3 +105,12 @@ User Should Not Be Able To Reset Password With Invalid Email Format
     SignIn.Navigate to "Forgot Password"
     SignIn.Forgot Password    ${BAD_EMAIL_FORMAT}
     bnfinApp.User Should See Error Message    Invalid {field} format
+
+
+User Should Be Able To Navigate Back To Login Page From Forgot Password
+    [Documentation]         Test Navigation back to login page from Forgot Password
+    [Tags]                  Forgot Password    Navigation
+    SignIn.Navigate to "Forgot Password"
+    SignIn.Click Back To Login Button
+
+#------------------Sign up tests----------------------------------     

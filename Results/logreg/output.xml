@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.0 (Python 3.12.3 on win32)" generated="2024-05-06T17:05:22.543923" rpa="false" schemaversion="5">
+<robot generator="Robot 7.0 (Python 3.12.3 on win32)" generated="2024-05-07T04:42:23.546279" rpa="false" schemaversion="5">
 <suite id="s1" name="Logreg" source="F:\NSCC-Courses\Semester-2\Work Placement\Automated Tests\BNFIN\tests\logreg.robot">
-<test id="s1-t1" name="User Should Not Be Able To Reset Password With Invalid Email" line="88">
+<test id="s1-t1" name="User Should Be Able To Navigate Back To Login Page From Forgot Password" line="110">
 <kw name="Begin Web Test" owner="Common" type="SETUP">
 <kw name="Catenate" owner="BuiltIn">
-<msg time="2024-05-06T17:05:23.065183" level="INFO">${auth_url} = https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/</msg>
+<msg time="2024-05-07T04:42:23.905679" level="INFO">${auth_url} = https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/</msg>
 <var>${auth_url}</var>
 <arg>SEPARATOR=</arg>
 <arg>https://${USERNAME}:${WEBPASSWORD}@${START_URL}</arg>
 <doc>Catenates the given items together and returns the resulted string.</doc>
-<status status="PASS" start="2024-05-06T17:05:23.065183" elapsed="0.000000"/>
+<status status="PASS" start="2024-05-07T04:42:23.905679" elapsed="0.000000"/>
 </kw>
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2024-05-06T17:05:23.065183" level="INFO">Opening browser 'chrome' to base url 'https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/'.</msg>
+<msg time="2024-05-07T04:42:23.905679" level="INFO">Opening browser 'chrome' to base url 'https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/'.</msg>
 <arg>${auth_url}</arg>
 <arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2024-05-06T17:05:23.065183" elapsed="3.812129"/>
+<status status="PASS" start="2024-05-07T04:42:23.905679" elapsed="3.012429"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2024-05-06T17:05:26.877312" elapsed="0.763285"/>
+<status status="PASS" start="2024-05-07T04:42:26.918108" elapsed="0.610609"/>
 </kw>
 <kw name="Set Selenium Speed" owner="SeleniumLibrary">
 <arg>1s</arg>
 <doc>Sets the delay that is waited after each Selenium command.</doc>
-<status status="PASS" start="2024-05-06T17:05:27.641610" elapsed="0.000000"/>
+<status status="PASS" start="2024-05-07T04:42:27.528717" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2024-05-06T17:05:23.065183" elapsed="4.576427"/>
+<status status="PASS" start="2024-05-07T04:42:23.905679" elapsed="3.623038"/>
 </kw>
 <kw name="Navigate to &quot;Forgot Password&quot;" owner="SignIn">
 <kw name="Go To Login Page" owner="SignIn">
@@ -35,447 +35,125 @@
 <arg>${LOGIN_BUTTON}</arg>
 <arg>10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-05-06T17:05:27.642606" elapsed="2.045280"/>
+<status status="PASS" start="2024-05-07T04:42:27.529705" elapsed="2.031270"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-05-06T17:05:29.688410" level="INFO">Clicking element 'xpath=//a[@href='/login' and contains(@class, 'btn-outline-white')]'.</msg>
+<msg time="2024-05-07T04:42:29.560975" level="INFO">Clicking element 'xpath=//a[@href='/login' and contains(@class, 'btn-outline-white')]'.</msg>
 <arg>${LOGIN_BUTTON}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-06T17:05:29.688410" elapsed="2.102490"/>
+<status status="PASS" start="2024-05-07T04:42:29.560975" elapsed="2.079568"/>
 </kw>
 <kw name="Wait Until Page Contains" owner="SeleniumLibrary">
 <arg>${LOGIN_HEADER_LABEL}</arg>
 <doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2024-05-06T17:05:31.790900" elapsed="1.015882"/>
+<status status="PASS" start="2024-05-07T04:42:31.640543" elapsed="1.015621"/>
 </kw>
-<status status="PASS" start="2024-05-06T17:05:27.642606" elapsed="5.164176"/>
+<status status="PASS" start="2024-05-07T04:42:27.529705" elapsed="5.126459"/>
 </kw>
 <kw name="Ensure Element Is Clickable And Click" owner="bnfinApp">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${locator}</arg>
 <arg>10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-05-06T17:05:32.807830" elapsed="2.029560"/>
+<status status="PASS" start="2024-05-07T04:42:32.657189" elapsed="2.030358"/>
 </kw>
 <kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
 <arg>${locator}</arg>
 <arg>10s</arg>
 <doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" start="2024-05-06T17:05:34.837390" elapsed="3.036686"/>
+<status status="PASS" start="2024-05-07T04:42:34.687547" elapsed="3.039957"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-05-06T17:05:37.875109" level="INFO">Clicking element 'link=Forgot Password?'.</msg>
+<msg time="2024-05-07T04:42:37.728027" level="INFO">Clicking element 'link=Forgot Password?'.</msg>
 <arg>${locator}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-06T17:05:37.874076" elapsed="2.074846"/>
+<status status="PASS" start="2024-05-07T04:42:37.727504" elapsed="2.065155"/>
 </kw>
 <arg>${FORGOT_PASSWORD_LINK}</arg>
-<status status="PASS" start="2024-05-06T17:05:32.806782" elapsed="7.142140"/>
+<status status="PASS" start="2024-05-07T04:42:32.656164" elapsed="7.136495"/>
 </kw>
 <kw name="Wait Until Page Contains" owner="SeleniumLibrary">
 <arg>Forgot Password?</arg>
 <doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2024-05-06T17:05:39.948922" elapsed="1.015655"/>
+<status status="PASS" start="2024-05-07T04:42:39.792659" elapsed="1.016956"/>
 </kw>
-<status status="PASS" start="2024-05-06T17:05:27.642606" elapsed="13.321971"/>
+<status status="PASS" start="2024-05-07T04:42:27.529705" elapsed="13.279910"/>
 </kw>
-<kw name="Forgot Password" owner="SignIn">
-<kw name="Fill &quot;Forgot Password&quot; Email Field" owner="SignIn">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-05-06T17:05:40.965596" level="INFO">Typing text 'iamaninvalidaemail@example.com' into text field 'id=email'.</msg>
-<arg>${FORGOT_PASSWORD_EMAIL_TEXTBOX}</arg>
-<arg>${Email}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-06T17:05:40.965596" elapsed="3.205106"/>
-</kw>
-<arg>${Email}</arg>
-<status status="PASS" start="2024-05-06T17:05:40.965596" elapsed="3.205106"/>
-</kw>
-<kw name="Click &quot;Submit&quot; Button For Forgot Password" owner="SignIn">
+<kw name="Click Back To Login Button" owner="SignIn">
+<kw name="Click Sign In Button" owner="SignIn">
 <kw name="Ensure Element Is Clickable And Click" owner="bnfinApp">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2024-05-07T04:42:53.014073" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2024-05-07T04:42:53.014073" level="FAIL">Element 'link=Login' not visible after 10 seconds.</msg>
 <arg>${locator}</arg>
 <arg>10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-05-06T17:05:44.171712" elapsed="2.021887"/>
+<status status="FAIL" start="2024-05-07T04:42:40.811636" elapsed="12.206433">Element 'link=Login' not visible after 10 seconds.</status>
 </kw>
 <kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
 <arg>${locator}</arg>
 <arg>10s</arg>
 <doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" start="2024-05-06T17:05:46.193599" elapsed="3.031206"/>
+<status status="NOT RUN" start="2024-05-07T04:42:53.018069" elapsed="0.000000"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-05-06T17:05:49.224805" level="INFO">Clicking element 'xpath=//*[@id="app"]/div[4]/div/div[2]/form/button'.</msg>
 <arg>${locator}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-06T17:05:49.224805" elapsed="2.063788"/>
+<status status="NOT RUN" start="2024-05-07T04:42:53.018069" elapsed="0.000000"/>
 </kw>
-<arg>${FORGOT_PASSWORD_SUBMIT_BUTTON}</arg>
-<status status="PASS" start="2024-05-06T17:05:44.170702" elapsed="7.117891"/>
+<arg>${LOGIN_BUTTON_LINK}</arg>
+<status status="FAIL" start="2024-05-07T04:42:40.810638" elapsed="12.208431">Element 'link=Login' not visible after 10 seconds.</status>
 </kw>
-<status status="PASS" start="2024-05-06T17:05:44.170702" elapsed="7.117891"/>
-</kw>
-<arg>${INVALID_EMAIL}</arg>
-<status status="PASS" start="2024-05-06T17:05:40.964577" elapsed="10.324016"/>
-</kw>
-<kw name="User Should See Error Message" owner="bnfinApp">
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>${error_message}</arg>
-<arg>timeout=10s</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2024-05-06T17:05:51.289610" elapsed="1.016424"/>
-</kw>
-<return>
-<value>${TRUE}</value>
-<status status="PASS" start="2024-05-06T17:05:52.306034" elapsed="0.000000"/>
-</return>
-<arg>Account was not found</arg>
-<status status="PASS" start="2024-05-06T17:05:51.289610" elapsed="1.016932"/>
-</kw>
-<kw name="End Web Test" owner="Common" type="TEARDOWN">
-<kw name="Close All Browsers" owner="SeleniumLibrary">
-<doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2024-05-06T17:05:52.307557" elapsed="3.263955"/>
-</kw>
-<kw name="Log Test Case Status" owner="Common">
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>'${TEST STATUS}' != 'PASS'</arg>
-<arg>Log</arg>
-<arg>Test failed: ${TEST NAME}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-05-06T17:05:55.571512" elapsed="0.000000"/>
-</kw>
-<status status="PASS" start="2024-05-06T17:05:55.571512" elapsed="0.000000"/>
-</kw>
-<status status="PASS" start="2024-05-06T17:05:52.306542" elapsed="3.264970"/>
-</kw>
-<doc>Test Forgot Password with invalid email</doc>
-<tag>Forgot Password</tag>
-<tag>Ivalid</tag>
-<status status="PASS" start="2024-05-06T17:05:23.065183" elapsed="32.506329"/>
-</test>
-<test id="s1-t2" name="User Should Not Be Able To Reset Password With Empty Field" line="95">
-<kw name="Begin Web Test" owner="Common" type="SETUP">
-<kw name="Catenate" owner="BuiltIn">
-<msg time="2024-05-06T17:05:55.571512" level="INFO">${auth_url} = https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/</msg>
-<var>${auth_url}</var>
-<arg>SEPARATOR=</arg>
-<arg>https://${USERNAME}:${WEBPASSWORD}@${START_URL}</arg>
-<doc>Catenates the given items together and returns the resulted string.</doc>
-<status status="PASS" start="2024-05-06T17:05:55.571512" elapsed="0.000000"/>
-</kw>
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2024-05-06T17:05:55.571512" level="INFO">Opening browser 'chrome' to base url 'https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/'.</msg>
-<arg>${auth_url}</arg>
-<arg>${BROWSER}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2024-05-06T17:05:55.571512" elapsed="5.091894"/>
-</kw>
-<kw name="Maximize Browser Window" owner="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2024-05-06T17:06:00.663644" elapsed="1.049606"/>
-</kw>
-<kw name="Set Selenium Speed" owner="SeleniumLibrary">
-<arg>1s</arg>
-<doc>Sets the delay that is waited after each Selenium command.</doc>
-<status status="PASS" start="2024-05-06T17:06:01.713250" elapsed="0.000000"/>
-</kw>
-<status status="PASS" start="2024-05-06T17:05:55.571512" elapsed="6.141738"/>
-</kw>
-<kw name="Navigate to &quot;Forgot Password&quot;" owner="SignIn">
-<kw name="Go To Login Page" owner="SignIn">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${LOGIN_BUTTON}</arg>
-<arg>10s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-05-06T17:06:01.715252" elapsed="2.029968"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-05-06T17:06:03.745813" level="INFO">Clicking element 'xpath=//a[@href='/login' and contains(@class, 'btn-outline-white')]'.</msg>
-<arg>${LOGIN_BUTTON}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-06T17:06:03.745220" elapsed="2.093126"/>
+<status status="FAIL" start="2024-05-07T04:42:40.810638" elapsed="12.208431">Element 'link=Login' not visible after 10 seconds.</status>
 </kw>
 <kw name="Wait Until Page Contains" owner="SeleniumLibrary">
 <arg>${LOGIN_HEADER_LABEL}</arg>
 <doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2024-05-06T17:06:05.838346" elapsed="1.014544"/>
+<status status="NOT RUN" start="2024-05-07T04:42:53.019069" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2024-05-06T17:06:01.714255" elapsed="5.138635"/>
-</kw>
-<kw name="Ensure Element Is Clickable And Click" owner="bnfinApp">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${locator}</arg>
-<arg>10s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-05-06T17:06:06.853899" elapsed="2.031404"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
-<arg>${locator}</arg>
-<arg>10s</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" start="2024-05-06T17:06:08.885303" elapsed="3.034975"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-05-06T17:06:11.920543" level="INFO">Clicking element 'link=Forgot Password?'.</msg>
-<arg>${locator}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-06T17:06:11.920543" elapsed="2.084412"/>
-</kw>
-<arg>${FORGOT_PASSWORD_LINK}</arg>
-<status status="PASS" start="2024-05-06T17:06:06.852890" elapsed="7.152065"/>
-</kw>
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>Forgot Password?</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2024-05-06T17:06:14.004955" elapsed="1.015589"/>
-</kw>
-<status status="PASS" start="2024-05-06T17:06:01.714255" elapsed="13.306289"/>
-</kw>
-<kw name="Forgot Password" owner="SignIn">
-<kw name="Fill &quot;Forgot Password&quot; Email Field" owner="SignIn">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-05-06T17:06:15.023029" level="INFO">Typing text '' into text field 'id=email'.</msg>
-<arg>${FORGOT_PASSWORD_EMAIL_TEXTBOX}</arg>
-<arg>${Email}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-06T17:06:15.023029" elapsed="3.106361"/>
-</kw>
-<arg>${Email}</arg>
-<status status="PASS" start="2024-05-06T17:06:15.022028" elapsed="3.107362"/>
-</kw>
-<kw name="Click &quot;Submit&quot; Button For Forgot Password" owner="SignIn">
-<kw name="Ensure Element Is Clickable And Click" owner="bnfinApp">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${locator}</arg>
-<arg>10s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-05-06T17:06:18.130407" elapsed="2.023876"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
-<arg>${locator}</arg>
-<arg>10s</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" start="2024-05-06T17:06:20.154283" elapsed="3.030297"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-05-06T17:06:23.184580" level="INFO">Clicking element 'xpath=//*[@id="app"]/div[4]/div/div[2]/form/button'.</msg>
-<arg>${locator}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-06T17:06:23.184580" elapsed="2.058183"/>
-</kw>
-<arg>${FORGOT_PASSWORD_SUBMIT_BUTTON}</arg>
-<status status="PASS" start="2024-05-06T17:06:18.129390" elapsed="7.113373"/>
-</kw>
-<status status="PASS" start="2024-05-06T17:06:18.129390" elapsed="7.113373"/>
-</kw>
-<arg>${EMPTY_STRING}</arg>
-<status status="PASS" start="2024-05-06T17:06:15.020544" elapsed="10.222734"/>
-</kw>
-<kw name="User Should See Error Message" owner="bnfinApp">
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>${error_message}</arg>
-<arg>timeout=10s</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2024-05-06T17:06:25.244285" elapsed="1.015329"/>
-</kw>
-<return>
-<value>${TRUE}</value>
-<status status="PASS" start="2024-05-06T17:06:26.259614" elapsed="0.000000"/>
-</return>
-<arg>Please fill Email field</arg>
-<status status="PASS" start="2024-05-06T17:06:25.243278" elapsed="1.016879"/>
+<status status="FAIL" start="2024-05-07T04:42:40.809615" elapsed="12.209454">Element 'link=Login' not visible after 10 seconds.</status>
 </kw>
 <kw name="End Web Test" owner="Common" type="TEARDOWN">
 <kw name="Close All Browsers" owner="SeleniumLibrary">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2024-05-06T17:06:26.261220" elapsed="3.169806"/>
+<status status="PASS" start="2024-05-07T04:42:53.021141" elapsed="3.147701"/>
 </kw>
 <kw name="Log Test Case Status" owner="Common">
 <kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-07T04:42:56.168842" level="INFO">Test failed: User Should Be Able To Navigate Back To Login Page From Forgot Password</msg>
+<arg>Test failed: ${TEST NAME}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-07T04:42:56.168842" elapsed="0.000000"/>
+</kw>
 <arg>'${TEST STATUS}' != 'PASS'</arg>
 <arg>Log</arg>
 <arg>Test failed: ${TEST NAME}</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-05-06T17:06:29.431026" elapsed="0.000000"/>
+<status status="PASS" start="2024-05-07T04:42:56.168842" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2024-05-06T17:06:29.431026" elapsed="0.000000"/>
+<status status="PASS" start="2024-05-07T04:42:56.168842" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2024-05-06T17:06:26.260687" elapsed="3.170339"/>
+<status status="PASS" start="2024-05-07T04:42:53.020072" elapsed="3.148770"/>
 </kw>
-<doc>Test Forgot Password with empty email field</doc>
+<doc>Test Navigation back to login page from Forgot Password</doc>
 <tag>Forgot Password</tag>
-<tag>Ivalid</tag>
-<status status="PASS" start="2024-05-06T17:05:55.571512" elapsed="33.859514"/>
-</test>
-<test id="s1-t3" name="User Should Not Be Able To Reset Password With Invalid Email Format" line="102">
-<kw name="Begin Web Test" owner="Common" type="SETUP">
-<kw name="Catenate" owner="BuiltIn">
-<msg time="2024-05-06T17:06:33.472218" level="INFO">${auth_url} = https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/</msg>
-<var>${auth_url}</var>
-<arg>SEPARATOR=</arg>
-<arg>https://${USERNAME}:${WEBPASSWORD}@${START_URL}</arg>
-<doc>Catenates the given items together and returns the resulted string.</doc>
-<status status="PASS" start="2024-05-06T17:06:33.472218" elapsed="0.000000"/>
-</kw>
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2024-05-06T17:06:33.472218" level="INFO">Opening browser 'chrome' to base url 'https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/'.</msg>
-<arg>${auth_url}</arg>
-<arg>${BROWSER}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2024-05-06T17:06:33.472218" elapsed="4.901660"/>
-</kw>
-<kw name="Maximize Browser Window" owner="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2024-05-06T17:06:38.373878" elapsed="1.038681"/>
-</kw>
-<kw name="Set Selenium Speed" owner="SeleniumLibrary">
-<arg>1s</arg>
-<doc>Sets the delay that is waited after each Selenium command.</doc>
-<status status="PASS" start="2024-05-06T17:06:39.412559" elapsed="0.000517"/>
-</kw>
-<status status="PASS" start="2024-05-06T17:06:29.431026" elapsed="9.982050"/>
-</kw>
-<kw name="Navigate to &quot;Forgot Password&quot;" owner="SignIn">
-<kw name="Go To Login Page" owner="SignIn">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${LOGIN_BUTTON}</arg>
-<arg>10s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-05-06T17:06:39.414090" elapsed="2.030095"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-05-06T17:06:41.444185" level="INFO">Clicking element 'xpath=//a[@href='/login' and contains(@class, 'btn-outline-white')]'.</msg>
-<arg>${LOGIN_BUTTON}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-06T17:06:41.444185" elapsed="2.092867"/>
-</kw>
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>${LOGIN_HEADER_LABEL}</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2024-05-06T17:06:43.537052" elapsed="1.016015"/>
-</kw>
-<status status="PASS" start="2024-05-06T17:06:39.414090" elapsed="5.138977"/>
-</kw>
-<kw name="Ensure Element Is Clickable And Click" owner="bnfinApp">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${locator}</arg>
-<arg>10s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-05-06T17:06:44.554086" elapsed="2.030299"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
-<arg>${locator}</arg>
-<arg>10s</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" start="2024-05-06T17:06:46.584385" elapsed="3.035974"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-05-06T17:06:49.620359" level="INFO">Clicking element 'link=Forgot Password?'.</msg>
-<arg>${locator}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-06T17:06:49.620359" elapsed="2.083600"/>
-</kw>
-<arg>${FORGOT_PASSWORD_LINK}</arg>
-<status status="PASS" start="2024-05-06T17:06:44.553067" elapsed="7.150892"/>
-</kw>
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>Forgot Password?</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2024-05-06T17:06:51.703959" elapsed="1.015650"/>
-</kw>
-<status status="PASS" start="2024-05-06T17:06:39.414090" elapsed="13.305519"/>
-</kw>
-<kw name="Forgot Password" owner="SignIn">
-<kw name="Fill &quot;Forgot Password&quot; Email Field" owner="SignIn">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-05-06T17:06:52.721948" level="INFO">Typing text 'victoria.shmakov' into text field 'id=email'.</msg>
-<arg>${FORGOT_PASSWORD_EMAIL_TEXTBOX}</arg>
-<arg>${Email}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-06T17:06:52.721948" elapsed="3.158734"/>
-</kw>
-<arg>${Email}</arg>
-<status status="PASS" start="2024-05-06T17:06:52.720933" elapsed="3.159749"/>
-</kw>
-<kw name="Click &quot;Submit&quot; Button For Forgot Password" owner="SignIn">
-<kw name="Ensure Element Is Clickable And Click" owner="bnfinApp">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${locator}</arg>
-<arg>10s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-05-06T17:06:55.881690" elapsed="2.026849"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
-<arg>${locator}</arg>
-<arg>10s</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" start="2024-05-06T17:06:57.908539" elapsed="3.032873"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-05-06T17:07:00.941922" level="INFO">Clicking element 'xpath=//*[@id="app"]/div[4]/div/div[2]/form/button'.</msg>
-<arg>${locator}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-06T17:07:00.941412" elapsed="2.067393"/>
-</kw>
-<arg>${FORGOT_PASSWORD_SUBMIT_BUTTON}</arg>
-<status status="PASS" start="2024-05-06T17:06:55.881690" elapsed="7.127115"/>
-</kw>
-<status status="PASS" start="2024-05-06T17:06:55.880682" elapsed="7.128123"/>
-</kw>
-<arg>${BAD_EMAIL_FORMAT}</arg>
-<status status="PASS" start="2024-05-06T17:06:52.719609" elapsed="10.289705"/>
-</kw>
-<kw name="User Should See Error Message" owner="bnfinApp">
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>${error_message}</arg>
-<arg>timeout=10s</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2024-05-06T17:07:03.010328" elapsed="1.015708"/>
-</kw>
-<return>
-<value>${TRUE}</value>
-<status status="PASS" start="2024-05-06T17:07:04.026036" elapsed="0.000000"/>
-</return>
-<arg>Invalid {field} format</arg>
-<status status="PASS" start="2024-05-06T17:07:03.009314" elapsed="1.016722"/>
-</kw>
-<kw name="End Web Test" owner="Common" type="TEARDOWN">
-<kw name="Close All Browsers" owner="SeleniumLibrary">
-<doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2024-05-06T17:07:04.027961" elapsed="3.153536"/>
-</kw>
-<kw name="Log Test Case Status" owner="Common">
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>'${TEST STATUS}' != 'PASS'</arg>
-<arg>Log</arg>
-<arg>Test failed: ${TEST NAME}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-05-06T17:07:07.181497" elapsed="0.000000"/>
-</kw>
-<status status="PASS" start="2024-05-06T17:07:07.181497" elapsed="0.000000"/>
-</kw>
-<status status="PASS" start="2024-05-06T17:07:04.027306" elapsed="3.154191"/>
-</kw>
-<doc>Test Forgot Password with invalid email format field</doc>
-<tag>Forgot Password</tag>
-<tag>Ivalid</tag>
-<status status="PASS" start="2024-05-06T17:06:29.431026" elapsed="37.750471"/>
+<tag>Navigation</tag>
+<status status="FAIL" start="2024-05-07T04:42:23.905679" elapsed="32.263163">Element 'link=Login' not visible after 10 seconds.</status>
 </test>
 <doc>This testing suite will check for the functionality of user login, registration and password reset</doc>
-<status status="PASS" start="2024-05-06T17:05:22.543923" elapsed="104.637574"/>
+<status status="FAIL" start="2024-05-07T04:42:23.546279" elapsed="32.622563"/>
 </suite>
 <statistics>
 <total>
-<stat pass="3" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="3" fail="0" skip="0">Forgot Password</stat>
-<stat pass="3" fail="0" skip="0">Ivalid</stat>
+<stat pass="0" fail="1" skip="0">Forgot Password</stat>
+<stat pass="0" fail="1" skip="0">Navigation</stat>
 </tag>
 <suite>
-<stat pass="3" fail="0" skip="0" id="s1" name="Logreg">Logreg</stat>
+<stat pass="0" fail="1" skip="0" id="s1" name="Logreg">Logreg</stat>
 </suite>
 </statistics>
 <errors>

@@ -3,7 +3,22 @@ Resource    ../Resources/PO/SignIn.robot
 Resource    ../Resources/PO/HomeDashboard.robot
 Resource    ../Resources/PO/PublicPages.robot
 *** Variables ***
-${EMPTY_STRING}=     ${EMPTY}
+${EMPTY_STRING}=                 ${EMPTY}
+${VALID_EMAIL}=                  victoria.shmakov+1@curbza.com
+${NOT_IN_SYSTEM_EMAIL}=          iamaninvalidaemail@example.com
+${INVALID_EMAIL_FORMAT}=         invalidemail@
+${INVALID_FIELD_STRING}          ${101*"a"}
+${INVALID_PARAGRAPH_STRING}      ${7501*"b"}
+${VALID_URL_FORMAT}=             https://www.example.com
+${INVALID_URL_FORMAT}=           www.example
+${VALID_PHONE}=                  9025678900
+${INVALID_PHONE_FORMAT}=         123456789
+${VALID_POSTAL_CODE}=            A1A 1A1
+${INVALID_POSTAL_CODE_FORMAT}=   123456
+${VALID_NUMERIC_FIELD}=          150000
+${INVALID_NUMERIC_FIELD}=        150000.00
+
+
 ${EXPECTED_RESET_URL}=    ${EMPTY}
 *** Keywords ***
 Login as User Type
@@ -18,6 +33,61 @@ Login as User Type
     SignIn.Login With Valid Credentials    ${email}    ${password}
     Go to "Home" Dashboard
 
+# ----------------------------------------------------------------
+#              GENERATE RANDOM DATA TO BE REUSED IN TESTS
+# ----------------------------------------------------------------
+
+
+
+# Decide what length string you want to create
+# To call: ${string100}=    Create String Of Length    100
+Create String Of Length
+    [Arguments]    ${length}
+    ${generated_string}=    Evaluate    'a' * ${length}    globals()
+    RETURN   ${generated_string}
+
+# Decide what length number you want to create, this will create a string made up of integers
+Create String Number Of Length
+    [Arguments]    ${length}
+    ${generated_string}=    Evaluate    '1' * ${length}    globals()
+    RETURN   ${generated_string}
+
+# Decide what length integer you want to create, this will create an integer
+Create Integer Of Length
+    [Arguments]    ${length}
+    ${generated_string}=    Evaluate    int('1' * int(${length}))    globals()
+    RETURN    ${generated_string}
+
+# generates the current date in the format specified
+# To use:  ${today}=    Get Current Date 
+# Log    Today's Date: ${today}
+Get Current Date
+    [Arguments]    ${format}=%d/%m/%Y
+    ${current_date}=    Get Time    ${format}
+    RETURN    ${current_date}
+
+# generates a date in the future or past based on the number of days offset
+# ${next_week}=    Get Relative Date    7    %Y-%m-%d
+# Log    Date Next Week: ${next_week}
+Get Relative Date
+    [Arguments]    ${days_offset}    ${format}=%d/%m/%Y
+    ${offset_date}=    Evaluate    (datetime.datetime.now() + datetime.timedelta(days=${days_offset})).strftime('${format}')    datetime
+    RETURN     ${offset_date}
+
+
+Select Date From Picker
+    [Arguments]    ${day}    ${month}    ${year}
+    Click Element    id:datePickerField
+    Select From List By Label    id:monthDropdown    ${month}
+    Select From List By Label    id:yearDropdown    ${year}
+    Click Element    xpath://*[@class='day' and text()='${day}']
+
+# --------------------------------------------------------------------------
+
+
+
+
+
 Go to "Home" Dashboard
     HomeDashboard.Navigate To Dash
     HomeDashboard.Verify Page Loaded
@@ -28,10 +98,30 @@ Ensure Element Is Clickable And Click
     Wait Until Element Is Enabled    ${locator}    10s
     Click Element    ${locator}
 
+
 Check If Element Exists
     [Arguments]    ${locator}
     ${exists}=    Run Keyword And Return Status    Wait Until Element Is Visible    ${locator}    5s
     RETURN    ${exists}
+
+
+
+User Should See Page Title
+    [Arguments]    ${expected_title}
+    ${actual_title}=    Get Title
+    Should Be Equal    ${actual_title}    ${expected_title}
+
+
+Page Should Not Have Changed
+    [Arguments]    ${expected_url}
+    ${current_url}=    Get Location
+    Should Be Equal    ${current_url}    ${expected_url}
+
+User Should See Error Message
+    [Arguments]    ${error_message}
+    Wait Until Page Contains    ${error_message}    timeout=10s
+    RETURN    ${TRUE}
+
 
 
 Go To "Sign Up" Page From "Sign In" Page
@@ -54,12 +144,3 @@ Go To "Home Page" From "Sign Up" Page
     Run Keyword If    ${button_exists}    Navigate To "Home" Page
     ...    ELSE    Fail    "BNFIN button does not exist"
 
-Page Should Not Have Changed
-    [Arguments]    ${expected_url}
-    ${current_url}=    Get Location
-    Should Be Equal    ${current_url}    ${expected_url}
-
-User Should See Error Message
-    [Arguments]    ${error_message}
-    Wait Until Page Contains    ${error_message}    timeout=10s
-    RETURN    ${TRUE}
