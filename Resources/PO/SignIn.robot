@@ -39,6 +39,34 @@ Login With Valid Credentials
     Fill "Password" Field       ${Password}
     Click "Submit" Button
 
+Login With Invalid Email
+    [Arguments]    ${Invalid_Email}     ${password}
+    Fill "Email" Field          ${Invalid_Email}
+    Fill "Password" Field       ${password}
+    Click "Submit" Button
+    User Should See Error Message    Username incorrect
+
+Login With Invalid Password
+    [Arguments]    ${Email}     ${Invalid_Password}
+    Fill "Email" Field          ${Email}
+    Fill "Password" Field       ${Invalid_Password}
+    Click "Submit" Button
+    User Should See Error Message    Password incorrect
+
+Login With Empty Password
+    [Arguments]    ${Email}     ${Password}
+    Fill "Email" Field          ${Email}
+    Fill "Password" Field       ${Password}
+    Click "Submit" Button
+    User Should See Error Message    Please fill Password field
+
+Login With Empty Email
+    [Arguments]    ${Email}     ${Password}
+    Fill "Email" Field          ${Email}
+    Fill "Password" Field       ${Password}
+    Click "Submit" Button
+    User Should See Error Message    Please fill Email field
+
 Fill "Email" Field
     [Arguments]    ${Email}
     input text    ${LOGIN_EMAIL_TEXTBOX}    ${Email}

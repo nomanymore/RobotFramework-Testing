@@ -3,6 +3,7 @@ Documentation  This testing suite will check for the functionality of user login
 Resource  ../Resources/Common.robot
 Resource  ../Resources/PO/SignIn.robot
 Resource  ../Resources/bnfinApp.robot
+Resource  ../Resources/PO/SignUp.robot
 Test Setup  Common.Begin Web Test
 Test Teardown  Common.End Web Test
 
@@ -67,6 +68,32 @@ Admin Login Test
     [Tags]                  Admin    Login
     bnfinApp.Login as User Type    ADMIN
 
+#------------------Invalid login tests----------------------------------
+
+User Should Not Be Able To Login With Invalid Email
+    [Documentation]         Test login with invalid email
+    [Tags]                  Invalid    Login    
+    SignIn.Go To Login Page
+    SignIn.Login With Invalid Email    ${NOT_IN_SYSTEM_EMAIL}    ${PASSWORD}
+
+User Should Not Be Able To Login With Empty Email
+    [Documentation]         Test login with empty email
+    [Tags]                  Invalid    Login    
+    SignIn.Go To Login Page
+    SignIn.Login With Empty Email    ${EMPTY_STRING}    ${PASSWORD}
+
+User Should Not Be Able To Login With Empty Password
+    [Documentation]         Test login with empty password
+    [Tags]                  Invalid    Login    
+    SignIn.Go To Login Page
+    SignIn.Login With Empty Password    ${USER_ADMIN}    ${EMPTY_STRING}
+
+User Should Not Be Able To Login With Invalid Password
+    [Documentation]         Test login with invalid password
+    [Tags]                  Invalid    Login    
+    SignIn.Go To Login Page
+    SignIn.Login With Invalid Password    ${USER_ADMIN}    ${INVALID_PASSWORD}
+
 #------------------Logout test----------------------------------   
 
 Admin Logout Test
@@ -114,3 +141,25 @@ User Should Be Able To Navigate Back To Login Page From Forgot Password
     SignIn.Click Back To Login Button
 
 #------------------Sign up tests----------------------------------     
+
+User Should See Error Messages If Fields Are Empty
+    [Documentation]         Test Registration
+    [Tags]                  Registration    Invalid
+    PublicPages.Navigate To "Sign Up" Page
+    SignUp.Check If Empty Field Validation Works For Signup Page    ${EMPTY_STRING}    ${EMPTY_STRING}    ${EMPTY_STRING}    ${EMPTY_STRING}
+
+User Should See Error Messages If Fields Are Invalid
+    [Documentation]         Test Registration
+    [Tags]                  Registration    Invalid    
+    PublicPages.Navigate To "Sign Up" Page
+    SignUp.Check If Invalid Field Validation Works For Signup Page    ${VALID_EMAIL}    ${INVALID_PASSWORD}    ${BAD_EMAIL_FORMAT}
+  
+
+User Should Be Able To Register With Valid Data
+    [Documentation]         Test Registration
+    [Tags]                  Registration    Valid
+    PublicPages.Navigate To "Sign Up" Page
+    ${string10}=    Create Random String Of Length    10
+    ${random_email}=    Create Random Email    12    7
+    SignUp.Register With Valid Data    ${string10}  ${random_email}  ${VALID_PASSWORD}    ${VALID_PASSWORD}
+    

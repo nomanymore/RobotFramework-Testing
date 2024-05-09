@@ -1,0 +1,546 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.12.3 on win32)" generated="2024-05-09T14:28:50.311507" rpa="false" schemaversion="5">
+<suite id="s1" name="Grants-Lead1" source="F:\NSCC-Courses\Semester-2\Work Placement\Automated Tests\BNFIN\tests\Grants-Lead1.robot">
+<test id="s1-t1" name="User Should Be Able To Add A New Grant" line="86">
+<kw name="Begin Web Test" owner="Common" type="SETUP">
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2024-05-09T14:28:50.747766" level="INFO">${auth_url} = https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/</msg>
+<var>${auth_url}</var>
+<arg>SEPARATOR=</arg>
+<arg>https://${USERNAME}:${WEBPASSWORD}@${START_URL}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2024-05-09T14:28:50.747766" elapsed="0.000000"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-05-09T14:28:50.748766" level="INFO">Opening browser 'chrome' to base url 'https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/'.</msg>
+<arg>${auth_url}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-05-09T14:28:50.747766" elapsed="3.683132"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-05-09T14:28:54.430898" elapsed="1.025515"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>1s</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2024-05-09T14:28:55.456413" elapsed="0.001000"/>
+</kw>
+<status status="PASS" start="2024-05-09T14:28:50.746769" elapsed="4.710644"/>
+</kw>
+<kw name="Create Random String Of Length" owner="bnfinApp">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-09T14:28:55.458411" level="INFO">${random_string} = fQVE5HTEyT</msg>
+<var>${random_string}</var>
+<arg>''.join(random.choices(string.ascii_letters + string.digits, k=int(${length})))</arg>
+<arg>random, string</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-09T14:28:55.458411" elapsed="0.000000"/>
+</kw>
+<return>
+<value>${random_string}</value>
+<status status="PASS" start="2024-05-09T14:28:55.458411" elapsed="0.000000"/>
+</return>
+<msg time="2024-05-09T14:28:55.458411" level="INFO">${string10} = fQVE5HTEyT</msg>
+<var>${string10}</var>
+<arg>10</arg>
+<status status="PASS" start="2024-05-09T14:28:55.457413" elapsed="0.000998"/>
+</kw>
+<kw name="Create Random String Of Length" owner="bnfinApp">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-09T14:28:55.459410" level="INFO">${random_string} = 06AvPhyClouIPO1TWa07RNwFS7qpquSduAFoj4Xmgg4f8CDkuSqtJnl5CYqPSnyPoXa8Uc0Z1bOkgV8Tf6Sht26FQhZqaoeNdoG0</msg>
+<var>${random_string}</var>
+<arg>''.join(random.choices(string.ascii_letters + string.digits, k=int(${length})))</arg>
+<arg>random, string</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-09T14:28:55.459410" elapsed="0.000000"/>
+</kw>
+<return>
+<value>${random_string}</value>
+<status status="PASS" start="2024-05-09T14:28:55.459410" elapsed="0.000000"/>
+</return>
+<msg time="2024-05-09T14:28:55.459410" level="INFO">${string100} = 06AvPhyClouIPO1TWa07RNwFS7qpquSduAFoj4Xmgg4f8CDkuSqtJnl5CYqPSnyPoXa8Uc0Z1bOkgV8Tf6Sht26FQhZqaoeNdoG0</msg>
+<var>${string100}</var>
+<arg>100</arg>
+<status status="PASS" start="2024-05-09T14:28:55.459410" elapsed="0.000000"/>
+</kw>
+<kw name="Create Random Integer Of Length" owner="bnfinApp">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-09T14:28:55.460411" level="INFO">${min_value} = 100000</msg>
+<var>${min_value}</var>
+<arg>10**(int(${length})-1)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-09T14:28:55.460411" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-09T14:28:55.460411" level="INFO">${max_value} = 999999</msg>
+<var>${max_value}</var>
+<arg>(10**int(${length})) - 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-09T14:28:55.460411" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-09T14:28:55.461411" level="INFO">${random_number} = 895591</msg>
+<var>${random_number}</var>
+<arg>random.randint(${min_value}, ${max_value})</arg>
+<arg>random</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-09T14:28:55.461411" elapsed="0.000000"/>
+</kw>
+<return>
+<value>${random_number}</value>
+<status status="PASS" start="2024-05-09T14:28:55.461411" elapsed="0.000000"/>
+</return>
+<msg time="2024-05-09T14:28:55.461411" level="INFO">${int6} = 895591</msg>
+<var>${int6}</var>
+<arg>6</arg>
+<status status="PASS" start="2024-05-09T14:28:55.460411" elapsed="0.001000"/>
+</kw>
+<kw name="Get Relative Date" owner="bnfinApp">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-09T14:28:55.462411" level="INFO">${offset_date} = 16-05-2024</msg>
+<var>${offset_date}</var>
+<arg>(datetime.datetime.now() + datetime.timedelta(days=${days_offset})).strftime('${format}')</arg>
+<arg>datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-09T14:28:55.462411" elapsed="0.000000"/>
+</kw>
+<return>
+<value>${offset_date}</value>
+<status status="PASS" start="2024-05-09T14:28:55.463410" elapsed="0.000000"/>
+</return>
+<msg time="2024-05-09T14:28:55.463410" level="INFO">${next_week} = 16-05-2024</msg>
+<var>${next_week}</var>
+<arg>7</arg>
+<arg>%d-%m-%Y</arg>
+<status status="PASS" start="2024-05-09T14:28:55.462411" elapsed="0.000999"/>
+</kw>
+<kw name="Get Relative Date" owner="bnfinApp">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-09T14:28:55.464411" level="INFO">${offset_date} = 02-05-2024</msg>
+<var>${offset_date}</var>
+<arg>(datetime.datetime.now() + datetime.timedelta(days=${days_offset})).strftime('${format}')</arg>
+<arg>datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-09T14:28:55.463410" elapsed="0.001001"/>
+</kw>
+<return>
+<value>${offset_date}</value>
+<status status="PASS" start="2024-05-09T14:28:55.464411" elapsed="0.000000"/>
+</return>
+<msg time="2024-05-09T14:28:55.464411" level="INFO">${last_week} = 02-05-2024</msg>
+<var>${last_week}</var>
+<arg>-7</arg>
+<arg>%d-%m-%Y</arg>
+<status status="PASS" start="2024-05-09T14:28:55.463410" elapsed="0.001001"/>
+</kw>
+<kw name="Navigate To Grants-Lead" owner="Grants_Lead1">
+<kw name="Login as User Type" owner="bnfinApp">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Set Variable" owner="BuiltIn">
+<arg>${USER_LEAD_REVIEWER}[${user_index}]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-09T14:28:55.466418" elapsed="0.001001"/>
+</kw>
+<msg time="2024-05-09T14:28:55.467419" level="INFO">${email} = victoria.lead-bbi</msg>
+<var>${email}</var>
+<arg>'${user_type}'=='ADMIN'</arg>
+<arg>Set Variable</arg>
+<arg>${USER_ADMIN}</arg>
+<arg>ELSE IF</arg>
+<arg>'${user_type}'=='LEAD_REVIEWER'</arg>
+<arg>Set Variable</arg>
+<arg>${USER_LEAD_REVIEWER}[${user_index}]</arg>
+<arg>ELSE IF</arg>
+<arg>'${user_type}'=='REVIEWER'</arg>
+<arg>Set Variable</arg>
+<arg>${USER_REVIEWER}[${user_index}]</arg>
+<arg>ELSE IF</arg>
+<arg>'${user_type}'=='APPLICANT'</arg>
+<arg>Set Variable</arg>
+<arg>${USER_APPLICANT}[${user_index}]</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>${None}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-05-09T14:28:55.465414" elapsed="0.002005"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-09T14:28:55.468413" level="INFO">${password} = test</msg>
+<var>${password}</var>
+<arg>${PASSWORD}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-09T14:28:55.467419" elapsed="0.000994"/>
+</kw>
+<kw name="Go To Login Page" owner="SignIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOGIN_BUTTON}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-09T14:28:55.469417" elapsed="2.026838"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-09T14:28:57.497790" level="INFO">Clicking element 'xpath=//a[@href='/login' and contains(@class, 'btn-outline-white')]'.</msg>
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-09T14:28:57.496255" elapsed="2.085302"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${LOGIN_HEADER_LABEL}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-05-09T14:28:59.581557" elapsed="1.018676"/>
+</kw>
+<status status="PASS" start="2024-05-09T14:28:55.468413" elapsed="5.131820"/>
+</kw>
+<kw name="Login With Valid Credentials" owner="SignIn">
+<kw name="Fill &quot;Email&quot; Field" owner="SignIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-09T14:29:00.601257" level="INFO">Typing text 'victoria.lead-bbi' into text field 'id=username'.</msg>
+<arg>${LOGIN_EMAIL_TEXTBOX}</arg>
+<arg>${Email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-09T14:29:00.601257" elapsed="3.158669"/>
+</kw>
+<arg>${Email}</arg>
+<status status="PASS" start="2024-05-09T14:29:00.601257" elapsed="3.158669"/>
+</kw>
+<kw name="Fill &quot;Password&quot; Field" owner="SignIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-09T14:29:03.764470" level="INFO">Typing text 'test' into text field 'id=password'.</msg>
+<arg>${LOGIN_PASSWORD_TEXTBOX}</arg>
+<arg>${Password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-09T14:29:03.760441" elapsed="3.129396"/>
+</kw>
+<arg>${Password}</arg>
+<status status="PASS" start="2024-05-09T14:29:03.760441" elapsed="3.129396"/>
+</kw>
+<kw name="Click &quot;Submit&quot; Button" owner="SignIn">
+<kw name="Ensure Element Is Clickable And Click" owner="bnfinApp">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-09T14:29:06.890858" elapsed="2.027990"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2024-05-09T14:29:08.918848" elapsed="3.031801"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-09T14:29:11.950649" level="INFO">Clicking element 'xpath=//*[@id="app"]/div[4]/div/div[2]/form/button'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-09T14:29:11.950649" elapsed="2.060473"/>
+</kw>
+<arg>${LOGIN_SUBMIT_BUTTON}</arg>
+<status status="PASS" start="2024-05-09T14:29:06.890858" elapsed="7.120264"/>
+</kw>
+<status status="PASS" start="2024-05-09T14:29:06.889837" elapsed="7.121285"/>
+</kw>
+<arg>${email}</arg>
+<arg>${password}</arg>
+<status status="PASS" start="2024-05-09T14:29:00.600233" elapsed="13.410889"/>
+</kw>
+<kw name="Go to &quot;Home&quot; Dashboard" owner="bnfinApp">
+<kw name="Navigate To Dash" owner="HomeDashboard">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-05-09T14:29:14.012142" level="INFO">Opening url 'https://bnfin-staging.curbza.com/home'</msg>
+<arg>${DASH_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-05-09T14:29:14.012142" elapsed="1.299022"/>
+</kw>
+<status status="PASS" start="2024-05-09T14:29:14.012142" elapsed="1.299022"/>
+</kw>
+<kw name="Verify Page Loaded" owner="HomeDashboard">
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>xpath=//*[@id="app"]/div[4]/div[1]/nav/div</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2024-05-09T14:29:15.312181" elapsed="3.036066"/>
+</kw>
+<status status="PASS" start="2024-05-09T14:29:15.311164" elapsed="3.037083"/>
+</kw>
+<status status="PASS" start="2024-05-09T14:29:14.011122" elapsed="4.337125"/>
+</kw>
+<arg>LEAD_REVIEWER</arg>
+<arg>0</arg>
+<status status="PASS" start="2024-05-09T14:28:55.464411" elapsed="22.884345"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-09T14:29:18.348756" level="INFO">Clicking element 'xpath=//*[@id="app"]/div[4]/div[1]/nav/div/div/div/div[1]/a[4]'.</msg>
+<arg>${GRANTS_SIDENAV_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-09T14:29:18.348756" elapsed="2.136896"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>View current grants and create new grants</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-05-09T14:29:20.485652" elapsed="1.022231"/>
+</kw>
+<status status="PASS" start="2024-05-09T14:28:55.464411" elapsed="26.043472"/>
+</kw>
+<kw name="Add New Grant" owner="Grants_Lead1">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-09T14:29:21.509901" level="INFO">Clicking element 'xpath=//*[@id="app"]/div[4]/div[2]/div/div/div[1]/section/main/div/div[2]/a'.</msg>
+<arg>${CREATE_NEW_GRANT_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-09T14:29:21.509901" elapsed="2.117190"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Application Type</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-05-09T14:29:23.627091" elapsed="1.018419"/>
+</kw>
+<status status="PASS" start="2024-05-09T14:29:21.508901" elapsed="3.136609"/>
+</kw>
+<kw name="Select Application Type" owner="Grants_Lead1">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-09T14:29:24.646519" level="INFO">Clicking element 'xpath=//*[@id="app"]/div[4]/div[2]/div/div/div[1]/section/main/div/div[1]/div/div[1]/div[1]/select'.</msg>
+<arg>${APPLICATION_TYPE_SELECT}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-09T14:29:24.646519" elapsed="2.073891"/>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2024-05-09T14:29:26.720410" level="INFO">Selecting options from selection list 'xpath=//*[@id="app"]/div[4]/div[2]/div/div/div[1]/section/main/div/div[1]/div/div[1]/div[1]/select' by label Capital Assistance Form.</msg>
+<arg>${APPLICATION_TYPE_SELECT}</arg>
+<arg>${app_type}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2024-05-09T14:29:26.720410" elapsed="8.108341"/>
+</kw>
+<arg>Capital Assistance Form</arg>
+<status status="PASS" start="2024-05-09T14:29:24.646519" elapsed="10.182232"/>
+</kw>
+<kw name="Unselect Frame" owner="SeleniumLibrary">
+<doc>Sets the main frame as the current frame.</doc>
+<status status="PASS" start="2024-05-09T14:29:34.829764" elapsed="1.003672"/>
+</kw>
+<kw name="Enter Grant Title" owner="Grants_Lead1">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-09T14:29:35.834596" level="INFO">Typing text 'fQVE5HTEyT' into text field 'xpath=//*[@id="app"]/div[4]/div[2]/div/div/div[1]/section/main/div/div[1]/div/div[2]/div[1]/input'.</msg>
+<arg>${GRANT_TITLE_TEXTBOX}</arg>
+<arg>${title}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-09T14:29:35.834596" elapsed="3.149804"/>
+</kw>
+<arg>${string10}</arg>
+<status status="PASS" start="2024-05-09T14:29:35.833436" elapsed="3.150964"/>
+</kw>
+<kw name="Unselect Frame" owner="SeleniumLibrary">
+<doc>Sets the main frame as the current frame.</doc>
+<status status="PASS" start="2024-05-09T14:29:38.985421" elapsed="1.003354"/>
+</kw>
+<kw name="Enter Grant Budget" owner="Grants_Lead1">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-09T14:29:39.990798" level="INFO">Typing text '895591' into text field 'xpath=//*[@id="app"]/div[4]/div[2]/div/div/div[1]/section/main/div/div[1]/div/div[3]/div[1]/input'.</msg>
+<arg>${BUDGET_TEXTBOX}</arg>
+<arg>${budget}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-09T14:29:39.989799" elapsed="3.118979"/>
+</kw>
+<arg>${int6}</arg>
+<status status="PASS" start="2024-05-09T14:29:39.989799" elapsed="3.118979"/>
+</kw>
+<kw name="Unselect Frame" owner="SeleniumLibrary">
+<doc>Sets the main frame as the current frame.</doc>
+<status status="PASS" start="2024-05-09T14:29:43.108778" elapsed="1.004404"/>
+</kw>
+<kw name="Enter Grant Min Amount" owner="Grants_Lead1">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-09T14:29:44.114587" level="INFO">Typing text '895591' into text field 'xpath=//*[@id="app"]/div[4]/div[2]/div/div/div[1]/section/main/div/div[1]/div/div[4]/div[1]/input'.</msg>
+<arg>${MIN_AMOUNT_TEXTBOX}</arg>
+<arg>${min_amount}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-09T14:29:44.113182" elapsed="3.121552"/>
+</kw>
+<arg>${int6}</arg>
+<status status="PASS" start="2024-05-09T14:29:44.113182" elapsed="3.121552"/>
+</kw>
+<kw name="Unselect Frame" owner="SeleniumLibrary">
+<doc>Sets the main frame as the current frame.</doc>
+<status status="PASS" start="2024-05-09T14:29:47.236761" elapsed="1.003380"/>
+</kw>
+<kw name="Enter Grant Max Amount" owner="Grants_Lead1">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-09T14:29:48.241162" level="INFO">Typing text '895591' into text field 'xpath=//*[@id="app"]/div[4]/div[2]/div/div/div[1]/section/main/div/div[1]/div/div[5]/div[1]/input'.</msg>
+<arg>${MAX_AMOUNT_TEXTBOX}</arg>
+<arg>${max_amount}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-09T14:29:48.241162" elapsed="3.150963"/>
+</kw>
+<arg>${int6}</arg>
+<status status="PASS" start="2024-05-09T14:29:48.240141" elapsed="3.151984"/>
+</kw>
+<kw name="Unselect Frame" owner="SeleniumLibrary">
+<doc>Sets the main frame as the current frame.</doc>
+<status status="PASS" start="2024-05-09T14:29:51.393141" elapsed="1.003975"/>
+</kw>
+<kw name="Enter Grant Start Date" owner="Grants_Lead1">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-09T14:29:52.398134" level="INFO">Typing text '02-05-2024' into text field 'xpath=//*[@id="app"]/div[4]/div[2]/div/div/div[1]/section/main/div/div[1]/div/div[6]/div[1]/input'.</msg>
+<arg>${START_DATE_PICKER}</arg>
+<arg>${start_date}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-09T14:29:52.398134" elapsed="3.108887"/>
+</kw>
+<arg>${last_week}</arg>
+<status status="PASS" start="2024-05-09T14:29:52.397116" elapsed="3.109905"/>
+</kw>
+<kw name="Unselect Frame" owner="SeleniumLibrary">
+<doc>Sets the main frame as the current frame.</doc>
+<status status="PASS" start="2024-05-09T14:29:55.507021" elapsed="1.005878"/>
+</kw>
+<kw name="Enter Grant End Date" owner="Grants_Lead1">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-09T14:29:56.513952" level="INFO">Typing text '16-05-2024' into text field 'xpath=//*[@id="app"]/div[4]/div[2]/div/div/div[1]/section/main/div/div[1]/div/div[7]/div[1]/input'.</msg>
+<arg>${END_DATE_PICKER}</arg>
+<arg>${end_date}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-09T14:29:56.513952" elapsed="3.103778"/>
+</kw>
+<arg>${next_week}</arg>
+<status status="PASS" start="2024-05-09T14:29:56.512899" elapsed="3.104831"/>
+</kw>
+<kw name="Unselect Frame" owner="SeleniumLibrary">
+<doc>Sets the main frame as the current frame.</doc>
+<status status="PASS" start="2024-05-09T14:29:59.618739" elapsed="1.003877"/>
+</kw>
+<kw name="Enter Grant Description" owner="Grants_Lead1">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-09T14:30:00.624631" level="INFO">Typing text '06AvPhyClouIPO1TWa07RNwFS7qpquSduAFoj4Xmgg4f8CDkuSqtJnl5CYqPSnyPoXa8Uc0Z1bOkgV8Tf6Sht26FQhZqaoeNdoG0' into text field 'xpath=//*[@id="app"]/div[4]/div[2]/div/div/div[1]/section/main/div/div[1]/div/div[8]/div[1]/textarea'.</msg>
+<arg>${DESCRIPTION_TEXTBOX}</arg>
+<arg>${description}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-09T14:30:00.624631" elapsed="3.393180"/>
+</kw>
+<arg>${string100}</arg>
+<status status="PASS" start="2024-05-09T14:30:00.623636" elapsed="3.394175"/>
+</kw>
+<kw name="Unselect Frame" owner="SeleniumLibrary">
+<doc>Sets the main frame as the current frame.</doc>
+<status status="PASS" start="2024-05-09T14:30:04.018852" elapsed="1.004818"/>
+</kw>
+<kw name="Select Intermediary" owner="Grants_Lead1">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${INTERMEDIARY_SELECT}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2024-05-09T14:30:05.024678" elapsed="2.290361"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2024-05-09T14:30:07.316054" level="INFO">Selecting options from selection list 'xpath=//*[@id="app"]/div[4]/div[2]/div/div/div[1]/section/main/div/div[1]/div/div[9]/div[1]/select' by value bbi.</msg>
+<arg>${INTERMEDIARY_SELECT}</arg>
+<arg>${intermediary}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2024-05-09T14:30:07.315039" elapsed="8.109549"/>
+</kw>
+<arg>bbi</arg>
+<status status="PASS" start="2024-05-09T14:30:05.023670" elapsed="10.400918"/>
+</kw>
+<kw name="Unselect Frame" owner="SeleniumLibrary">
+<doc>Sets the main frame as the current frame.</doc>
+<status status="PASS" start="2024-05-09T14:30:15.425104" elapsed="1.004286"/>
+</kw>
+<kw name="Submit New Grant Button" owner="Grants_Lead1">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${CREATE_GRANT_BUTTON}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2024-05-09T14:30:16.430413" elapsed="2.301271"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-05-09T14:30:18.731684" level="INFO">Clicking button 'xpath=/html/body/div/div[4]/div[2]/div/div/div[1]/section/main/div/div[2]/button'.</msg>
+<arg>${CREATE_GRANT_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-09T14:30:18.731684" elapsed="5.113351"/>
+</kw>
+<status status="PASS" start="2024-05-09T14:30:16.429390" elapsed="7.415645"/>
+</kw>
+<kw name="Filter Accepting Applications Grants" owner="Grants_Lead1">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-05-09T14:30:23.846055" level="INFO">Clicking button 'Accepting Applications'.</msg>
+<arg>${ACCEPTING_APPLICATIONS_FILTER_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-09T14:30:23.846055" elapsed="4.094855"/>
+</kw>
+<status status="PASS" start="2024-05-09T14:30:23.845035" elapsed="4.095875"/>
+</kw>
+<kw name="Navigate To Last Page" owner="Grants_Lead1">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${GRANTS_PAGE_LAST}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2024-05-09T14:30:27.940910" elapsed="2.305902"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-05-09T14:30:30.246812" level="INFO">Clicking button 'xpath=//*[@id="app"]/div[4]/div[2]/div/div/div[1]/section/main/div/div[5]/div[2]/button[2]'.</msg>
+<arg>${GRANTS_PAGE_LAST}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-09T14:30:30.246812" elapsed="5.105054"/>
+</kw>
+<status status="PASS" start="2024-05-09T14:30:27.940910" elapsed="7.410956"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-05-09T14:30:37.376964" level="INFO">Current page contains text 'fQVE5HTEyT'.</msg>
+<arg>${string10}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-05-09T14:30:35.352883" elapsed="2.024081"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-05-09T14:30:54.796483" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2024-05-09T14:30:54.796483" level="FAIL">Page should have contained text 'Capital Assistance Form' but did not.</msg>
+<arg>Capital Assistance Form</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="FAIL" start="2024-05-09T14:30:37.376964" elapsed="17.421516">Page should have contained text 'Capital Assistance Form' but did not.</status>
+</kw>
+<kw name="End Web Test" owner="Common" type="TEARDOWN">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2024-05-09T14:30:54.800487" elapsed="3.189901"/>
+</kw>
+<kw name="Log Test Case Status" owner="Common">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-09T14:30:57.992386" level="INFO">Test failed: User Should Be Able To Add A New Grant</msg>
+<arg>Test failed: ${TEST NAME}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-09T14:30:57.991395" elapsed="0.000991"/>
+</kw>
+<arg>'${TEST STATUS}' != 'PASS'</arg>
+<arg>Log</arg>
+<arg>Test failed: ${TEST NAME}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-05-09T14:30:57.991395" elapsed="0.000991"/>
+</kw>
+<status status="PASS" start="2024-05-09T14:30:57.990388" elapsed="0.001998"/>
+</kw>
+<status status="PASS" start="2024-05-09T14:30:54.799479" elapsed="3.192907"/>
+</kw>
+<doc>This test will check if the user is able to add a new grant</doc>
+<tag>Add</tag>
+<tag>Grants</tag>
+<tag>Run</tag>
+<tag>Valid</tag>
+<status status="FAIL" start="2024-05-09T14:28:50.745770" elapsed="127.246616">Page should have contained text 'Capital Assistance Form' but did not.</status>
+</test>
+<doc>This testing suite will check for the functionality of Grant viewing, filtering and archiving for the Lead Reviewer</doc>
+<status status="FAIL" start="2024-05-09T14:28:50.314504" elapsed="127.679887"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">Add</stat>
+<stat pass="0" fail="1" skip="0">Grants</stat>
+<stat pass="0" fail="1" skip="0">Run</stat>
+<stat pass="0" fail="1" skip="0">Valid</stat>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Grants-Lead1">Grants-Lead1</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

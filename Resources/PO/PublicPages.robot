@@ -59,9 +59,6 @@ Navigate To "Contact Us" Page
 Navigate To "Sign Up" Page
     go to                       ${SIGN_UP_URL}
     wait until page contains    ${SIGNUP_SUBTITLE}
-    # go to                       ${HOMEPAGE_URL}
-    # Click Element               ${JOIN_NOW_BUTTON}
-    # wait until page contains    ${SIGNUP_SUBTITLE}
 
 Navigate To "Privacy Policy" Page
     go to                       ${PRIVACY_POLICY_URL}
