@@ -325,3 +325,15 @@ User Should Be Able To Filter by Date Ranges
     Grants_Lead1.Open Filter Popup
     Grants_Lead1.Filter By Max End Date    ${tomorrow}
     bnfinapp.Check For Field Error    ${ERROR_FIELD}    Loading...
+
+# Empty Draft Fields Should Show "-" Instead Of Empty
+#     [Documentation]  This test will check if the empty fields in the draft grant are displayed as "-"
+#     [Tags]  Grants    Draft    Run
+#     Grants_Lead1.Navigate To Grants-Lead
+#     Grants_Lead1.Filter Draft Grants
+#     Grants_Lead1.View Individual Draft
+#     Grants_Lead1.Empty Draft Fields
+#     Scroll Element Into View    ${BACK_TO_GRANTS_BUTTON}
+#     bnfinapp.Ensure Element Is Clickable And Click    ${BACK_TO_GRANTS_BUTTON}
+#     Grants_Lead1.Filter Draft Grants
+#     Element Text Should Be    xpath=//*[@id="app"]/div[4]/div[2]/div/div/div[1]/section/main/div/div[4]/div[1]/a/div[1]    -

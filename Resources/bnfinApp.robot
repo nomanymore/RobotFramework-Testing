@@ -164,7 +164,7 @@ User Should See Error Message
 User Should Not See Error Message
     [Arguments]    ${error_message}
     Wait Until Page Contains    ${error_message}    timeout=10s
-    RETURN    ${TRUE}
+    RETURN    ${FALSE}
 
 Check For Field Error
     [Arguments]    ${error_locator}    ${expected_error_text}

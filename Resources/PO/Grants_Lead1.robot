@@ -74,6 +74,12 @@ ${END_DATE_PICKER}                            xpath=//*[@id="app"]/div[4]/div[2]
 ${DESCRIPTION_TEXTBOX}                        xpath=//*[@id="app"]/div[4]/div[2]/div/div/div[1]/section/main/div/div[1]/div/div[8]/div[1]/textarea
 ${INTERMEDIARY_SELECT}                        xpath=//*[@id="app"]/div[4]/div[2]/div/div/div[1]/section/main/div/div[1]/div/div[9]/div[1]/select
 ${INTERMEDIARY_SELECT_VALUE}                  xpath=//*[@id="app"]/div[4]/div[2]/div/div/div[1]/section/main/div/div[1]/div/div[9]/div[1]/select/option[2]                        
+
+${FIRST_DRAFT_CARD}=                          xpath=//a[contains(@href, "/grants-create/") and contains(@class, "card")]
+
+
+
+
 *** Keywords ***
 
 Submit New Grant Button
@@ -128,6 +134,9 @@ Get Date Value
     [Arguments]    ${locator}
     ${value}=    Get Value    ${locator}
     RETURN   ${value}
+
+
+
 # --------------Search Grants------------------------
 
 Search For Grant
@@ -350,3 +359,19 @@ Edit Draft Grant
     ${xpath}=    Set Variable    //*[contains(text(), '${grant_name}')]
     Wait Until Element Is Visible    ${xpath}    timeout=10s    error=Grant with name '${grant_name}' not found.
     Click Element    ${xpath}
+
+Empty Draft Fields
+    Input Text    ${GRANT_TITLE_TEXTBOX}    ${EMPTY}
+    Unselect Frame
+    Input Text    ${BUDGET_TEXTBOX}    ${EMPTY}
+    Unselect Frame
+    Input Text    ${MIN_AMOUNT_TEXTBOX}    ${EMPTY}
+    Unselect Frame
+    Input Text    ${MAX_AMOUNT_TEXTBOX}    ${EMPTY}
+    Unselect Frame
+    Input Text    ${START_DATE_PICKER}    ${EMPTY}
+    Unselect Frame
+    Input Text    ${END_DATE_PICKER}    ${EMPTY}
+    Unselect Frame
+    Input Text    ${DESCRIPTION_TEXTBOX}    ${EMPTY}
+

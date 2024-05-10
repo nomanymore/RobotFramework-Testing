@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.12.3 on win32)" generated="2024-05-10T12:21:43.567214" rpa="false" schemaversion="5">
+<suite id="s1" name="Submitted-Lead" source="F:\NSCC-Courses\Semester-2\Work Placement\Automated Tests\BNFIN\tests\Submitted-Lead.robot">
+<test id="s1-t1" name="User Should Be Able To Submit An Eligibility Review Quiz" line="143">
+<kw name="Begin Web Test" owner="Common" type="SETUP">
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2024-05-10T12:21:43.989447" level="INFO">${auth_url} = https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/</msg>
+<var>${auth_url}</var>
+<arg>SEPARATOR=</arg>
+<arg>https://${USERNAME}:${WEBPASSWORD}@${START_URL}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2024-05-10T12:21:43.989447" elapsed="0.000000"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-05-10T12:21:43.989447" level="INFO">Opening browser 'chrome' to base url 'https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/'.</msg>
+<arg>${auth_url}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-05-10T12:21:43.989447" elapsed="4.121765"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-05-10T12:21:48.111212" elapsed="0.767738"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>1s</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2024-05-10T12:21:48.878950" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2024-05-10T12:21:43.989447" elapsed="4.890492"/>
+</kw>
+<kw name="Navigate To Submitted Applications" owner="HomeDashboard">
+<kw name="Login as User Type" owner="bnfinApp">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Set Variable" owner="BuiltIn">
+<arg>${USER_LEAD_REVIEWER}[${user_index}]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-10T12:21:48.883206" elapsed="0.001019"/>
+</kw>
+<msg time="2024-05-10T12:21:48.884225" level="INFO">${email} = victoria.lead-bbi</msg>
+<var>${email}</var>
+<arg>'${user_type}'=='ADMIN'</arg>
+<arg>Set Variable</arg>
+<arg>${USER_ADMIN}</arg>
+<arg>ELSE IF</arg>
+<arg>'${user_type}'=='LEAD_REVIEWER'</arg>
+<arg>Set Variable</arg>
+<arg>${USER_LEAD_REVIEWER}[${user_index}]</arg>
+<arg>ELSE IF</arg>
+<arg>'${user_type}'=='REVIEWER'</arg>
+<arg>Set Variable</arg>
+<arg>${USER_REVIEWER}[${user_index}]</arg>
+<arg>ELSE IF</arg>
+<arg>'${user_type}'=='APPLICANT'</arg>
+<arg>Set Variable</arg>
+<arg>${USER_APPLICANT}[${user_index}]</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>${None}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-05-10T12:21:48.882621" elapsed="0.001604"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-10T12:21:48.885219" level="INFO">${password} = test</msg>
+<var>${password}</var>
+<arg>${PASSWORD}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-10T12:21:48.885219" elapsed="0.000000"/>
+</kw>
+<kw name="Go To Login Page" owner="SignIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOGIN_BUTTON}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-10T12:21:48.886221" elapsed="2.036474"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-10T12:21:50.922695" level="INFO">Clicking element 'xpath=//a[@href='/login' and contains(@class, 'btn-outline-white')]'.</msg>
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-10T12:21:50.922695" elapsed="2.106644"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${LOGIN_HEADER_LABEL}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-05-10T12:21:53.029339" elapsed="1.015364"/>
+</kw>
+<status status="PASS" start="2024-05-10T12:21:48.885219" elapsed="5.159484"/>
+</kw>
+<kw name="Login With Valid Credentials" owner="SignIn">
+<kw name="Fill &quot;Email&quot; Field" owner="SignIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-10T12:21:54.046294" level="INFO">Typing text 'victoria.lead-bbi' into text field 'id=username'.</msg>
+<arg>${LOGIN_EMAIL_TEXTBOX}</arg>
+<arg>${Email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-10T12:21:54.046294" elapsed="3.185558"/>
+</kw>
+<arg>${Email}</arg>
+<status status="PASS" start="2024-05-10T12:21:54.045766" elapsed="3.186086"/>
+</kw>
+<kw name="Fill &quot;Password&quot; Field" owner="SignIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-10T12:21:57.232870" level="INFO">Typing text 'test' into text field 'id=password'.</msg>
+<arg>${LOGIN_PASSWORD_TEXTBOX}</arg>
+<arg>${Password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-10T12:21:57.232870" elapsed="3.129623"/>
+</kw>
+<arg>${Password}</arg>
+<status status="PASS" start="2024-05-10T12:21:57.231852" elapsed="3.130641"/>
+</kw>
+<kw name="Click &quot;Submit&quot; Button" owner="SignIn">
+<kw name="Ensure Element Is Clickable And Click" owner="bnfinApp">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-10T12:22:00.363234" elapsed="2.028680"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2024-05-10T12:22:02.391914" elapsed="3.034776"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-10T12:22:05.426690" level="INFO">Clicking element 'xpath=//*[@id="app"]/div[4]/div/div[2]/form/button'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-10T12:22:05.426690" elapsed="2.063275"/>
+</kw>
+<arg>${LOGIN_SUBMIT_BUTTON}</arg>
+<status status="PASS" start="2024-05-10T12:22:00.363234" elapsed="7.126731"/>
+</kw>
+<status status="PASS" start="2024-05-10T12:22:00.363001" elapsed="7.126964"/>
+</kw>
+<arg>${email}</arg>
+<arg>${password}</arg>
+<status status="PASS" start="2024-05-10T12:21:54.045219" elapsed="13.445277"/>
+</kw>
+<kw name="Go to &quot;Home&quot; Dashboard" owner="bnfinApp">
+<kw name="Navigate To Dash" owner="HomeDashboard">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-05-10T12:22:07.491547" level="INFO">Opening url 'https://bnfin-staging.curbza.com/home'</msg>
+<arg>${DASH_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-05-10T12:22:07.491547" elapsed="1.340428"/>
+</kw>
+<status status="PASS" start="2024-05-10T12:22:07.491021" elapsed="1.341237"/>
+</kw>
+<kw name="Verify Page Loaded" owner="HomeDashboard">
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>xpath=//*[@id="app"]/div[4]/div[1]/nav/div</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2024-05-10T12:22:08.832258" elapsed="3.038361"/>
+</kw>
+<status status="PASS" start="2024-05-10T12:22:08.832258" elapsed="3.038361"/>
+</kw>
+<status status="PASS" start="2024-05-10T12:22:07.490496" elapsed="4.380123"/>
+</kw>
+<arg>LEAD_REVIEWER</arg>
+<arg>0</arg>
+<status status="PASS" start="2024-05-10T12:21:48.881631" elapsed="22.988988"/>
+</kw>
+<kw name="Ensure Element Is Clickable And Click" owner="bnfinApp">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-10T12:22:11.871627" elapsed="2.028551"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2024-05-10T12:22:13.900178" elapsed="3.032389"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-10T12:22:16.933077" level="INFO">Clicking element 'xpath=//*[@id="app"]/div[4]/div[1]/nav/div/div/div/div[1]/button'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-10T12:22:16.933077" elapsed="2.077258"/>
+</kw>
+<arg>${SIDE_NAV_APPLICATIONS_DROPDOWN}</arg>
+<status status="PASS" start="2024-05-10T12:22:11.870619" elapsed="7.139716"/>
+</kw>
+<kw name="Ensure Element Is Clickable And Click" owner="bnfinApp">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-10T12:22:19.010844" elapsed="2.029820"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2024-05-10T12:22:21.040955" elapsed="3.032588"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-10T12:22:24.074050" level="INFO">Clicking element 'xpath=//*[@id="collapse-0"]/div/a[1]'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-10T12:22:24.074050" elapsed="2.133329"/>
+</kw>
+<arg>${SIDE_NAV_SUBMITTED_LINK}</arg>
+<status status="PASS" start="2024-05-10T12:22:19.010844" elapsed="7.196535"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Submitted Applications</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-05-10T12:22:26.207379" elapsed="1.017089"/>
+</kw>
+<status status="PASS" start="2024-05-10T12:21:48.879939" elapsed="38.344529"/>
+</kw>
+<kw name="View Submitted Application" owner="Submitted_Lead">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-10T12:22:27.225476" level="INFO">Clicking element 'xpath=//a[contains(@href, "/submitted-applications/")]'.</msg>
+<arg>${SUBMITTED_VIEW_APPLICATION_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-10T12:22:27.225476" elapsed="2.145300"/>
+</kw>
+<status status="PASS" start="2024-05-10T12:22:27.224468" elapsed="2.146308"/>
+</kw>
+<kw name="Open Eligibility Review Tab" owner="Submitted_Lead">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-10T12:22:29.372291" level="INFO">Clicking element 'xpath=//*[@id="review-tab"]'.</msg>
+<arg>${ELIGIBILITY_REVIEW_TAB}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-10T12:22:29.371284" elapsed="2.063289"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Eligibility Review</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-05-10T12:22:31.434573" elapsed="1.017418"/>
+</kw>
+<status status="PASS" start="2024-05-10T12:22:29.371284" elapsed="3.080707"/>
+</kw>
+<kw name="Fill Eligibility Review Quiz - Mark As Eligible" owner="Submitted_Lead">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-10T12:22:32.453506" level="INFO">Clicking element 'xpath=//*[@id="app"]/div[4]/div[2]/div/div/div[1]/section/main/div/div[2]/div[4]/form'.</msg>
+<arg>${ELIGIBILITY_REVIEW_QUIZ}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-10T12:22:32.452499" elapsed="2.058478"/>
+</kw>
+<kw name="Select Radio Button" owner="SeleniumLibrary">
+<msg time="2024-05-10T12:22:34.511489" level="INFO">Selecting 'true' from radio button 'legalentity'.</msg>
+<arg>legalentity</arg>
+<arg>true</arg>
+<doc>Sets the radio button group ``group_name`` to ``value``.</doc>
+<status status="PASS" start="2024-05-10T12:22:34.511489" elapsed="3.089804"/>
+</kw>
+<kw name="Select Radio Button" owner="SeleniumLibrary">
+<msg time="2024-05-10T12:22:37.601293" level="INFO">Selecting 'true' from radio button 'notforprofit'.</msg>
+<arg>notforprofit</arg>
+<arg>true</arg>
+<doc>Sets the radio button group ``group_name`` to ``value``.</doc>
+<status status="PASS" start="2024-05-10T12:22:37.601293" elapsed="3.074444"/>
+</kw>
+<kw name="Select Radio Button" owner="SeleniumLibrary">
+<msg time="2024-05-10T12:22:40.675737" level="INFO">Selecting 'true' from radio button 'blackled'.</msg>
+<arg>blackled</arg>
+<arg>true</arg>
+<doc>Sets the radio button group ``group_name`` to ``value``.</doc>
+<status status="PASS" start="2024-05-10T12:22:40.675737" elapsed="3.076195"/>
+</kw>
+<kw name="Select Radio Button" owner="SeleniumLibrary">
+<msg time="2024-05-10T12:22:43.751932" level="INFO">Selecting 'true' from radio button 'leadership'.</msg>
+<arg>leadership</arg>
+<arg>true</arg>
+<doc>Sets the radio button group ``group_name`` to ``value``.</doc>
+<status status="PASS" start="2024-05-10T12:22:43.751932" elapsed="3.077211"/>
+</kw>
+<kw name="Select Radio Button" owner="SeleniumLibrary">
+<msg time="2024-05-10T12:22:46.829143" level="INFO">Selecting 'true' from radio button 'governance'.</msg>
+<arg>governance</arg>
+<arg>true</arg>
+<doc>Sets the radio button group ``group_name`` to ``value``.</doc>
+<status status="PASS" start="2024-05-10T12:22:46.829143" elapsed="3.087354"/>
+</kw>
+<kw name="Select Radio Button" owner="SeleniumLibrary">
+<msg time="2024-05-10T12:22:49.916497" level="INFO">Selecting 'true' from radio button 'funding'.</msg>
+<arg>funding</arg>
+<arg>true</arg>
+<doc>Sets the radio button group ``group_name`` to ``value``.</doc>
+<status status="PASS" start="2024-05-10T12:22:49.916497" elapsed="3.085799"/>
+</kw>
+<kw name="Select Radio Button" owner="SeleniumLibrary">
+<msg time="2024-05-10T12:22:53.002806" level="INFO">Selecting 'true' from radio button 'expire'.</msg>
+<arg>expire</arg>
+<arg>true</arg>
+<doc>Sets the radio button group ``group_name`` to ``value``.</doc>
+<status status="PASS" start="2024-05-10T12:22:53.002806" elapsed="3.075120"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-05-10T12:22:56.077926" level="INFO">Clicking button 'xpath=//*[@id="app"]/div[4]/div[2]/div/div/div[1]/section/main/div/div[2]/div[4]/form/div/div[9]/div/div[2]/button'.</msg>
+<arg>${MARK_AS_ELIGIBLE_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-10T12:22:56.077926" elapsed="5.110064"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-05-10T12:23:01.187990" level="INFO">Clicking button 'xpath=/html/body/div/div[4]/div[2]/div/div/div[1]/section/main/div/div[2]/div[4]/div/div/button'.</msg>
+<arg>${ELIGIBILITY_QUIZ_SUBMIT_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-10T12:23:01.187990" elapsed="5.116534"/>
+</kw>
+<status status="PASS" start="2024-05-10T12:22:32.452499" elapsed="33.852138"/>
+</kw>
+<kw name="End Web Test" owner="Common" type="TEARDOWN">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2024-05-10T12:23:06.305637" elapsed="3.204424"/>
+</kw>
+<kw name="Log Test Case Status" owner="Common">
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${TEST STATUS}' != 'PASS'</arg>
+<arg>Log</arg>
+<arg>Test failed: ${TEST NAME}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-05-10T12:23:09.510061" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2024-05-10T12:23:09.510061" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2024-05-10T12:23:06.304637" elapsed="3.205424"/>
+</kw>
+<doc>This test will check if the user is able to submit an eligibility review quiz</doc>
+<tag>Eligibility</tag>
+<tag>Grants</tag>
+<tag>Run</tag>
+<status status="PASS" start="2024-05-10T12:21:43.989447" elapsed="85.520614"/>
+</test>
+<doc>This testing suite will check for the functionality of submitted grant viewing, reviewer assignment and filtering.</doc>
+<status status="PASS" start="2024-05-10T12:21:43.567214" elapsed="85.942847"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">Eligibility</stat>
+<stat pass="1" fail="0" skip="0">Grants</stat>
+<stat pass="1" fail="0" skip="0">Run</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Submitted-Lead">Submitted-Lead</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
