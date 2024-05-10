@@ -4,7 +4,7 @@ Resource  ../bnfinApp.robot
 
 
 *** Variables ***
-
+${ERROR_FIELD}=                               xpath=//*[@id="app"]/div[2] 
 ${GRANTS_SIDENAV_BUTTON}                      xpath=//*[@id="app"]/div[4]/div[1]/nav/div/div/div/div[1]/a[4]
 
 ${CREATE_NEW_GRANT_BUTTON}                    xpath=//*[@id="app"]/div[4]/div[2]/div/div/div[1]/section/main/div/div[2]/a
@@ -18,8 +18,33 @@ ${REOPENED_GRANTS_FILTER_BUTTON}              Reopened Grants
 ${DRAFT_GRANTS_FILTER_BUTTON}                 Draft
 ${ARCHIVED_GRANTS_FILTER_BUTTON}              Archived
 ${CLEAR_FILTERS_GRANTS_BUTTON}                xpath=//*[@id="app"]/div[4]/div[2]/div/div/div[1]/section/main/div/div[3]/div[2]/button
-${FILTERS_POPUP_BUTTON}                       Filters
+# ${FILTERS_POPUP_BUTTON}                       Filters
 ${CREATE_GRANT_BUTTON}                        xpath=/html/body/div/div[4]/div[2]/div/div/div[1]/section/main/div/div[2]/button
+
+${FILTERS_POPUP_BUTTON}                       xpath=//*[@id="app"]/div[4]/div[2]/div/div/div[1]/section/main/div/div[3]/button
+${INTERMEDIARY_FILTER_CHECKBOXES}=            xpath=//*[@id="end-of-body"]/div/div/div/div[2]/div/div[1]
+${INTERMEDIARY_FILTER_BBI}=                   BBI
+${INTERMEDIARY_FILTER_TROPICANA}=             Tropicana 
+${INTERMEDIARY_FILTER_GROUPE3737}=            xpath=//*[@id="end-of-body"]/div/div/div/div[2]/div/div[1]/div[3]/label/input
+${INTERMEDIARY_FILTER_AFRICA_CENTRE}=         xpath=//*[@id="end-of-body"]/div/div/div/div[2]/div/div[1]/div[1]/label/input
+${APPLY_FILTER_BUTTON}=                       xpath=//*[@id="end-of-body"]/div/div/div/div[1]/div/button[1]
+
+${STATUS_FILTER_ACCEPTING_APPLICATIONS}=      xpath=//*[@id="end-of-body"]/div/div/div/div[2]/div/div[2]/div[2]/label/input
+${STATUS_FILTER_DRAFT}=                       xpath=//*[@id="end-of-body"]/div/div/div/div[2]/div/div[2]/div[5]/label/input
+${STATUS_FILTER_ARCHIVED}=                    xpath=//*[@id="end-of-body"]/div/div/div/div[2]/div/div[2]/div[6]/label/input
+${STATUS_FILTER_CLOSED}=                      xpath=//*[@id="end-of-body"]/div/div/div/div[2]/div/div[2]/div[3]/label/input
+${STATUS_FILTER_REOPENED}=                    xpath=//*[@id="end-of-body"]/div/div/div/div[2]/div/div[2]/div[4]/label/input
+${STATUS_FILTER_NEW}=                         xpath=//*[@id="end-of-body"]/div/div/div/div[2]/div/div[2]/div[1]/label/input
+
+${MIN_AMOUNT_FILTER_TEXTBOX}=                 xpath=//*[@id="end-of-body"]/div/div/div/div[2]/div/div[4]/label[1]/input
+${MAX_AMOUNT_FILTER_TEXTBOX}=                 xpath=//*[@id="end-of-body"]/div/div/div/div[2]/div/div[4]/label[2]/input
+${MIN_APPLICANTS_FILTER_TEXTBOX}=             xpath=//*[@id="end-of-body"]/div/div/div/div[2]/div/div[5]/label[1]/input
+${MAX_APPLICANTS_FILTER_TEXTBOX}=             xpath=//*[@id="end-of-body"]/div/div/div/div[2]/div/div[5]/label[2]/input
+${MIN_START_DATE_FILTER_TEXTBOX}=             xpath=//*[@id="end-of-body"]/div/div/div/div[2]/div/div[3]/label[1]/input
+${MAX_START_DATE_FILTER_TEXTBOX}=             xpath=//*[@id="end-of-body"]/div/div/div/div[2]/div/div[3]/label[2]/input
+${MIN_END_DATE_FILTER_TEXTBOX}=               xpath=//*[@id="end-of-body"]/div/div/div/div[2]/div/div[3]/label[3]/input
+${MAX_END_DATE_FILTER_TEXTBOX}=               xpath=//*[@id="end-of-body"]/div/div/div/div[2]/div/div[3]/label[4]/input
+
 
 ${ARCHIVE_GRANT_BUTTON}                       xpath=//*[@id="app"]/div[4]/div[2]/div/div/div[1]/section/main/div/div[2]/button       
 
@@ -173,6 +198,60 @@ Clear Filters
     Click Button    ${CLEAR_FILTERS_GRANTS_BUTTON}
     Wait Until Page Contains    View current grants and create new grants    timeout=10s
 
+Open Filter Popup
+    Ensure Element Is Clickable And Click    ${FILTERS_POPUP_BUTTON}
+
+Filter By Intermediary
+    [Arguments]    ${intermediary}
+    Click Element    ${INTERMEDIARY_FILTER_CHECKBOXES}
+    Select Checkbox    ${intermediary}
+    Click Button    ${APPLY_FILTER_BUTTON}
+    
+Filter By Status
+    [Arguments]    ${status}
+    Click Element    ${INTERMEDIARY_FILTER_CHECKBOXES}
+    Select Checkbox    ${status}
+    Click Button    ${APPLY_FILTER_BUTTON}
+
+Filter By Min Budget
+    [Arguments]    ${min_budget}
+    Input Text    ${MIN_AMOUNT_FILTER_TEXTBOX}    ${min_budget}
+    Click Button    ${APPLY_FILTER_BUTTON}
+
+Filter By Max Budget
+    [Arguments]    ${max_budget}
+    Input Text    ${MAX_AMOUNT_FILTER_TEXTBOX}    ${max_budget}
+    Click Button    ${APPLY_FILTER_BUTTON}
+
+Flter By Min Applicants
+    [Arguments]    ${min_applicants}
+    Input Text    ${MIN_APPLICANTS_FILTER_TEXTBOX}    ${min_applicants}
+    Click Button    ${APPLY_FILTER_BUTTON}
+
+Filter By Max Applicants
+    [Arguments]    ${max_applicants}
+    Input Text    ${MAX_APPLICANTS_FILTER_TEXTBOX}    ${max_applicants}
+    Click Button    ${APPLY_FILTER_BUTTON}
+
+Filter By Min Start Date
+    [Arguments]    ${min_start_date}
+    Input Text    ${MIN_START_DATE_FILTER_TEXTBOX}    ${min_start_date}
+    Click Button    ${APPLY_FILTER_BUTTON}
+
+Filter By Max Start Date
+    [Arguments]    ${max_start_date}
+    Input Text    ${MAX_START_DATE_FILTER_TEXTBOX}    ${max_start_date}
+    Click Button    ${APPLY_FILTER_BUTTON}
+
+Filter By Min End Date
+    [Arguments]    ${min_end_date}
+    Input Text    ${MIN_END_DATE_FILTER_TEXTBOX}    ${min_end_date}
+    Click Button    ${APPLY_FILTER_BUTTON}
+
+Filter By Max End Date
+    [Arguments]    ${max_end_date}
+    Input Text    ${MAX_END_DATE_FILTER_TEXTBOX}    ${max_end_date}
+    Click Button    ${APPLY_FILTER_BUTTON}
 # -------------------Add Grants-------------------
 
 Add New Grant

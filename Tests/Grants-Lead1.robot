@@ -85,7 +85,7 @@ User Should Not Be Able To Search For Grants With Inalid Search Term
 
 User Should Be Able To Add A New Grant
     [Documentation]  This test will check if the user is able to add a new grant
-    [Tags]  Grants    Add     Valid   Run 
+    [Tags]  Grants    Add     Valid
     ${string10}=     Create Random String Of Length    10
     ${string100}=    Create Random String Of Length    100
     ${int6}=         Create Random Integer Of Length    6
@@ -238,3 +238,90 @@ User Should Be Able To Edit Drafts
     Unselect Frame
     Grants_Lead1.Submit New Grant Button
     
+User Should Be Able To Filter by Intermediary
+    [Documentation]  This test will check if the user is able to filter by intermediary
+    [Tags]  Grants    Filter
+    Grants_Lead1.Navigate To Grants-Lead
+    Grants_Lead1.Open Filter Popup
+    Grants_Lead1.Filter By Intermediary    bbi
+    Page Should Contain    BBI
+    Grants_Lead1.Clear Filters
+    Grants_Lead1.Open Filter Popup
+    Grants_Lead1.Filter By Intermediary    tropicana
+    Page Should Contain    Tropicana
+    Grants_Lead1.Clear Filters
+    Grants_Lead1.Open Filter Popup
+    Grants_Lead1.Filter By Intermediary    ${INTERMEDIARY_FILTER_GROUPE3737}
+    Page Should Contain    Groupe 3737
+    Grants_Lead1.Clear Filters
+    Grants_Lead1.Open Filter Popup
+    Grants_Lead1.Filter By Intermediary    ${INTERMEDIARY_FILTER_AFRICA_CENTRE}
+    Page Should Contain    Africa Centre
+
+User Should Be Able To Filter by Status
+    [Documentation]  This test will check if the user is able to filter by status
+    [Tags]  Grants    Filter
+    Grants_Lead1.Navigate To Grants-Lead
+    Grants_Lead1.Open Filter Popup
+    Grants_Lead1.Filter By Status    ${STATUS_FILTER_DRAFT}
+    Page Should Contain    Draft
+    Grants_Lead1.Clear Filters
+    Grants_Lead1.Open Filter Popup
+    Grants_Lead1.Filter By Status    ${STATUS_FILTER_CLOSED}
+    Page Should Contain    Closed
+    Grants_Lead1.Clear Filters
+    Grants_Lead1.Open Filter Popup
+    Grants_Lead1.Filter By Status    ${STATUS_FILTER_REOPENED}
+    Page Should Contain    Reopened
+    Grants_Lead1.Clear Filters
+    Grants_Lead1.Open Filter Popup
+    Grants_Lead1.Filter By Status    ${STATUS_FILTER_ACCEPTING_APPLICATIONS}
+    Page Should Contain    Accepting Applications
+    Grants_Lead1.Clear Filters
+    Grants_Lead1.Open Filter Popup
+    Grants_Lead1.Filter By Status    ${STATUS_FILTER_NEW}
+    Page Should Contain    New
+    Grants_Lead1.Clear Filters
+    Grants_Lead1.Open Filter Popup
+    Grants_Lead1.Filter By Status    ${STATUS_FILTER_ARCHIVED}
+    Page Should Contain    Archived
+
+User Should Be Able To Filter by Min-Max Amounts
+    [Documentation]  This test will check if the user is able to filter by min-max amounts of budget and applicants.
+    [Tags]  Grants    Filter
+    Grants_Lead1.Navigate To Grants-Lead
+    Grants_Lead1.Open Filter Popup
+    Grants_Lead1.Filter By Min Budget    0
+    Grants_Lead1.Clear Filters
+    Grants_Lead1.Open Filter Popup
+    Grants_Lead1.Filter By Max Budget    1000
+    Grants_Lead1.Clear Filters
+    Grants_Lead1.Open Filter Popup
+    Grants_Lead1.Flter By Min Applicants    5
+    bnfinapp.Check For Field Error    ${ERROR_FIELD}    Failed to retrieve Grants
+    Grants_Lead1.Clear Filters
+    Grants_Lead1.Open Filter Popup
+    Grants_Lead1.Filter By Max Applicants    10
+    bnfinapp.Check For Field Error    ${ERROR_FIELD}    Failed to retrieve Grants
+
+User Should Be Able To Filter by Date Ranges
+    [Documentation]  This test will check if the user is able to filter by Min-Max start and end dates
+    [Tags]  Grants    Filter
+    ${tomorrow}=    Get Relative Date    1    %d/%m/%Y
+    Grants_Lead1.Navigate To Grants-Lead
+    Grants_Lead1.Open Filter Popup
+    Grants_Lead1.Filter By Min Start Date    ${tomorrow}
+    bnfinapp.Check For Field Error    ${ERROR_FIELD}    Loading...
+    Unselect Frame
+    Grants_Lead1.Clear Filters
+    Grants_Lead1.Open Filter Popup
+    Grants_Lead1.Filter By Max Start Date    ${tomorrow}
+    bnfinapp.Check For Field Error    ${ERROR_FIELD}    Loading...
+    Grants_Lead1.Clear Filters
+    Grants_Lead1.Open Filter Popup
+    Grants_Lead1.Filter By Min End Date    ${tomorrow}
+    bnfinapp.Check For Field Error    ${ERROR_FIELD}    Loading...
+    Grants_Lead1.Clear Filters
+    Grants_Lead1.Open Filter Popup
+    Grants_Lead1.Filter By Max End Date    ${tomorrow}
+    bnfinapp.Check For Field Error    ${ERROR_FIELD}    Loading...

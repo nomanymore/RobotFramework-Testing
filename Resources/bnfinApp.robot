@@ -83,7 +83,7 @@ Create Random Integer Of Length
 # To use:  ${today}=    Get Current Date 
 # Log    Today's Date: ${today}
 Get Current Date
-    [Arguments]    ${format}=%d/%m/%Y
+    [Arguments]    ${format}=%Y-%m-%d
     ${current_date}=    Get Time    ${format}
     RETURN    ${current_date}
 
@@ -157,6 +157,11 @@ Page Should Not Have Changed
     Should Be Equal    ${current_url}    ${expected_url}
 
 User Should See Error Message
+    [Arguments]    ${error_message}
+    Wait Until Page Contains    ${error_message}    timeout=10s
+    RETURN    ${TRUE}
+
+User Should Not See Error Message
     [Arguments]    ${error_message}
     Wait Until Page Contains    ${error_message}    timeout=10s
     RETURN    ${TRUE}
