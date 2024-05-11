@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation  This testing suite will check for the functionality of Grant viewing, filtering and archiving for the Lead Reviewer
+Documentation  This testing suite will check for the functionality of Grant viewing, filtering and archiving for the Lead Reviewer (Comp default:BBI)
 Resource  ../Resources/Common.robot
 Resource  ../Resources/PO/SignIn.robot
 Resource  ../Resources/bnfinApp.robot
@@ -10,6 +10,7 @@ Test Teardown  Common.End Web Test
 
 # --------------------------------------------------------------------------------------------------
 # THIS TEST WILL CHECK FOR THE FUNCTIONALITY THE GRANTS PAGE FOR THE LEAD REVIEWER COMP.1
+#                    THIS SCRIPT WILL USE "BBI" AS THE DEFAULT COMPANY
 # --------------------------------------------------------------------------------------------------
 
 # To run script: robot -d results/grantsLead1 tests/Grants-Lead1.robot

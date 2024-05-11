@@ -68,9 +68,23 @@ ${MARK_AS_ELIGIBLE_BUTTON}=                       xpath=//*[@id="app"]/div[4]/di
 ${DECLINE_BUTTON}=                                xpath=//*[@id="app"]/div[4]/div[2]/div/div/div[1]/section/main/div/div[2]/div[4]/form/div/div[9]/div/div[1]/button
 
 ${ELIGIBILITY_QUIZ_SUBMIT_BUTTON}=                xpath=/html/body/div/div[4]/div[2]/div/div/div[1]/section/main/div/div[2]/div[4]/div/div/button
-${SUBMITTED_VIEW_APPLICATION_BUTTON}=             xpath=//a[contains(@href, "/submitted-applications/")]   
+${SUBMITTED_VIEW_APPLICATION_BUTTON}=             xpath=(//a[contains(@href, "/submitted-applications/")])[1]  
+
+${APP_ID_LABEL}=                                  xpath=//span[contains(text(), 'Application ID')]
+${BACK_TO_SUBMITTED_APPLICATIONS_BUTTON}=         xpath=/html/body/div/div[4]/div[2]/div/div/div[1]/section/main/div/a
+
+${SELECT_APPLICATION_CHECKBOX}=                   xpath=//*[@id="app"]/div[4]/div[2]/div/div/div[1]/section/main/div/table/tbody/tr[1]/td[1]/input
+${ASSIGN_MANUALLY_POPUP_BUTTON}=                  xpath=//*[@id="app"]/div[4]/div[2]/div/div/div[1]/section/main/div/div[2]/button[2]
+${REVIEWER_ASSIGNMENT_CONTAINER}=                 xpath=//*[@id="end-of-body"]/div[1]/div/div/div[2]
+${SUBMIT_REVIEWER_ASSIGNMENT_BUTTON}=             xpath=//*[@id="end-of-body"]/div[1]/div/div/div[1]/button[1]
+${REVIEWER_NAME_CHECKBOX1}=                       xpath=//*[@id="end-of-body"]/div[1]/div/div/div[2]/div[10]/label/div[1]/input
+${REVIEWER_NAME_CHECKBOX2}=                       xpath=//*[@id="end-of-body"]/div[1]/div/div/div[2]/div[13]/label/div[1]/input
+${REVIEWER_NAME_CHECKBOX3}=                       xpath=//*[@id="end-of-body"]/div[1]/div/div/div[2]/div[4]/label/div[1]/input
+
+${SUBMITTED_SEARCHBOX}=                           xpath=//*[@id="app"]/div[4]/div[2]/div/div/div[1]/section/main/div/div[2]/span/input
 *** Keywords ***
 
+# ---------------Filters -------------------------------------------------
 Open Filter Popup
     Ensure Element Is Clickable And Click    ${SUB_FILTERS_POPUP_BUTTON}   
 
@@ -104,6 +118,8 @@ Filter By Tasks/Stage Completion
     Select Checkbox    ${task}
     Click Button    ${SUB_APPLY_FILTER_BUTTON}
 
+# ---------------Eligibility Review --------------------------------------
+
 View Submitted Application
     Click Element    ${SUBMITTED_VIEW_APPLICATION_BUTTON}
 
@@ -113,7 +129,6 @@ Open Eligibility Review Tab
     Wait Until Page Contains    Eligibility Review    timeout=10s
 
 Fill Eligibility Review Quiz - Mark As Eligible
-    # [Arguments]    ${question}    ${answer}
     Click Element    ${ELIGIBILITY_REVIEW_QUIZ}
     Select Radio Button    legalentity    true
     Select Radio Button    notforprofit    true
@@ -126,7 +141,6 @@ Fill Eligibility Review Quiz - Mark As Eligible
     Click Button    ${ELIGIBILITY_QUIZ_SUBMIT_BUTTON}
 
 Fill Eligibility Review Quiz - Decline
-    [Arguments]    ${question}    ${answer}
     Click Element    ${ELIGIBILITY_REVIEW_QUIZ}
     Select Radio Button    legalentity    true
     Select Radio Button    notforprofit    false
@@ -137,3 +151,31 @@ Fill Eligibility Review Quiz - Decline
     Select Radio Button    expire    true
     Click Button    ${DECLINE_BUTTON}
     Click Button    ${ELIGIBILITY_QUIZ_SUBMIT_BUTTON}
+
+# --------------Reviewer Assignment------------------------
+Open Reviewer Assignment Popup
+    Select Checkbox    ${SELECT_APPLICATION_CHECKBOX}
+    Click Element      ${ASSIGN_MANUALLY_POPUP_BUTTON}
+    Wait Until Page Contains    Assign Reviewers    timeout=10s
+
+Assign Reviewer Manually
+    [Arguments]    ${reviewer}
+    Select Checkbox    ${reviewer}
+
+# --------------Search Applications------------------------
+
+Search For Application
+    [Arguments]    ${app_name}
+    Input Text    ${SUBMITTED_SEARCHBOX}    ${app_name}
+    # This will press enter key
+    Press Keys    ${SUBMITTED_SEARCHBOX}    RETURN
+    Wait Until Page Contains    ${app_name}    timeout=10s
+    Page Should Not Contain     Loading... 
+
+Search For Invalid Application
+    [Arguments]    ${app_name}
+    Input Text    ${SUBMITTED_SEARCHBOX}    ${app_name}
+    # This will press enter key
+    Press Keys    ${SUBMITTED_SEARCHBOX}    RETURN
+    Page Should Not Contain Element   xpath=//*[@id="app"]/div[4]/div[2]/div/div/div[1]/section/main/div/table/tbody/tr[1]/td[1]    timeout=10s
+    Page Should Not Contain     Loading... 
