@@ -163,3 +163,5 @@ User Should Be Able To Register With Valid Data
     ${random_email}=    Create Random Email    12    7
     SignUp.Register With Valid Data    ${string10}  ${random_email}  ${VALID_PASSWORD}    ${VALID_PASSWORD}
     
+
+

@@ -5,6 +5,7 @@ Resource    ../Resources/PO/PublicPages.robot
 
 *** Variables ***
 ${EMPTY_STRING}=                 ${EMPTY}
+${LOREM_IPSUM}=                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus 
 
 ${VALID_EMAIL}=                  victoria.shmakov+@curbza.com
 ${NOT_IN_SYSTEM_EMAIL}=          iamaninvalidaemail@example.com
@@ -193,3 +194,26 @@ Go To "Home Page" From "Sign Up" Page
     Run Keyword If    ${button_exists}    Navigate To "Home" Page
     ...    ELSE    Fail    "BNFIN button does not exist"
 
+Clear All Inputs
+    @{input_elements}=    Get Webelements    //input
+    FOR    ${element}    IN    @{input_elements}
+        ${is_visible}=    Run Keyword And Return Status    Element Should Be Visible    ${element}
+        ${is_disabled}=    Get Element Attribute    ${element}    disabled
+        ${is_read_only}=    Get Element Attribute    ${element}    readonly
+        # Check if the element is not disabled and not read-only
+        Run Keyword If    '${is_visible}'=='PASS' AND '${is_disabled}'=='None' AND '${is_read_only}'=='None'
+        ...    Clear Element Text    ${element}
+
+    END
+
+Reset All Selects to Default
+    @{select_elements}=    Get Webelements    //select
+    FOR    ${select}    IN    @{select_elements}
+        Select From List By Value    ${select}    ${EMPTY}
+    END
+
+Clear Checkboxes
+    @{checkboxes}=    Get Webelements    //input[@type='checkbox']
+    FOR    ${checkbox}    IN    @{checkboxes}
+        Unselect Checkbox    ${checkbox}
+    END

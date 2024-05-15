@@ -21,12 +21,12 @@ Test Teardown  Common.End Web Test
 
 User Should Be Able To View The Grants Page
     [Documentation]  This test will check if the user is able to view the grants page
-    [Tags]  Grants
+    [Tags]  Grants    User-Lead
     Grants_Lead1.Navigate To Grants-Lead
 
 User Should Be Able To Choose How Many Grants They Want To View Per Page
     [Documentation]  This test will check if the user is able to view the grants page
-    [Tags]  Grants    
+    [Tags]  Grants   User-Lead 
     Grants_Lead1.Navigate To Grants-Lead
     Grants_Lead1.Choose Number Of Grants Per Page    ${DISPLAY_GRANT_NUMBER_SELECT_6}
     Grants_Lead1.Choose Number Of Grants Per Page    ${DISPLAY_GRANT_NUMBER_SELECT_12}
@@ -34,20 +34,20 @@ User Should Be Able To Choose How Many Grants They Want To View Per Page
 
 User Should Be Able To Flip Through The Pages Back And Forth
     [Documentation]  This test will check if the pagination on the main grants page is working
-    [Tags]  Grants    Navigate
+    [Tags]  Grants    Navigate    User-Lead
     Grants_Lead1.Navigate To Grants-Lead
     Grants_Lead1.Navigate To Last Page
     Grants_Lead1.Navigate To First Page
 
 User Should Be Able To View Individual Grants
     [Documentation]  This test will check if the user is able to view individual grants
-    [Tags]  Grants
+    [Tags]  Grants    User-Lead
     Grants_Lead1.Navigate To Grants-Lead
     Grants_Lead1.View Individual Grant
 
 User Should Be Able To Archive Grants
     [Documentation]  This test will check if the user is able to archive individual grants
-    [Tags]  Grants    Archive
+    [Tags]  Grants    Archive    User-Lead
     Grants_Lead1.Navigate To Grants-Lead
     # Ensures that the selected grant cannot be a "draft" which doesn't have an archive button
     Grants_Lead1.Filter Closed Grants
@@ -56,7 +56,7 @@ User Should Be Able To Archive Grants
 
 User Should Be Able To Filter Grants
     [Documentation]  This test will check if the user is able to filter grants
-    [Tags]  Grants    Filter    
+    [Tags]  Grants    Filter     User-Lead   
     Grants_Lead1.Navigate To Grants-Lead
     Grants_Lead1.Filter Archived Grants
     Grants_Lead1.Clear Filters
@@ -73,20 +73,20 @@ User Should Be Able To Filter Grants
     
 User Should Be Able To Search For Grants With Valid Search Term
     [Documentation]  This test will check if the user is able to search for grants using the search bar
-    [Tags]  Grants    Search    
+    [Tags]  Grants    Search    User-Lead
     Grants_Lead1.Navigate To Grants-Lead
     Grants_Lead1.Search For Grant    ${SEARCH_GRANT_EXISTING_TERM}
 
 User Should Not Be Able To Search For Grants With Inalid Search Term
     [Documentation]  This test will check if the search returns results when an invalid search term is used
-    [Tags]  Grants    Search
+    [Tags]  Grants    Search    User-Lead
     Grants_Lead1.Navigate To Grants-Lead
     ${string6}=    Create String Of Length    6
     Grants_Lead1.Search For Invalid Grant    ${string6}
 
 User Should Be Able To Add A New Grant
     [Documentation]  This test will check if the user is able to add a new grant
-    [Tags]  Grants    Add     Valid
+    [Tags]  Grants    Add     Valid    User-Lead
     ${string10}=     Create Random String Of Length    10
     ${string100}=    Create Random String Of Length    100
     ${int6}=         Create Random Integer Of Length    6
@@ -122,7 +122,7 @@ User Should Be Able To Add A New Grant
 
 User Should Not Be Able To Add A New Grant With Empty Fields
     [Documentation]  This test will make sure the user can't add a new grants when the fields are empty
-    [Tags]  Grants    Add     Invalid
+    [Tags]  Grants    Add     Invalid    User-Lead
     Grants_Lead1.Navigate To Grants-Lead
     Grants_Lead1.Add New Grant
     Grants_Lead1.Submit New Grant Button
@@ -130,7 +130,7 @@ User Should Not Be Able To Add A New Grant With Empty Fields
 
 User Should Not Be Able To Insert More Than The Expected Amount Of Characters
     [Documentation]  This test will input more characters than the expected amount and see if the 
-    [Tags]  Grants    Add     Invalid
+    [Tags]  Grants    Add     Invalid    User-Lead
     ${string101}=    Create Random String Of Length    101
     ${string7505}=    Create Random String Of Length    7505
     ${int102}=         Create Random Integer Of Length    102
@@ -140,21 +140,21 @@ User Should Not Be Able To Insert More Than The Expected Amount Of Characters
 
 User Should Not Be Able To Enter Text Values Into Grant Budget
     [Documentation]  This test will check if the user is able to enter text values into numeric fields
-    [Tags]  Grants    Add     Invalid    Numeric
+    [Tags]  Grants    Add     Invalid    Numeric    User-Lead
     Grants_Lead1.Navigate To Grants-Lead
     Grants_Lead1.Add New Grant
     Grants_Lead1.Enter Grant Budget    ${INVALID_TEXT}
     User Should See Error Message    Error when saving
    
 User Should Not Be Able To Enter Text Values Into Min Amount
-    [Tags]  Grants    Add     Invalid    Numeric
+    [Tags]  Grants    Add     Invalid    Numeric    User-Lead
     Grants_Lead1.Navigate To Grants-Lead
     Grants_Lead1.Add New Grant
     Grants_Lead1.Enter Grant Min Amount    ${INVALID_TEXT}
     User Should See Error Message    Error when saving
 
 User Should Not Be Able To Enter Text Values Into Max Amount
-    [Tags]  Grants    Add     Invalid    Numeric
+    [Tags]  Grants    Add     Invalid    Numeric    User-Lead
     Grants_Lead1.Navigate To Grants-Lead
     Grants_Lead1.Add New Grant
     Grants_Lead1.Enter Grant Max Amount    ${INVALID_TEXT}
@@ -163,14 +163,14 @@ User Should Not Be Able To Enter Text Values Into Max Amount
 
 The Min. Amount Should Be Less Than Or Equal To The Max. Amount, And Both Should Be Less Than Or Equal To The Budget
     [Documentation]  This test will check if the the amount fields are validated correctly
-    [Tags]  Grants    Add     Invalid
+    [Tags]  Grants    Add     Invalid    User-Lead
     Grants_Lead1.Navigate To Grants-Lead
     Grants_Lead1.Add New Grant
     Grants_Lead1.Validate Grant Amount Relationships    7500    5000    7500
 
 The start date should become before the end date
     [Documentation]  This test will check if the the date fields are validated correctly
-    [Tags]  Grants    Add     Invalid    
+    [Tags]  Grants    Add     Invalid        User-Lead
     ${next_week}=    Get Relative Date    7    %d-%m-%Y
     ${last_week}=    Get Relative Date    -7    %d-%m-%Y
     Grants_Lead1.Navigate To Grants-Lead
@@ -179,7 +179,7 @@ The start date should become before the end date
 
 User Should Be Able To Save Drafts
     [Documentation]  This test will check if the data is retained in the fields when the user navigates away from the page
-    [Tags]  Grants    Draft    
+    [Tags]  Grants    Draft        User-Lead
     ${string10}=     Create Random String Of Length    10
     ${string100}=    Create Random String Of Length    100
     ${int6}=         Create Random Integer Of Length    6
@@ -207,7 +207,7 @@ User Should Be Able To Save Drafts
 
 User Should Be Able To Edit Drafts
     [Documentation]  This test will check if the user is able to edit drafts
-    [Tags]  Grants    Draft
+    [Tags]  Grants    Draft    User-Lead
     ${string10}=     Create Random String Of Length    10
     ${string100}=    Create Random String Of Length    100
     ${int6}=         Create Random Integer Of Length    6
@@ -241,7 +241,7 @@ User Should Be Able To Edit Drafts
     
 User Should Be Able To Filter by Intermediary
     [Documentation]  This test will check if the user is able to filter by intermediary
-    [Tags]  Grants    Filter
+    [Tags]  Grants    Filter    User-Lead
     Grants_Lead1.Navigate To Grants-Lead
     Grants_Lead1.Open Filter Popup
     Grants_Lead1.Filter By Intermediary    bbi
@@ -261,7 +261,7 @@ User Should Be Able To Filter by Intermediary
 
 User Should Be Able To Filter by Status
     [Documentation]  This test will check if the user is able to filter by status
-    [Tags]  Grants    Filter
+    [Tags]  Grants    Filter    User-Lead
     Grants_Lead1.Navigate To Grants-Lead
     Grants_Lead1.Open Filter Popup
     Grants_Lead1.Filter By Status    ${STATUS_FILTER_DRAFT}
@@ -289,7 +289,7 @@ User Should Be Able To Filter by Status
 
 User Should Be Able To Filter by Min-Max Amounts
     [Documentation]  This test will check if the user is able to filter by min-max amounts of budget and applicants.
-    [Tags]  Grants    Filter
+    [Tags]  Grants    Filter    User-Lead
     Grants_Lead1.Navigate To Grants-Lead
     Grants_Lead1.Open Filter Popup
     Grants_Lead1.Filter By Min Budget    0
@@ -307,7 +307,7 @@ User Should Be Able To Filter by Min-Max Amounts
 
 User Should Be Able To Filter by Date Ranges
     [Documentation]  This test will check if the user is able to filter by Min-Max start and end dates
-    [Tags]  Grants    Filter
+    [Tags]  Grants    Filter    User-Lead
     ${tomorrow}=    Get Relative Date    1    %d/%m/%Y
     Grants_Lead1.Navigate To Grants-Lead
     Grants_Lead1.Open Filter Popup

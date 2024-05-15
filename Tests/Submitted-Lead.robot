@@ -22,13 +22,13 @@ Test Teardown  Common.End Web Test
 
 User Should Be Able To Navigate To The Submitted Grants Page
     [Documentation]  This test will check if the user is able to navigate to the submitted grants page.
-    [Tags]  Submitted    Navigation    
+    [Tags]  Submitted    Navigation    User-Lead
     HomeDashboard.Navigate To Submitted Applications
 
 
 User Should Be Able To Filter by Intermediary
     [Documentation]  This test will check if the user is able to filter by intermediary
-    [Tags]  Grants    Filter     Submitted
+    [Tags]  Grants    Filter     Submitted    User-Lead
     HomeDashboard.Navigate To Submitted Applications
     Submitted_Lead.Open Filter Popup
     Submitted_Lead.Filter By Intermediary    bbi
@@ -45,7 +45,7 @@ User Should Be Able To Filter by Intermediary
 
 User Should Be Able To Filter by Region
     [Documentation]  This test will check if the user is able to filter by region
-    [Tags]  Grants    Filter   Submitted
+    [Tags]  Grants    Filter   Submitted    User-Lead
     HomeDashboard.Navigate To Submitted Applications
     Submitted_Lead.Open Filter Popup
     Submitted_Lead.Filter By Region    ${SUB_REGION_FILTER_NS}
@@ -64,7 +64,7 @@ User Should Be Able To Filter by Region
 
 User Should Be Able To Filter by Organizational Area Of Focus
     [Documentation]  This test will check if the user is able to filter by organizational area of focus
-    [Tags]  Grants    Filter    Submitted
+    [Tags]  Grants    Filter    Submitted    User-Lead
     HomeDashboard.Navigate To Submitted Applications
     Submitted_Lead.Open Filter Popup
     Submitted_Lead.Filter By Organizational Area Of Focus    ${SUB_FOCUS_FILTER_ENTERPRENEURSHIP}
@@ -102,7 +102,7 @@ User Should Be Able To Filter by Organizational Area Of Focus
 
 User Should Be Able To Filter by Tasks/Stage Completion
     [Documentation]  This test will check if the user is able to filter by tasks/stage completion
-    [Tags]  Grants    Filter     Submitted
+    [Tags]  Grants    Filter     Submitted    User-Lead
     HomeDashboard.Navigate To Submitted Applications
     Submitted_Lead.Open Filter Popup
     Submitted_Lead.Filter By Tasks/Stage Completion    ${SUB_TASKS_FILTER_APP_STAGE}
@@ -143,7 +143,7 @@ User Should Be Able To Filter by Tasks/Stage Completion
 
 User Should Be Able To Submit An Eligibility Review Quiz
     [Documentation]  This test will check if the user is able to submit an eligibility review quiz
-    [Tags]  Grants    Eligibility    Valid    Submitted
+    [Tags]  Grants    Eligibility    Valid    Submitted    User-Lead
     HomeDashboard.Navigate To Submitted Applications
     Submitted_Lead.View Submitted Application
     Submitted_Lead.Open Eligibility Review Tab
@@ -152,7 +152,7 @@ User Should Be Able To Submit An Eligibility Review Quiz
 
 User Should Be Able To Submit An Eligibility Review Quiz - Decline Application
     [Documentation]  This test will check if the user is able to submit an eligibility review quiz
-    [Tags]  Grants    Eligibility    Invalid    Submitted
+    [Tags]  Grants    Eligibility    Invalid    Submitted    User-Lead
     HomeDashboard.Navigate To Submitted Applications
     Submitted_Lead.View Submitted Application
     Submitted_Lead.Open Eligibility Review Tab
@@ -174,7 +174,7 @@ User Should Be Able To Submit An Eligibility Review Quiz - Decline Application
 
 User Should Not Be Able to Edit An Already Submitted Eligibility Review Quiz
     [Documentation]  This test will pick an application that has already been reviewed and check if the user is able to change the answers
-    [Tags]  Grants    Eligibility    Invalid    Submitted
+    [Tags]  Grants    Eligibility    Invalid    Submitted    User-Lead
     HomeDashboard.Navigate To Submitted Applications
     Submitted_Lead.View Submitted Application
     Submitted_Lead.Open Eligibility Review Tab
@@ -183,7 +183,7 @@ User Should Not Be Able to Edit An Already Submitted Eligibility Review Quiz
 
 Assigned Reviewers Have To Be From The Selected Intermediary
     [Documentation]  This test will check if the list of reviewers available for the lead to choose from only contains the selected intermediary
-    [Tags]  Grants    Reviewers    Submitted
+    [Tags]  Grants    Reviewers    Submitted    User-Lead
     HomeDashboard.Navigate To Submitted Applications
     Submitted_Lead.Open Reviewer Assignment Popup
     Element Should Not Contain        ${REVIEWER_ASSIGNMENT_CONTAINER}        Tropicana
@@ -192,7 +192,7 @@ Assigned Reviewers Have To Be From The Selected Intermediary
 
 User Should Be Able To Assign A Reviewer
     [Documentation]  This test will check if the user is able to assign a reviewer
-    [Tags]  Grants    Reviewers    Submitted
+    [Tags]  Grants    Reviewers    Submitted    User-Lead
     HomeDashboard.Navigate To Submitted Applications
     Submitted_Lead.Open Reviewer Assignment Popup
     Submitted_Lead.Assign Reviewer Manually   ${REVIEWER_NAME_CHECKBOX1}
@@ -202,13 +202,13 @@ User Should Be Able To Assign A Reviewer
 
 User Should Be Able To Search For Applications With Valid Search Term
     [Documentation]  This test will check if the user is able to search for applications using the search bar
-    [Tags]  Grants    Search    Submitted    Valid    Run
+    [Tags]  Grants    Search    Submitted    Valid    User-Lead
     HomeDashboard.Navigate To Submitted Applications
     Submitted_Lead.Search For Application    ${SEARCH_GRANT_EXISTING_TERM}
 
 User Should Not Be Able To Search For Applications With Inalid Search Term
     [Documentation]  This test will check if the search returns results when an invalid search term is used
-    [Tags]  Grants    Search    Submitted    Invalid    Run
+    [Tags]  Grants    Search    Submitted    Invalid    User-Lead
     HomeDashboard.Navigate To Submitted Applications
     ${string6}=    Create String Of Length    6
     Submitted_Lead.Search For Invalid Application    ${string6}

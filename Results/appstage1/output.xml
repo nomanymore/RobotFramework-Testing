@@ -1,0 +1,603 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.12.3 on win32)" generated="2024-05-15T10:06:24.386660" rpa="false" schemaversion="5">
+<suite id="s1" name="Application-Stage-1" source="F:\NSCC-Courses\Semester-2\Work Placement\Automated Tests\BNFIN\tests\Application-Stage-1.robot">
+<test id="s1-t1" name="Page 6 - User Should Be Able To Continue With Application With Valid Fields" line="351">
+<kw name="Begin Web Test" owner="Common" type="SETUP">
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2024-05-15T10:06:25.500800" level="INFO">${auth_url} = https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/</msg>
+<var>${auth_url}</var>
+<arg>SEPARATOR=</arg>
+<arg>https://${USERNAME}:${WEBPASSWORD}@${START_URL}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2024-05-15T10:06:25.500800" elapsed="0.000000"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-05-15T10:06:25.500800" level="INFO">Opening browser 'chrome' to base url 'https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/'.</msg>
+<arg>${auth_url}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-05-15T10:06:25.500800" elapsed="4.444425"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-05-15T10:06:29.946399" elapsed="1.829510"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>1s</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2024-05-15T10:06:31.785576" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2024-05-15T10:06:25.500800" elapsed="6.284776"/>
+</kw>
+<kw name="Navigate To Grants-Applicant" owner="HomeDashboard">
+<kw name="Login as User Type" owner="bnfinApp">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Set Variable" owner="BuiltIn">
+<arg>${USER_APPLICANT}[${user_index}]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-15T10:06:31.803407" elapsed="0.001144"/>
+</kw>
+<msg time="2024-05-15T10:06:31.805716" level="INFO">${email} = victoria.applicant-2</msg>
+<var>${email}</var>
+<arg>'${user_type}'=='ADMIN'</arg>
+<arg>Set Variable</arg>
+<arg>${USER_ADMIN}</arg>
+<arg>ELSE IF</arg>
+<arg>'${user_type}'=='LEAD_REVIEWER'</arg>
+<arg>Set Variable</arg>
+<arg>${USER_LEAD_REVIEWER}[${user_index}]</arg>
+<arg>ELSE IF</arg>
+<arg>'${user_type}'=='REVIEWER'</arg>
+<arg>Set Variable</arg>
+<arg>${USER_REVIEWER}[${user_index}]</arg>
+<arg>ELSE IF</arg>
+<arg>'${user_type}'=='APPLICANT'</arg>
+<arg>Set Variable</arg>
+<arg>${USER_APPLICANT}[${user_index}]</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>${None}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-05-15T10:06:31.793623" elapsed="0.012093"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-15T10:06:31.807931" level="INFO">${password} = test</msg>
+<var>${password}</var>
+<arg>${PASSWORD}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-15T10:06:31.807931" elapsed="0.000000"/>
+</kw>
+<kw name="Go To Login Page" owner="SignIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOGIN_BUTTON}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-15T10:06:31.810958" elapsed="3.015256"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-15T10:06:34.826934" level="INFO">Clicking element 'xpath=//a[@href='/login' and contains(@class, 'btn-outline-white')]'.</msg>
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-15T10:06:34.826934" elapsed="2.370907"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${LOGIN_HEADER_LABEL}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-05-15T10:06:37.197841" elapsed="1.043045"/>
+</kw>
+<status status="PASS" start="2024-05-15T10:06:31.807931" elapsed="6.432955"/>
+</kw>
+<kw name="Login With Valid Credentials" owner="SignIn">
+<kw name="Fill &quot;Email&quot; Field" owner="SignIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-15T10:06:38.240886" level="INFO">Typing text 'victoria.applicant-2' into text field 'id=username'.</msg>
+<arg>${LOGIN_EMAIL_TEXTBOX}</arg>
+<arg>${Email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-15T10:06:38.240886" elapsed="3.979756"/>
+</kw>
+<arg>${Email}</arg>
+<status status="PASS" start="2024-05-15T10:06:38.240886" elapsed="3.979756"/>
+</kw>
+<kw name="Fill &quot;Password&quot; Field" owner="SignIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-15T10:06:42.220642" level="INFO">Typing text 'test' into text field 'id=password'.</msg>
+<arg>${LOGIN_PASSWORD_TEXTBOX}</arg>
+<arg>${Password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-15T10:06:42.220642" elapsed="3.400438"/>
+</kw>
+<arg>${Password}</arg>
+<status status="PASS" start="2024-05-15T10:06:42.220642" elapsed="3.400438"/>
+</kw>
+<kw name="Click &quot;Submit&quot; Button" owner="SignIn">
+<kw name="Ensure Element Is Clickable And Click" owner="bnfinApp">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-15T10:06:45.625933" elapsed="2.071915"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2024-05-15T10:06:47.697848" elapsed="3.104139"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-15T10:06:50.804907" level="INFO">Clicking element 'xpath=//*[@id="app"]/div[4]/div/div[2]/form/button'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-15T10:06:50.803728" elapsed="2.227476"/>
+</kw>
+<arg>${LOGIN_SUBMIT_BUTTON}</arg>
+<status status="PASS" start="2024-05-15T10:06:45.624391" elapsed="7.406813"/>
+</kw>
+<status status="PASS" start="2024-05-15T10:06:45.621080" elapsed="7.410124"/>
+</kw>
+<arg>${email}</arg>
+<arg>${password}</arg>
+<status status="PASS" start="2024-05-15T10:06:38.240886" elapsed="14.790318"/>
+</kw>
+<kw name="Go to &quot;Home&quot; Dashboard" owner="bnfinApp">
+<kw name="Navigate To Dash" owner="HomeDashboard">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-05-15T10:06:53.031204" level="INFO">Opening url 'https://bnfin-staging.curbza.com/home'</msg>
+<arg>${DASH_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-05-15T10:06:53.031204" elapsed="1.530570"/>
+</kw>
+<status status="PASS" start="2024-05-15T10:06:53.031204" elapsed="1.530570"/>
+</kw>
+<kw name="Verify Page Loaded" owner="HomeDashboard">
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>xpath=//*[@id="app"]/div[4]/div[1]/nav/div</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2024-05-15T10:06:54.561774" elapsed="3.096157"/>
+</kw>
+<status status="PASS" start="2024-05-15T10:06:54.561774" elapsed="3.096480"/>
+</kw>
+<status status="PASS" start="2024-05-15T10:06:53.031204" elapsed="4.627050"/>
+</kw>
+<arg>APPLICANT</arg>
+<arg>1</arg>
+<status status="PASS" start="2024-05-15T10:06:31.793623" elapsed="25.864631"/>
+</kw>
+<kw name="Ensure Element Is Clickable And Click" owner="bnfinApp">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-15T10:06:57.658254" elapsed="2.054645"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2024-05-15T10:06:59.712899" elapsed="3.080320"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-15T10:07:02.793219" level="INFO">Clicking element 'xpath=//*[@id="app"]/div[4]/div[1]/nav/div/div/div/div[1]/a[4]'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-15T10:07:02.793219" elapsed="2.272438"/>
+</kw>
+<arg>${SIDE_NAV_GRANTS_LINK_APPLICANT}</arg>
+<status status="PASS" start="2024-05-15T10:06:57.658254" elapsed="7.407972"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Available Grants</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-05-15T10:07:05.066226" elapsed="1.034842"/>
+</kw>
+<status status="PASS" start="2024-05-15T10:06:31.785576" elapsed="34.315492"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-05-15T10:07:06.101068" level="INFO">Opening url 'https://bnfin-staging.curbza.com/eligibility?p=page-5'</msg>
+<arg>https://bnfin-staging.curbza.com/eligibility?p=page-5</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-05-15T10:07:06.101068" elapsed="1.495843"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-05-15T10:07:07.604157" level="INFO">Clicking button 'xpath=//button[contains(text(), "Next")]'.</msg>
+<arg>${NEXT_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-15T10:07:07.604157" elapsed="5.604845"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${DATE_OF_INCORP}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-15T10:07:13.209002" elapsed="2.077228"/>
+</kw>
+<kw name="Get Current Date" owner="bnfinApp">
+<kw name="Get Time" owner="BuiltIn">
+<msg time="2024-05-15T10:07:15.290230" level="INFO">${current_date} = 2024-05-15 10:07:15</msg>
+<var>${current_date}</var>
+<arg>${format}</arg>
+<doc>Returns the given time in the requested format.</doc>
+<status status="PASS" start="2024-05-15T10:07:15.286230" elapsed="0.004000"/>
+</kw>
+<return>
+<value>${current_date}</value>
+<status status="PASS" start="2024-05-15T10:07:15.290230" elapsed="0.000000"/>
+</return>
+<msg time="2024-05-15T10:07:15.290230" level="INFO">${today} = 2024-05-15 10:07:15</msg>
+<var>${today}</var>
+<arg>%d-%m-%Y</arg>
+<status status="PASS" start="2024-05-15T10:07:15.286230" elapsed="0.004000"/>
+</kw>
+<kw name="Get Relative Date" owner="bnfinApp">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-15T10:07:15.293273" level="INFO">${offset_date} = 08-10-2023</msg>
+<var>${offset_date}</var>
+<arg>(datetime.datetime.now() + datetime.timedelta(days=${days_offset})).strftime('${format}')</arg>
+<arg>datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-15T10:07:15.290230" elapsed="0.003043"/>
+</kw>
+<return>
+<value>${offset_date}</value>
+<status status="PASS" start="2024-05-15T10:07:15.293273" elapsed="0.000000"/>
+</return>
+<msg time="2024-05-15T10:07:15.293273" level="INFO">${a_while_ago} = 08-10-2023</msg>
+<var>${a_while_ago}</var>
+<arg>-220</arg>
+<arg>%d-%m-%Y</arg>
+<status status="PASS" start="2024-05-15T10:07:15.290230" elapsed="0.003043"/>
+</kw>
+<kw name="Create Random Integer Of Length" owner="bnfinApp">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-15T10:07:15.296044" level="INFO">${min_value} = 10000</msg>
+<var>${min_value}</var>
+<arg>10**(int(${length})-1)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-15T10:07:15.293273" elapsed="0.002771"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-15T10:07:15.297853" level="INFO">${max_value} = 99999</msg>
+<var>${max_value}</var>
+<arg>(10**int(${length})) - 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-15T10:07:15.297853" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-15T10:07:15.301410" level="INFO">${random_number} = 89092</msg>
+<var>${random_number}</var>
+<arg>random.randint(${min_value}, ${max_value})</arg>
+<arg>random</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-15T10:07:15.297853" elapsed="0.003557"/>
+</kw>
+<return>
+<value>${random_number}</value>
+<status status="PASS" start="2024-05-15T10:07:15.301410" elapsed="0.000000"/>
+</return>
+<msg time="2024-05-15T10:07:15.301410" level="INFO">${int5} = 89092</msg>
+<var>${int5}</var>
+<arg>5</arg>
+<status status="PASS" start="2024-05-15T10:07:15.293273" elapsed="0.008137"/>
+</kw>
+<kw name="Create Random Integer Of Length" owner="bnfinApp">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-15T10:07:15.301410" level="INFO">${min_value} = 100000</msg>
+<var>${min_value}</var>
+<arg>10**(int(${length})-1)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-15T10:07:15.301410" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-15T10:07:15.301410" level="INFO">${max_value} = 999999</msg>
+<var>${max_value}</var>
+<arg>(10**int(${length})) - 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-15T10:07:15.301410" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-15T10:07:15.301410" level="INFO">${random_number} = 449931</msg>
+<var>${random_number}</var>
+<arg>random.randint(${min_value}, ${max_value})</arg>
+<arg>random</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-15T10:07:15.301410" elapsed="0.000000"/>
+</kw>
+<return>
+<value>${random_number}</value>
+<status status="PASS" start="2024-05-15T10:07:15.301410" elapsed="0.000000"/>
+</return>
+<msg time="2024-05-15T10:07:15.301410" level="INFO">${int6} = 449931</msg>
+<var>${int6}</var>
+<arg>6</arg>
+<status status="PASS" start="2024-05-15T10:07:15.301410" elapsed="0.000000"/>
+</kw>
+<kw name="Create Random Integer Of Length" owner="bnfinApp">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-15T10:07:15.309450" level="INFO">${min_value} = 100</msg>
+<var>${min_value}</var>
+<arg>10**(int(${length})-1)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-15T10:07:15.301410" elapsed="0.008240"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-15T10:07:15.310034" level="INFO">${max_value} = 999</msg>
+<var>${max_value}</var>
+<arg>(10**int(${length})) - 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-15T10:07:15.310034" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-15T10:07:15.312614" level="INFO">${random_number} = 474</msg>
+<var>${random_number}</var>
+<arg>random.randint(${min_value}, ${max_value})</arg>
+<arg>random</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-15T10:07:15.310034" elapsed="0.002580"/>
+</kw>
+<return>
+<value>${random_number}</value>
+<status status="PASS" start="2024-05-15T10:07:15.312614" elapsed="0.000000"/>
+</return>
+<msg time="2024-05-15T10:07:15.312614" level="INFO">${int3a} = 474</msg>
+<var>${int3a}</var>
+<arg>3</arg>
+<status status="PASS" start="2024-05-15T10:07:15.301410" elapsed="0.011204"/>
+</kw>
+<kw name="Create Random Integer Of Length" owner="bnfinApp">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-15T10:07:15.317639" level="INFO">${min_value} = 100</msg>
+<var>${min_value}</var>
+<arg>10**(int(${length})-1)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-15T10:07:15.317639" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-15T10:07:15.317639" level="INFO">${max_value} = 999</msg>
+<var>${max_value}</var>
+<arg>(10**int(${length})) - 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-15T10:07:15.317639" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-15T10:07:15.317639" level="INFO">${random_number} = 703</msg>
+<var>${random_number}</var>
+<arg>random.randint(${min_value}, ${max_value})</arg>
+<arg>random</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-15T10:07:15.317639" elapsed="0.000000"/>
+</kw>
+<return>
+<value>${random_number}</value>
+<status status="PASS" start="2024-05-15T10:07:15.317639" elapsed="0.000000"/>
+</return>
+<msg time="2024-05-15T10:07:15.317639" level="INFO">${int3} = 703</msg>
+<var>${int3}</var>
+<arg>3</arg>
+<status status="PASS" start="2024-05-15T10:07:15.317639" elapsed="0.000000"/>
+</kw>
+<kw name="Create Random Integer Of Length" owner="bnfinApp">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-15T10:07:15.317639" level="INFO">${min_value} = 10</msg>
+<var>${min_value}</var>
+<arg>10**(int(${length})-1)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-15T10:07:15.317639" elapsed="0.008081"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-15T10:07:15.326571" level="INFO">${max_value} = 99</msg>
+<var>${max_value}</var>
+<arg>(10**int(${length})) - 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-15T10:07:15.326571" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-15T10:07:15.326571" level="INFO">${random_number} = 61</msg>
+<var>${random_number}</var>
+<arg>random.randint(${min_value}, ${max_value})</arg>
+<arg>random</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-15T10:07:15.326571" elapsed="0.000000"/>
+</kw>
+<return>
+<value>${random_number}</value>
+<status status="PASS" start="2024-05-15T10:07:15.326571" elapsed="0.000000"/>
+</return>
+<msg time="2024-05-15T10:07:15.334097" level="INFO">${int2} = 61</msg>
+<var>${int2}</var>
+<arg>2</arg>
+<status status="PASS" start="2024-05-15T10:07:15.317639" elapsed="0.016458"/>
+</kw>
+<kw name="Create Random Integer Of Length" owner="bnfinApp">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-15T10:07:15.334097" level="INFO">${min_value} = 1</msg>
+<var>${min_value}</var>
+<arg>10**(int(${length})-1)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-15T10:07:15.334097" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-15T10:07:15.334097" level="INFO">${max_value} = 9</msg>
+<var>${max_value}</var>
+<arg>(10**int(${length})) - 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-15T10:07:15.334097" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-15T10:07:15.343806" level="INFO">${random_number} = 5</msg>
+<var>${random_number}</var>
+<arg>random.randint(${min_value}, ${max_value})</arg>
+<arg>random</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-15T10:07:15.334097" elapsed="0.009709"/>
+</kw>
+<return>
+<value>${random_number}</value>
+<status status="PASS" start="2024-05-15T10:07:15.343806" elapsed="0.000000"/>
+</return>
+<msg time="2024-05-15T10:07:15.343806" level="INFO">${int1} = 5</msg>
+<var>${int1}</var>
+<arg>1</arg>
+<status status="PASS" start="2024-05-15T10:07:15.334097" elapsed="0.009709"/>
+</kw>
+<kw name="Enter Date Of Incorporation" owner="App_Stage_1">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-15T10:07:15.350334" level="INFO">Typing text '08-10-2023' into text field 'xpath=//*[@id="app"]/div[4]/div[2]/div/div/div[1]/section/main/div/div[2]/div[1]/div[1]/input'.</msg>
+<arg>${DATE_OF_INCORP}</arg>
+<arg>${incorp_date}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-15T10:07:15.350334" elapsed="3.352181"/>
+</kw>
+<arg>${a_while_ago}</arg>
+<status status="PASS" start="2024-05-15T10:07:15.350334" elapsed="3.352181"/>
+</kw>
+<kw name="Enter Date Of Last Financial Statement" owner="App_Stage_1">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-15T10:07:18.702515" level="INFO">Typing text '2024-05-15 10:07:15' into text field 'xpath=//*[@id="app"]/div[4]/div[2]/div/div/div[1]/section/main/div/div[2]/div[2]/div[1]/input'.</msg>
+<arg>${DATE_OF_LAST_FINANCIAL}</arg>
+<arg>${statement_date}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-15T10:07:18.702515" elapsed="3.437273"/>
+</kw>
+<arg>${today}</arg>
+<status status="PASS" start="2024-05-15T10:07:18.702515" elapsed="3.437273"/>
+</kw>
+<kw name="Unselect Frame" owner="SeleniumLibrary">
+<doc>Sets the main frame as the current frame.</doc>
+<status status="PASS" start="2024-05-15T10:07:22.139788" elapsed="1.011208"/>
+</kw>
+<kw name="Enter Financial Information" owner="App_Stage_1">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-15T10:07:23.155947" level="INFO">Typing text '703' into text field 'xpath=/html/body/div/div[4]/div[2]/div/div/div[1]/section/main/div/div[2]/div[3]/div/div/span[1]/div[1]/div/input'.</msg>
+<msg time="2024-05-15T10:07:25.503231" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-15.png"&gt;&lt;img src="selenium-screenshot-15.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2024-05-15T10:07:25.503231" level="FAIL">Element with locator 'xpath=/html/body/div/div[4]/div[2]/div/div/div[1]/section/main/div/div[2]/div[3]/div/div/span[1]/div[1]/div/input' not found.</msg>
+<arg>${PRIVATE_DONATION_INT}</arg>
+<arg>${private_donation}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="FAIL" start="2024-05-15T10:07:23.155128" elapsed="2.355610">Element with locator 'xpath=/html/body/div/div[4]/div[2]/div/div/div[1]/section/main/div/div[2]/div[3]/div/div/span[1]/div[1]/div/input' not found.</status>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>${PUBLIC_DONATION_INT}</arg>
+<arg>${public_donation}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-05-15T10:07:25.510738" elapsed="0.000000"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>${GRANTS_INT}</arg>
+<arg>${grants}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-05-15T10:07:25.510738" elapsed="0.000000"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>${SELF_GENERATED_INT}</arg>
+<arg>${self_generated}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-05-15T10:07:25.510738" elapsed="0.000000"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>${TOTAL_PAYROLL_INT}</arg>
+<arg>${total_payroll}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-05-15T10:07:25.510738" elapsed="0.000000"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>${YEARLY_BALANCE_INT}</arg>
+<arg>${yearly_balance}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-05-15T10:07:25.510738" elapsed="0.000000"/>
+</kw>
+<arg>${int3}</arg>
+<arg>${int3}</arg>
+<arg>${int3a}</arg>
+<arg>${int6}</arg>
+<arg>${int5}</arg>
+<arg>${int5}</arg>
+<status status="FAIL" start="2024-05-15T10:07:23.153124" elapsed="2.357614">Element with locator 'xpath=/html/body/div/div[4]/div[2]/div/div/div[1]/section/main/div/div[2]/div[3]/div/div/span[1]/div[1]/div/input' not found.</status>
+</kw>
+<kw name="Unselect Frame" owner="SeleniumLibrary">
+<doc>Sets the main frame as the current frame.</doc>
+<status status="NOT RUN" start="2024-05-15T10:07:25.510738" elapsed="0.000000"/>
+</kw>
+<kw name="Enter Employee Information" owner="App_Stage_1">
+<arg>${int2}</arg>
+<arg>${int2}</arg>
+<arg>${int1}</arg>
+<arg>${int2}</arg>
+<arg>${int2}</arg>
+<arg>${int2}</arg>
+<arg>${int1}</arg>
+<arg>${int1}</arg>
+<arg>${int1}</arg>
+<status status="NOT RUN" start="2024-05-15T10:07:25.510738" elapsed="0.000000"/>
+</kw>
+<kw name="Unselect Frame" owner="SeleniumLibrary">
+<doc>Sets the main frame as the current frame.</doc>
+<status status="NOT RUN" start="2024-05-15T10:07:25.518256" elapsed="0.000000"/>
+</kw>
+<kw name="Enter Social URLs" owner="App_Stage_1">
+<arg>${EMPTY}</arg>
+<arg>${EMPTY}</arg>
+<arg>${EMPTY}</arg>
+<arg>${EMPTY}</arg>
+<arg>${EMPTY}</arg>
+<status status="NOT RUN" start="2024-05-15T10:07:25.521369" elapsed="0.000201"/>
+</kw>
+<kw name="Unselect Frame" owner="SeleniumLibrary">
+<doc>Sets the main frame as the current frame.</doc>
+<status status="NOT RUN" start="2024-05-15T10:07:25.521570" elapsed="0.000000"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<arg>${NEXT_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-05-15T10:07:25.521570" elapsed="0.000000"/>
+</kw>
+<kw name="End Web Test" owner="Common" type="TEARDOWN">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2024-05-15T10:07:25.526612" elapsed="3.668350"/>
+</kw>
+<kw name="Log Test Case Status" owner="Common">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-15T10:07:29.194962" level="INFO">Test failed: Page 6 - User Should Be Able To Continue With Application With Valid Fields</msg>
+<arg>Test failed: ${TEST NAME}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-15T10:07:29.194962" elapsed="0.000000"/>
+</kw>
+<arg>'${TEST STATUS}' != 'PASS'</arg>
+<arg>Log</arg>
+<arg>Test failed: ${TEST NAME}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-05-15T10:07:29.194962" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2024-05-15T10:07:29.194962" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2024-05-15T10:07:25.526612" elapsed="3.668350"/>
+</kw>
+<doc>This test will make sure the user can continue when the fields are filled in correctly, Optional fields will be left empty</doc>
+<tag>Grants</tag>
+<tag>Run</tag>
+<tag>User-Applicant</tag>
+<tag>Valid</tag>
+<status status="FAIL" start="2024-05-15T10:06:25.500800" elapsed="63.694162">Element with locator 'xpath=/html/body/div/div[4]/div[2]/div/div/div[1]/section/main/div/div[2]/div[3]/div/div/span[1]/div[1]/div/input' not found.</status>
+</test>
+<doc>This testing suite will check the functionality of the "Application Stage 1" part of the process by the applicant.</doc>
+<status status="FAIL" start="2024-05-15T10:06:24.402267" elapsed="64.792695"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">Grants</stat>
+<stat pass="0" fail="1" skip="0">Run</stat>
+<stat pass="0" fail="1" skip="0">User-Applicant</stat>
+<stat pass="0" fail="1" skip="0">Valid</stat>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Application-Stage-1">Application-Stage-1</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2024-05-15T10:06:25.434601" level="ERROR">Error in file 'F:\NSCC-Courses\Semester-2\Work Placement\Automated Tests\BNFIN\Resources\PO\App_Stage_1.robot' on line 2: Resource file '..\Resources\PO\SignIn.robot' does not exist.</msg>
+</errors>
+</robot>
