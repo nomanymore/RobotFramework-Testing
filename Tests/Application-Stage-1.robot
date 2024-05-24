@@ -75,7 +75,7 @@ User Should Be Able To Add And Remove Extra Contact Persons
 
 Page 1 - User Should Be Able To Fill In Fields
     [Documentation]  This test will check if the input fields are working as intended.
-    [Tags]  Grants    User-Applicant        
+    [Tags]  Grants    User-Applicant     test1   
     HomeDashboard.Navigate To Grants-Applicant
     App_Stage_1.Start "APPLICATION - STAGE 1"
     App_Stage_1.Enter Organization Name    Applicant1Organization
@@ -91,7 +91,7 @@ Page 1 - User Should Be Able To Fill In Fields
 
 Page 1 - User Should Be Able To Select From List
     [Documentation]  This test will check if the select fields are working as intended, then move onto next page
-    [Tags]  Grants    User-Applicant      
+    [Tags]  Grants    User-Applicant      test1
     HomeDashboard.Navigate To Grants-Applicant
     App_Stage_1.Start "APPLICATION - STAGE 1"
     bnfinApp.Reset All Selects to Default
@@ -297,7 +297,7 @@ Page 5 - Text Fields Should Not Contain More Than Allowed Chars
 
 Page 5 - User Should Be Able To Continue With Application With Valid Fields
     [Documentation]  This test will make sure the user can continue when the fields are filled in correctly, Optional fields will be left empty
-    [Tags]  Grants    User-Applicant    Valid   
+    [Tags]  Grants    User-Applicant    Valid       Run
     HomeDashboard.Navigate To Grants-Applicant
     Go To      https://bnfin-staging.curbza.com/eligibility?p=page-5
     Input Text    ${ADDRESS_TEXTAREA}         1234 Test Street
@@ -356,7 +356,7 @@ Page 6 - User Should Be Able To Continue With Application With Valid Fields
     Click Button    ${NEXT_BUTTON}
     Wait Until Element Is Visible    ${DATE_OF_INCORP}    timeout=10s
     ${today}=    Get Current Date     %d-%m-%Y
-    ${a_while_ago}=    Get Relative Date    -220    %d-%m-%Y
+    ${a_while_ago}=    Get Relative Date    -22    %d-%m-%Y
     ${int5}=    Create Random Integer Of Length    5
     ${int6}=    Create Random Integer Of Length    6
     ${int3a}=    Create Random Integer Of Length    3
@@ -373,4 +373,5 @@ Page 6 - User Should Be Able To Continue With Application With Valid Fields
     App_Stage_1.Enter Social URLs    ${EMPTY}    ${EMPTY}    ${EMPTY}    ${EMPTY}    ${EMPTY}
     Unselect Frame
     Click Button    ${NEXT_BUTTON}
+
 

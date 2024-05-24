@@ -10,8 +10,8 @@ import os
 # To run enter this in the console: python AccessibilityChecker.py
 
 # Define credentials and URL
-username = 'bnfin_demo'
-password = 'ÔúiNÛONä½I'
+username = '**ADD HERE**'
+password = '**ADD HERE**'
 start_url = 'bnfin-staging.curbza.com/'
 
 # Set the url you want to check, with the authentication

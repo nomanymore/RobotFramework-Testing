@@ -9,8 +9,8 @@ from spellchecker import SpellChecker
 # To run enter this in the console: python Spellchecker.py
 
 # Define credentials and URL
-username = 'bnfin_demo'
-password = 'ÔúiNÛONä½I'
+username = '**ADD HERE**'
+password = '**ADD HERE**'
 start_url = 'bnfin-staging.curbza.com/'
 
 # Create the URL with authentication

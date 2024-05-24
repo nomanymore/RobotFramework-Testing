@@ -3,8 +3,8 @@ Library  SeleniumLibrary
 
 *** Variables ***
 ${BROWSER}         chrome
-${USERNAME}        bnfin_demo
-${WEBPASSWORD}        ÔúiNÛONä½I
+${USERNAME}        **ADD HERE**
+${WEBPASSWORD}        **ADD HERE**
 ${START_URL}       bnfin-staging.curbza.com/
 
 *** Keywords ***

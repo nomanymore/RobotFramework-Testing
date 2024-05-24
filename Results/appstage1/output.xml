@@ -1,33 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.0 (Python 3.12.3 on win32)" generated="2024-05-15T10:06:24.386660" rpa="false" schemaversion="5">
+<robot generator="Robot 7.0 (Python 3.12.3 on win32)" generated="2024-05-17T10:59:22.460483" rpa="false" schemaversion="5">
 <suite id="s1" name="Application-Stage-1" source="F:\NSCC-Courses\Semester-2\Work Placement\Automated Tests\BNFIN\tests\Application-Stage-1.robot">
-<test id="s1-t1" name="Page 6 - User Should Be Able To Continue With Application With Valid Fields" line="351">
+<test id="s1-t1" name="Page 1 - User Should Be Able To Fill In Fields" line="76">
 <kw name="Begin Web Test" owner="Common" type="SETUP">
 <kw name="Catenate" owner="BuiltIn">
-<msg time="2024-05-15T10:06:25.500800" level="INFO">${auth_url} = https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/</msg>
+<msg time="2024-05-17T10:59:22.971830" level="INFO">${auth_url} = https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/</msg>
 <var>${auth_url}</var>
 <arg>SEPARATOR=</arg>
 <arg>https://${USERNAME}:${WEBPASSWORD}@${START_URL}</arg>
 <doc>Catenates the given items together and returns the resulted string.</doc>
-<status status="PASS" start="2024-05-15T10:06:25.500800" elapsed="0.000000"/>
+<status status="PASS" start="2024-05-17T10:59:22.952715" elapsed="0.019115"/>
 </kw>
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2024-05-15T10:06:25.500800" level="INFO">Opening browser 'chrome' to base url 'https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/'.</msg>
+<msg time="2024-05-17T10:59:22.973353" level="INFO">Opening browser 'chrome' to base url 'https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/'.</msg>
+<msg time="2024-05-17T10:59:24.410878" level="WARN">The chromedriver version (124.0.6367.78) detected in PATH at C:\bin\chromedriver.exe might not be compatible with the detected chrome version (125.0.6422.61); currently, chromedriver 125.0.6422.60 is recommended for chrome 125.*, so it is advised to delete the driver in PATH and retry</msg>
 <arg>${auth_url}</arg>
 <arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2024-05-15T10:06:25.500800" elapsed="4.444425"/>
+<status status="PASS" start="2024-05-17T10:59:22.971830" elapsed="5.311751"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2024-05-15T10:06:29.946399" elapsed="1.829510"/>
+<status status="PASS" start="2024-05-17T10:59:28.283581" elapsed="0.049283"/>
 </kw>
 <kw name="Set Selenium Speed" owner="SeleniumLibrary">
 <arg>1s</arg>
 <doc>Sets the delay that is waited after each Selenium command.</doc>
-<status status="PASS" start="2024-05-15T10:06:31.785576" elapsed="0.000000"/>
+<status status="PASS" start="2024-05-17T10:59:28.332864" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2024-05-15T10:06:25.500800" elapsed="6.284776"/>
+<status status="PASS" start="2024-05-17T10:59:22.952715" elapsed="5.380149"/>
 </kw>
 <kw name="Navigate To Grants-Applicant" owner="HomeDashboard">
 <kw name="Login as User Type" owner="bnfinApp">
@@ -35,9 +36,9 @@
 <kw name="Set Variable" owner="BuiltIn">
 <arg>${USER_APPLICANT}[${user_index}]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2024-05-15T10:06:31.803407" elapsed="0.001144"/>
+<status status="PASS" start="2024-05-17T10:59:28.332864" elapsed="0.000000"/>
 </kw>
-<msg time="2024-05-15T10:06:31.805716" level="INFO">${email} = victoria.applicant-2</msg>
+<msg time="2024-05-17T10:59:28.332864" level="INFO">${email} = victoria.applicant-2</msg>
 <var>${email}</var>
 <arg>'${user_type}'=='ADMIN'</arg>
 <arg>Set Variable</arg>
@@ -58,57 +59,57 @@
 <arg>Set Variable</arg>
 <arg>${None}</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-05-15T10:06:31.793623" elapsed="0.012093"/>
+<status status="PASS" start="2024-05-17T10:59:28.332864" elapsed="0.000000"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2024-05-15T10:06:31.807931" level="INFO">${password} = test</msg>
+<msg time="2024-05-17T10:59:28.332864" level="INFO">${password} = test</msg>
 <var>${password}</var>
 <arg>${PASSWORD}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2024-05-15T10:06:31.807931" elapsed="0.000000"/>
+<status status="PASS" start="2024-05-17T10:59:28.332864" elapsed="0.000000"/>
 </kw>
 <kw name="Go To Login Page" owner="SignIn">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${LOGIN_BUTTON}</arg>
 <arg>10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-05-15T10:06:31.810958" elapsed="3.015256"/>
+<status status="PASS" start="2024-05-17T10:59:28.332864" elapsed="2.112372"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-05-15T10:06:34.826934" level="INFO">Clicking element 'xpath=//a[@href='/login' and contains(@class, 'btn-outline-white')]'.</msg>
+<msg time="2024-05-17T10:59:30.446716" level="INFO">Clicking element 'xpath=//a[@href='/login' and contains(@class, 'btn-outline-white')]'.</msg>
 <arg>${LOGIN_BUTTON}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-15T10:06:34.826934" elapsed="2.370907"/>
+<status status="PASS" start="2024-05-17T10:59:30.445236" elapsed="2.182039"/>
 </kw>
 <kw name="Wait Until Page Contains" owner="SeleniumLibrary">
 <arg>${LOGIN_HEADER_LABEL}</arg>
 <doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2024-05-15T10:06:37.197841" elapsed="1.043045"/>
+<status status="PASS" start="2024-05-17T10:59:32.627275" elapsed="1.029251"/>
 </kw>
-<status status="PASS" start="2024-05-15T10:06:31.807931" elapsed="6.432955"/>
+<status status="PASS" start="2024-05-17T10:59:28.332864" elapsed="5.323662"/>
 </kw>
 <kw name="Login With Valid Credentials" owner="SignIn">
 <kw name="Fill &quot;Email&quot; Field" owner="SignIn">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-05-15T10:06:38.240886" level="INFO">Typing text 'victoria.applicant-2' into text field 'id=username'.</msg>
+<msg time="2024-05-17T10:59:33.658067" level="INFO">Typing text 'victoria.applicant-2' into text field 'id=username'.</msg>
 <arg>${LOGIN_EMAIL_TEXTBOX}</arg>
 <arg>${Email}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-15T10:06:38.240886" elapsed="3.979756"/>
+<status status="PASS" start="2024-05-17T10:59:33.658067" elapsed="3.338121"/>
 </kw>
 <arg>${Email}</arg>
-<status status="PASS" start="2024-05-15T10:06:38.240886" elapsed="3.979756"/>
+<status status="PASS" start="2024-05-17T10:59:33.658067" elapsed="3.338121"/>
 </kw>
 <kw name="Fill &quot;Password&quot; Field" owner="SignIn">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-05-15T10:06:42.220642" level="INFO">Typing text 'test' into text field 'id=password'.</msg>
+<msg time="2024-05-17T10:59:36.996188" level="INFO">Typing text 'test' into text field 'id=password'.</msg>
 <arg>${LOGIN_PASSWORD_TEXTBOX}</arg>
 <arg>${Password}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-15T10:06:42.220642" elapsed="3.400438"/>
+<status status="PASS" start="2024-05-17T10:59:36.996188" elapsed="3.262219"/>
 </kw>
 <arg>${Password}</arg>
-<status status="PASS" start="2024-05-15T10:06:42.220642" elapsed="3.400438"/>
+<status status="PASS" start="2024-05-17T10:59:36.996188" elapsed="3.262219"/>
 </kw>
 <kw name="Click &quot;Submit&quot; Button" owner="SignIn">
 <kw name="Ensure Element Is Clickable And Click" owner="bnfinApp">
@@ -116,488 +117,812 @@
 <arg>${locator}</arg>
 <arg>10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-05-15T10:06:45.625933" elapsed="2.071915"/>
+<status status="PASS" start="2024-05-17T10:59:40.258407" elapsed="2.061581"/>
 </kw>
 <kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
 <arg>${locator}</arg>
 <arg>10s</arg>
 <doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" start="2024-05-15T10:06:47.697848" elapsed="3.104139"/>
+<status status="PASS" start="2024-05-17T10:59:42.319988" elapsed="3.071892"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-05-15T10:06:50.804907" level="INFO">Clicking element 'xpath=//*[@id="app"]/div[4]/div/div[2]/form/button'.</msg>
+<msg time="2024-05-17T10:59:45.391880" level="INFO">Clicking element 'xpath=//*[@id="app"]/div[4]/div/div[2]/form/button'.</msg>
 <arg>${locator}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-15T10:06:50.803728" elapsed="2.227476"/>
+<status status="PASS" start="2024-05-17T10:59:45.391880" elapsed="2.141987"/>
 </kw>
 <arg>${LOGIN_SUBMIT_BUTTON}</arg>
-<status status="PASS" start="2024-05-15T10:06:45.624391" elapsed="7.406813"/>
+<status status="PASS" start="2024-05-17T10:59:40.258407" elapsed="7.276023"/>
 </kw>
-<status status="PASS" start="2024-05-15T10:06:45.621080" elapsed="7.410124"/>
+<status status="PASS" start="2024-05-17T10:59:40.258407" elapsed="7.276023"/>
 </kw>
 <arg>${email}</arg>
 <arg>${password}</arg>
-<status status="PASS" start="2024-05-15T10:06:38.240886" elapsed="14.790318"/>
+<status status="PASS" start="2024-05-17T10:59:33.656526" elapsed="13.877904"/>
 </kw>
 <kw name="Go to &quot;Home&quot; Dashboard" owner="bnfinApp">
 <kw name="Navigate To Dash" owner="HomeDashboard">
 <kw name="Go To" owner="SeleniumLibrary">
-<msg time="2024-05-15T10:06:53.031204" level="INFO">Opening url 'https://bnfin-staging.curbza.com/home'</msg>
+<msg time="2024-05-17T10:59:47.534430" level="INFO">Opening url 'https://bnfin-staging.curbza.com/home'</msg>
 <arg>${DASH_URL}</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2024-05-15T10:06:53.031204" elapsed="1.530570"/>
+<status status="PASS" start="2024-05-17T10:59:47.534430" elapsed="1.367578"/>
 </kw>
-<status status="PASS" start="2024-05-15T10:06:53.031204" elapsed="1.530570"/>
+<status status="PASS" start="2024-05-17T10:59:47.534430" elapsed="1.367578"/>
 </kw>
 <kw name="Verify Page Loaded" owner="HomeDashboard">
 <kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
 <arg>xpath=//*[@id="app"]/div[4]/div[1]/nav/div</arg>
 <arg>10s</arg>
 <doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" start="2024-05-15T10:06:54.561774" elapsed="3.096157"/>
+<status status="PASS" start="2024-05-17T10:59:48.902008" elapsed="3.082376"/>
 </kw>
-<status status="PASS" start="2024-05-15T10:06:54.561774" elapsed="3.096480"/>
+<status status="PASS" start="2024-05-17T10:59:48.902008" elapsed="3.082376"/>
 </kw>
-<status status="PASS" start="2024-05-15T10:06:53.031204" elapsed="4.627050"/>
+<status status="PASS" start="2024-05-17T10:59:47.534430" elapsed="4.449954"/>
 </kw>
 <arg>APPLICANT</arg>
 <arg>1</arg>
-<status status="PASS" start="2024-05-15T10:06:31.793623" elapsed="25.864631"/>
+<status status="PASS" start="2024-05-17T10:59:28.332864" elapsed="23.651520"/>
 </kw>
 <kw name="Ensure Element Is Clickable And Click" owner="bnfinApp">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${locator}</arg>
 <arg>10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-05-15T10:06:57.658254" elapsed="2.054645"/>
+<status status="PASS" start="2024-05-17T10:59:51.984384" elapsed="2.055119"/>
 </kw>
 <kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
 <arg>${locator}</arg>
 <arg>10s</arg>
 <doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" start="2024-05-15T10:06:59.712899" elapsed="3.080320"/>
+<status status="PASS" start="2024-05-17T10:59:54.039503" elapsed="3.069810"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-05-15T10:07:02.793219" level="INFO">Clicking element 'xpath=//*[@id="app"]/div[4]/div[1]/nav/div/div/div/div[1]/a[4]'.</msg>
+<msg time="2024-05-17T10:59:57.109861" level="INFO">Clicking element 'xpath=//*[@id="app"]/div[4]/div[1]/nav/div/div/div/div[1]/a[4]'.</msg>
 <arg>${locator}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-15T10:07:02.793219" elapsed="2.272438"/>
+<status status="PASS" start="2024-05-17T10:59:57.109313" elapsed="2.110976"/>
 </kw>
 <arg>${SIDE_NAV_GRANTS_LINK_APPLICANT}</arg>
-<status status="PASS" start="2024-05-15T10:06:57.658254" elapsed="7.407972"/>
+<status status="PASS" start="2024-05-17T10:59:51.984384" elapsed="7.235905"/>
 </kw>
 <kw name="Wait Until Page Contains" owner="SeleniumLibrary">
 <arg>Available Grants</arg>
 <doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2024-05-15T10:07:05.066226" elapsed="1.034842"/>
+<status status="PASS" start="2024-05-17T10:59:59.220289" elapsed="1.035449"/>
 </kw>
-<status status="PASS" start="2024-05-15T10:06:31.785576" elapsed="34.315492"/>
+<status status="PASS" start="2024-05-17T10:59:28.332864" elapsed="31.922874"/>
 </kw>
-<kw name="Go To" owner="SeleniumLibrary">
-<msg time="2024-05-15T10:07:06.101068" level="INFO">Opening url 'https://bnfin-staging.curbza.com/eligibility?p=page-5'</msg>
-<arg>https://bnfin-staging.curbza.com/eligibility?p=page-5</arg>
-<doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2024-05-15T10:07:06.101068" elapsed="1.495843"/>
+<kw name="Start &quot;APPLICATION - STAGE 1&quot;" owner="App_Stage_1">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${APPLICATION_STAGE1_LINK}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2024-05-17T11:00:00.255738" elapsed="2.335784"/>
 </kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2024-05-15T10:07:07.604157" level="INFO">Clicking button 'xpath=//button[contains(text(), "Next")]'.</msg>
-<arg>${NEXT_BUTTON}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-15T10:07:07.604157" elapsed="5.604845"/>
-</kw>
+<kw name="Ensure Element Is Clickable And Click" owner="bnfinApp">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${DATE_OF_INCORP}</arg>
-<arg>timeout=10s</arg>
+<arg>${locator}</arg>
+<arg>10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-05-15T10:07:13.209002" elapsed="2.077228"/>
+<status status="PASS" start="2024-05-17T11:00:02.591844" elapsed="2.047050"/>
 </kw>
-<kw name="Get Current Date" owner="bnfinApp">
-<kw name="Get Time" owner="BuiltIn">
-<msg time="2024-05-15T10:07:15.290230" level="INFO">${current_date} = 2024-05-15 10:07:15</msg>
-<var>${current_date}</var>
-<arg>${format}</arg>
-<doc>Returns the given time in the requested format.</doc>
-<status status="PASS" start="2024-05-15T10:07:15.286230" elapsed="0.004000"/>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2024-05-17T11:00:04.638894" elapsed="3.062879"/>
 </kw>
-<return>
-<value>${current_date}</value>
-<status status="PASS" start="2024-05-15T10:07:15.290230" elapsed="0.000000"/>
-</return>
-<msg time="2024-05-15T10:07:15.290230" level="INFO">${today} = 2024-05-15 10:07:15</msg>
-<var>${today}</var>
-<arg>%d-%m-%Y</arg>
-<status status="PASS" start="2024-05-15T10:07:15.286230" elapsed="0.004000"/>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-17T11:00:07.702347" level="INFO">Clicking element 'xpath=(//a[contains(@href, "/eligibility")])[1]'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-17T11:00:07.702347" elapsed="2.245237"/>
 </kw>
-<kw name="Get Relative Date" owner="bnfinApp">
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2024-05-15T10:07:15.293273" level="INFO">${offset_date} = 08-10-2023</msg>
-<var>${offset_date}</var>
-<arg>(datetime.datetime.now() + datetime.timedelta(days=${days_offset})).strftime('${format}')</arg>
-<arg>datetime</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2024-05-15T10:07:15.290230" elapsed="0.003043"/>
+<arg>${APPLICATION_STAGE1_LINK}</arg>
+<status status="PASS" start="2024-05-17T11:00:02.591844" elapsed="7.355740"/>
 </kw>
-<return>
-<value>${offset_date}</value>
-<status status="PASS" start="2024-05-15T10:07:15.293273" elapsed="0.000000"/>
-</return>
-<msg time="2024-05-15T10:07:15.293273" level="INFO">${a_while_ago} = 08-10-2023</msg>
-<var>${a_while_ago}</var>
-<arg>-220</arg>
-<arg>%d-%m-%Y</arg>
-<status status="PASS" start="2024-05-15T10:07:15.290230" elapsed="0.003043"/>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Your first step will be to complete Stage 1 of the application process</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-05-17T11:00:09.947584" elapsed="1.040651"/>
 </kw>
-<kw name="Create Random Integer Of Length" owner="bnfinApp">
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2024-05-15T10:07:15.296044" level="INFO">${min_value} = 10000</msg>
-<var>${min_value}</var>
-<arg>10**(int(${length})-1)</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2024-05-15T10:07:15.293273" elapsed="0.002771"/>
+<kw name="Ensure Element Is Clickable And Click" owner="bnfinApp">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-17T11:00:10.988418" elapsed="2.054543"/>
 </kw>
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2024-05-15T10:07:15.297853" level="INFO">${max_value} = 99999</msg>
-<var>${max_value}</var>
-<arg>(10**int(${length})) - 1</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2024-05-15T10:07:15.297853" elapsed="0.000000"/>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2024-05-17T11:00:13.042961" elapsed="3.067090"/>
 </kw>
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2024-05-15T10:07:15.301410" level="INFO">${random_number} = 89092</msg>
-<var>${random_number}</var>
-<arg>random.randint(${min_value}, ${max_value})</arg>
-<arg>random</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2024-05-15T10:07:15.297853" elapsed="0.003557"/>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-17T11:00:16.111764" level="INFO">Clicking element 'xpath=//button[contains(text(), "Begin")]'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-17T11:00:16.110598" elapsed="2.141638"/>
 </kw>
-<return>
-<value>${random_number}</value>
-<status status="PASS" start="2024-05-15T10:07:15.301410" elapsed="0.000000"/>
-</return>
-<msg time="2024-05-15T10:07:15.301410" level="INFO">${int5} = 89092</msg>
-<var>${int5}</var>
-<arg>5</arg>
-<status status="PASS" start="2024-05-15T10:07:15.293273" elapsed="0.008137"/>
+<arg>${BEGIN_APPLICATION_BUTTON}</arg>
+<status status="PASS" start="2024-05-17T11:00:10.988418" elapsed="7.263818"/>
 </kw>
-<kw name="Create Random Integer Of Length" owner="bnfinApp">
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2024-05-15T10:07:15.301410" level="INFO">${min_value} = 100000</msg>
-<var>${min_value}</var>
-<arg>10**(int(${length})-1)</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2024-05-15T10:07:15.301410" elapsed="0.000000"/>
+<status status="PASS" start="2024-05-17T11:00:00.255738" elapsed="17.996498"/>
 </kw>
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2024-05-15T10:07:15.301410" level="INFO">${max_value} = 999999</msg>
-<var>${max_value}</var>
-<arg>(10**int(${length})) - 1</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2024-05-15T10:07:15.301410" elapsed="0.000000"/>
-</kw>
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2024-05-15T10:07:15.301410" level="INFO">${random_number} = 449931</msg>
-<var>${random_number}</var>
-<arg>random.randint(${min_value}, ${max_value})</arg>
-<arg>random</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2024-05-15T10:07:15.301410" elapsed="0.000000"/>
-</kw>
-<return>
-<value>${random_number}</value>
-<status status="PASS" start="2024-05-15T10:07:15.301410" elapsed="0.000000"/>
-</return>
-<msg time="2024-05-15T10:07:15.301410" level="INFO">${int6} = 449931</msg>
-<var>${int6}</var>
-<arg>6</arg>
-<status status="PASS" start="2024-05-15T10:07:15.301410" elapsed="0.000000"/>
-</kw>
-<kw name="Create Random Integer Of Length" owner="bnfinApp">
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2024-05-15T10:07:15.309450" level="INFO">${min_value} = 100</msg>
-<var>${min_value}</var>
-<arg>10**(int(${length})-1)</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2024-05-15T10:07:15.301410" elapsed="0.008240"/>
-</kw>
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2024-05-15T10:07:15.310034" level="INFO">${max_value} = 999</msg>
-<var>${max_value}</var>
-<arg>(10**int(${length})) - 1</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2024-05-15T10:07:15.310034" elapsed="0.000000"/>
-</kw>
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2024-05-15T10:07:15.312614" level="INFO">${random_number} = 474</msg>
-<var>${random_number}</var>
-<arg>random.randint(${min_value}, ${max_value})</arg>
-<arg>random</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2024-05-15T10:07:15.310034" elapsed="0.002580"/>
-</kw>
-<return>
-<value>${random_number}</value>
-<status status="PASS" start="2024-05-15T10:07:15.312614" elapsed="0.000000"/>
-</return>
-<msg time="2024-05-15T10:07:15.312614" level="INFO">${int3a} = 474</msg>
-<var>${int3a}</var>
-<arg>3</arg>
-<status status="PASS" start="2024-05-15T10:07:15.301410" elapsed="0.011204"/>
-</kw>
-<kw name="Create Random Integer Of Length" owner="bnfinApp">
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2024-05-15T10:07:15.317639" level="INFO">${min_value} = 100</msg>
-<var>${min_value}</var>
-<arg>10**(int(${length})-1)</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2024-05-15T10:07:15.317639" elapsed="0.000000"/>
-</kw>
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2024-05-15T10:07:15.317639" level="INFO">${max_value} = 999</msg>
-<var>${max_value}</var>
-<arg>(10**int(${length})) - 1</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2024-05-15T10:07:15.317639" elapsed="0.000000"/>
-</kw>
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2024-05-15T10:07:15.317639" level="INFO">${random_number} = 703</msg>
-<var>${random_number}</var>
-<arg>random.randint(${min_value}, ${max_value})</arg>
-<arg>random</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2024-05-15T10:07:15.317639" elapsed="0.000000"/>
-</kw>
-<return>
-<value>${random_number}</value>
-<status status="PASS" start="2024-05-15T10:07:15.317639" elapsed="0.000000"/>
-</return>
-<msg time="2024-05-15T10:07:15.317639" level="INFO">${int3} = 703</msg>
-<var>${int3}</var>
-<arg>3</arg>
-<status status="PASS" start="2024-05-15T10:07:15.317639" elapsed="0.000000"/>
-</kw>
-<kw name="Create Random Integer Of Length" owner="bnfinApp">
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2024-05-15T10:07:15.317639" level="INFO">${min_value} = 10</msg>
-<var>${min_value}</var>
-<arg>10**(int(${length})-1)</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2024-05-15T10:07:15.317639" elapsed="0.008081"/>
-</kw>
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2024-05-15T10:07:15.326571" level="INFO">${max_value} = 99</msg>
-<var>${max_value}</var>
-<arg>(10**int(${length})) - 1</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2024-05-15T10:07:15.326571" elapsed="0.000000"/>
-</kw>
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2024-05-15T10:07:15.326571" level="INFO">${random_number} = 61</msg>
-<var>${random_number}</var>
-<arg>random.randint(${min_value}, ${max_value})</arg>
-<arg>random</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2024-05-15T10:07:15.326571" elapsed="0.000000"/>
-</kw>
-<return>
-<value>${random_number}</value>
-<status status="PASS" start="2024-05-15T10:07:15.326571" elapsed="0.000000"/>
-</return>
-<msg time="2024-05-15T10:07:15.334097" level="INFO">${int2} = 61</msg>
-<var>${int2}</var>
-<arg>2</arg>
-<status status="PASS" start="2024-05-15T10:07:15.317639" elapsed="0.016458"/>
-</kw>
-<kw name="Create Random Integer Of Length" owner="bnfinApp">
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2024-05-15T10:07:15.334097" level="INFO">${min_value} = 1</msg>
-<var>${min_value}</var>
-<arg>10**(int(${length})-1)</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2024-05-15T10:07:15.334097" elapsed="0.000000"/>
-</kw>
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2024-05-15T10:07:15.334097" level="INFO">${max_value} = 9</msg>
-<var>${max_value}</var>
-<arg>(10**int(${length})) - 1</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2024-05-15T10:07:15.334097" elapsed="0.000000"/>
-</kw>
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2024-05-15T10:07:15.343806" level="INFO">${random_number} = 5</msg>
-<var>${random_number}</var>
-<arg>random.randint(${min_value}, ${max_value})</arg>
-<arg>random</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2024-05-15T10:07:15.334097" elapsed="0.009709"/>
-</kw>
-<return>
-<value>${random_number}</value>
-<status status="PASS" start="2024-05-15T10:07:15.343806" elapsed="0.000000"/>
-</return>
-<msg time="2024-05-15T10:07:15.343806" level="INFO">${int1} = 5</msg>
-<var>${int1}</var>
-<arg>1</arg>
-<status status="PASS" start="2024-05-15T10:07:15.334097" elapsed="0.009709"/>
-</kw>
-<kw name="Enter Date Of Incorporation" owner="App_Stage_1">
+<kw name="Enter Organization Name" owner="App_Stage_1">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-05-15T10:07:15.350334" level="INFO">Typing text '08-10-2023' into text field 'xpath=//*[@id="app"]/div[4]/div[2]/div/div/div[1]/section/main/div/div[2]/div[1]/div[1]/input'.</msg>
-<arg>${DATE_OF_INCORP}</arg>
-<arg>${incorp_date}</arg>
+<msg time="2024-05-17T11:00:18.252236" level="INFO">Typing text 'Applicant1Organization' into text field 'xpath=//*[@id="app"]/div[4]/div[2]/div/div/div[1]/section/main/div/div[2]/div[1]/div[1]/input'.</msg>
+<arg>${ORGANIZATION_NAME_INPUT_FIELD}</arg>
+<arg>${ORGANIZATION_NAME}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-15T10:07:15.350334" elapsed="3.352181"/>
+<status status="PASS" start="2024-05-17T11:00:18.252236" elapsed="3.482200"/>
 </kw>
-<arg>${a_while_ago}</arg>
-<status status="PASS" start="2024-05-15T10:07:15.350334" elapsed="3.352181"/>
-</kw>
-<kw name="Enter Date Of Last Financial Statement" owner="App_Stage_1">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-05-15T10:07:18.702515" level="INFO">Typing text '2024-05-15 10:07:15' into text field 'xpath=//*[@id="app"]/div[4]/div[2]/div/div/div[1]/section/main/div/div[2]/div[2]/div[1]/input'.</msg>
-<arg>${DATE_OF_LAST_FINANCIAL}</arg>
-<arg>${statement_date}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-15T10:07:18.702515" elapsed="3.437273"/>
-</kw>
-<arg>${today}</arg>
-<status status="PASS" start="2024-05-15T10:07:18.702515" elapsed="3.437273"/>
+<arg>Applicant1Organization</arg>
+<status status="PASS" start="2024-05-17T11:00:18.252236" elapsed="3.482477"/>
 </kw>
 <kw name="Unselect Frame" owner="SeleniumLibrary">
 <doc>Sets the main frame as the current frame.</doc>
-<status status="PASS" start="2024-05-15T10:07:22.139788" elapsed="1.011208"/>
+<status status="PASS" start="2024-05-17T11:00:21.735076" elapsed="1.008669"/>
 </kw>
-<kw name="Enter Financial Information" owner="App_Stage_1">
+<kw name="Enter Contact Persons First Names" owner="App_Stage_1">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-05-15T10:07:23.155947" level="INFO">Typing text '703' into text field 'xpath=/html/body/div/div[4]/div[2]/div/div/div[1]/section/main/div/div[2]/div[3]/div/div/span[1]/div[1]/div/input'.</msg>
-<msg time="2024-05-15T10:07:25.503231" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-15.png"&gt;&lt;img src="selenium-screenshot-15.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2024-05-15T10:07:25.503231" level="FAIL">Element with locator 'xpath=/html/body/div/div[4]/div[2]/div/div/div[1]/section/main/div/div[2]/div[3]/div/div/span[1]/div[1]/div/input' not found.</msg>
-<arg>${PRIVATE_DONATION_INT}</arg>
-<arg>${private_donation}</arg>
+<msg time="2024-05-17T11:00:22.747642" level="INFO">Typing text 'Alice' into text field 'xpath=//*[@id="app"]/div[4]/div[2]/div/div/div[1]/section/main/div/div[2]/div[2]/div/div[1]/span[1]/div[1]/input'.</msg>
+<arg>${CONTACT_PERSON_FIRST_NAME1}</arg>
+<arg>${name1}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="FAIL" start="2024-05-15T10:07:23.155128" elapsed="2.355610">Element with locator 'xpath=/html/body/div/div[4]/div[2]/div/div/div[1]/section/main/div/div[2]/div[3]/div/div/span[1]/div[1]/div/input' not found.</status>
+<status status="PASS" start="2024-05-17T11:00:22.746518" elapsed="3.311014"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<arg>${PUBLIC_DONATION_INT}</arg>
-<arg>${public_donation}</arg>
+<msg time="2024-05-17T11:00:26.057978" level="INFO">Typing text 'Bob' into text field 'xpath=//*[@id="app"]/div[4]/div[2]/div/div/div[1]/section/main/div/div[2]/div[2]/div/div[2]/span[1]/div[1]/input'.</msg>
+<arg>${CONTACT_PERSON_FIRST_NAME2}</arg>
+<arg>${name2}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" start="2024-05-15T10:07:25.510738" elapsed="0.000000"/>
+<status status="PASS" start="2024-05-17T11:00:26.057978" elapsed="3.309560"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<arg>${GRANTS_INT}</arg>
-<arg>${grants}</arg>
+<msg time="2024-05-17T11:00:29.367538" level="INFO">Typing text 'Carol' into text field 'xpath=//*[@id="app"]/div[4]/div[2]/div/div/div[1]/section/main/div/div[2]/div[2]/div/div[3]/span[1]/div[1]/input'.</msg>
+<msg time="2024-05-17T11:00:31.642729" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2024-05-17T11:00:31.642729" level="FAIL">Element with locator 'xpath=//*[@id="app"]/div[4]/div[2]/div/div/div[1]/section/main/div/div[2]/div[2]/div/div[3]/span[1]/div[1]/input' not found.</msg>
+<arg>${CONTACT_PERSON_FIRST_NAME3}</arg>
+<arg>${name3}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" start="2024-05-15T10:07:25.510738" elapsed="0.000000"/>
+<status status="FAIL" start="2024-05-17T11:00:29.367538" elapsed="2.358065">Element with locator 'xpath=//*[@id="app"]/div[4]/div[2]/div/div/div[1]/section/main/div/div[2]/div[2]/div/div[3]/span[1]/div[1]/input' not found.</status>
 </kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<arg>${SELF_GENERATED_INT}</arg>
-<arg>${self_generated}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" start="2024-05-15T10:07:25.510738" elapsed="0.000000"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<arg>${TOTAL_PAYROLL_INT}</arg>
-<arg>${total_payroll}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" start="2024-05-15T10:07:25.510738" elapsed="0.000000"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<arg>${YEARLY_BALANCE_INT}</arg>
-<arg>${yearly_balance}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" start="2024-05-15T10:07:25.510738" elapsed="0.000000"/>
-</kw>
-<arg>${int3}</arg>
-<arg>${int3}</arg>
-<arg>${int3a}</arg>
-<arg>${int6}</arg>
-<arg>${int5}</arg>
-<arg>${int5}</arg>
-<status status="FAIL" start="2024-05-15T10:07:23.153124" elapsed="2.357614">Element with locator 'xpath=/html/body/div/div[4]/div[2]/div/div/div[1]/section/main/div/div[2]/div[3]/div/div/span[1]/div[1]/div/input' not found.</status>
+<arg>Alice</arg>
+<arg>Bob</arg>
+<arg>Carol</arg>
+<doc>Enter first names for contact persons in multiple input fields.</doc>
+<status status="FAIL" start="2024-05-17T11:00:22.743745" elapsed="8.981858">Element with locator 'xpath=//*[@id="app"]/div[4]/div[2]/div/div/div[1]/section/main/div/div[2]/div[2]/div/div[3]/span[1]/div[1]/input' not found.</status>
 </kw>
 <kw name="Unselect Frame" owner="SeleniumLibrary">
 <doc>Sets the main frame as the current frame.</doc>
-<status status="NOT RUN" start="2024-05-15T10:07:25.510738" elapsed="0.000000"/>
+<status status="NOT RUN" start="2024-05-17T11:00:31.725603" elapsed="0.000000"/>
 </kw>
-<kw name="Enter Employee Information" owner="App_Stage_1">
-<arg>${int2}</arg>
-<arg>${int2}</arg>
-<arg>${int1}</arg>
-<arg>${int2}</arg>
-<arg>${int2}</arg>
-<arg>${int2}</arg>
-<arg>${int1}</arg>
-<arg>${int1}</arg>
-<arg>${int1}</arg>
-<status status="NOT RUN" start="2024-05-15T10:07:25.510738" elapsed="0.000000"/>
+<kw name="Enter Contact Persons Last Names" owner="App_Stage_1">
+<arg>Smith</arg>
+<arg>Johnson</arg>
+<arg>Doe</arg>
+<doc>Enter last names for contact persons in multiple input fields.</doc>
+<status status="NOT RUN" start="2024-05-17T11:00:31.725603" elapsed="0.000000"/>
 </kw>
 <kw name="Unselect Frame" owner="SeleniumLibrary">
 <doc>Sets the main frame as the current frame.</doc>
-<status status="NOT RUN" start="2024-05-15T10:07:25.518256" elapsed="0.000000"/>
+<status status="NOT RUN" start="2024-05-17T11:00:31.725603" elapsed="0.000000"/>
 </kw>
-<kw name="Enter Social URLs" owner="App_Stage_1">
-<arg>${EMPTY}</arg>
-<arg>${EMPTY}</arg>
-<arg>${EMPTY}</arg>
-<arg>${EMPTY}</arg>
-<arg>${EMPTY}</arg>
-<status status="NOT RUN" start="2024-05-15T10:07:25.521369" elapsed="0.000201"/>
+<kw name="Enter Contact Persons Phones" owner="App_Stage_1">
+<arg>${PHONES}</arg>
+<doc>Enter phones for contact persons in multiple input fields.</doc>
+<status status="NOT RUN" start="2024-05-17T11:00:31.725603" elapsed="0.000000"/>
 </kw>
 <kw name="Unselect Frame" owner="SeleniumLibrary">
 <doc>Sets the main frame as the current frame.</doc>
-<status status="NOT RUN" start="2024-05-15T10:07:25.521570" elapsed="0.000000"/>
+<status status="NOT RUN" start="2024-05-17T11:00:31.725603" elapsed="0.000000"/>
 </kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<arg>${NEXT_BUTTON}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="NOT RUN" start="2024-05-15T10:07:25.521570" elapsed="0.000000"/>
+<kw name="Enter Contact Persons Emails" owner="App_Stage_1">
+<arg>${EMAILS}</arg>
+<doc>Enter emails for contact persons in multiple input fields.</doc>
+<status status="NOT RUN" start="2024-05-17T11:00:31.725603" elapsed="0.000000"/>
 </kw>
 <kw name="End Web Test" owner="Common" type="TEARDOWN">
 <kw name="Close All Browsers" owner="SeleniumLibrary">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2024-05-15T10:07:25.526612" elapsed="3.668350"/>
+<status status="PASS" start="2024-05-17T11:00:31.734329" elapsed="3.264878"/>
 </kw>
 <kw name="Log Test Case Status" owner="Common">
 <kw name="Run Keyword If" owner="BuiltIn">
 <kw name="Log" owner="BuiltIn">
-<msg time="2024-05-15T10:07:29.194962" level="INFO">Test failed: Page 6 - User Should Be Able To Continue With Application With Valid Fields</msg>
+<msg time="2024-05-17T11:00:34.999207" level="INFO">Test failed: Page 1 - User Should Be Able To Fill In Fields</msg>
 <arg>Test failed: ${TEST NAME}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-05-15T10:07:29.194962" elapsed="0.000000"/>
+<status status="PASS" start="2024-05-17T11:00:34.999207" elapsed="0.000000"/>
 </kw>
 <arg>'${TEST STATUS}' != 'PASS'</arg>
 <arg>Log</arg>
 <arg>Test failed: ${TEST NAME}</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-05-15T10:07:29.194962" elapsed="0.000000"/>
+<status status="PASS" start="2024-05-17T11:00:34.999207" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2024-05-15T10:07:29.194962" elapsed="0.000000"/>
+<status status="PASS" start="2024-05-17T11:00:34.999207" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2024-05-15T10:07:25.526612" elapsed="3.668350"/>
+<status status="PASS" start="2024-05-17T11:00:31.734260" elapsed="3.264947"/>
 </kw>
-<doc>This test will make sure the user can continue when the fields are filled in correctly, Optional fields will be left empty</doc>
+<doc>This test will check if the input fields are working as intended.</doc>
 <tag>Grants</tag>
-<tag>Run</tag>
+<tag>test1</tag>
 <tag>User-Applicant</tag>
-<tag>Valid</tag>
-<status status="FAIL" start="2024-05-15T10:06:25.500800" elapsed="63.694162">Element with locator 'xpath=/html/body/div/div[4]/div[2]/div/div/div[1]/section/main/div/div[2]/div[3]/div/div/span[1]/div[1]/div/input' not found.</status>
+<status status="FAIL" start="2024-05-17T10:59:22.952715" elapsed="72.046492">Element with locator 'xpath=//*[@id="app"]/div[4]/div[2]/div/div/div[1]/section/main/div/div[2]/div[2]/div/div[3]/span[1]/div[1]/input' not found.</status>
+</test>
+<test id="s1-t2" name="Page 1 - User Should Be Able To Select From List" line="92">
+<kw name="Begin Web Test" owner="Common" type="SETUP">
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2024-05-17T11:00:34.999207" level="INFO">${auth_url} = https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/</msg>
+<var>${auth_url}</var>
+<arg>SEPARATOR=</arg>
+<arg>https://${USERNAME}:${WEBPASSWORD}@${START_URL}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2024-05-17T11:00:34.999207" elapsed="0.000000"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-05-17T11:00:34.999207" level="INFO">Opening browser 'chrome' to base url 'https://bnfin_demo:ÔúiNÛONä½I@bnfin-staging.curbza.com/'.</msg>
+<msg time="2024-05-17T11:00:35.921786" level="WARN">The chromedriver version (124.0.6367.78) detected in PATH at C:\bin\chromedriver.exe might not be compatible with the detected chrome version (125.0.6422.61); currently, chromedriver 125.0.6422.60 is recommended for chrome 125.*, so it is advised to delete the driver in PATH and retry</msg>
+<arg>${auth_url}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-05-17T11:00:34.999207" elapsed="5.044703"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-05-17T11:00:40.043910" elapsed="1.075069"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>1s</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2024-05-17T11:00:41.118979" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2024-05-17T11:00:34.999207" elapsed="6.119772"/>
+</kw>
+<kw name="Navigate To Grants-Applicant" owner="HomeDashboard">
+<kw name="Login as User Type" owner="bnfinApp">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Set Variable" owner="BuiltIn">
+<arg>${USER_APPLICANT}[${user_index}]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-17T11:00:41.121858" elapsed="0.000000"/>
+</kw>
+<msg time="2024-05-17T11:00:41.121858" level="INFO">${email} = victoria.applicant-2</msg>
+<var>${email}</var>
+<arg>'${user_type}'=='ADMIN'</arg>
+<arg>Set Variable</arg>
+<arg>${USER_ADMIN}</arg>
+<arg>ELSE IF</arg>
+<arg>'${user_type}'=='LEAD_REVIEWER'</arg>
+<arg>Set Variable</arg>
+<arg>${USER_LEAD_REVIEWER}[${user_index}]</arg>
+<arg>ELSE IF</arg>
+<arg>'${user_type}'=='REVIEWER'</arg>
+<arg>Set Variable</arg>
+<arg>${USER_REVIEWER}[${user_index}]</arg>
+<arg>ELSE IF</arg>
+<arg>'${user_type}'=='APPLICANT'</arg>
+<arg>Set Variable</arg>
+<arg>${USER_APPLICANT}[${user_index}]</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>${None}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-05-17T11:00:41.121858" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-17T11:00:41.121858" level="INFO">${password} = test</msg>
+<var>${password}</var>
+<arg>${PASSWORD}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-17T11:00:41.121858" elapsed="0.000000"/>
+</kw>
+<kw name="Go To Login Page" owner="SignIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOGIN_BUTTON}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-17T11:00:41.121858" elapsed="2.063534"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-17T11:00:43.185392" level="INFO">Clicking element 'xpath=//a[@href='/login' and contains(@class, 'btn-outline-white')]'.</msg>
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-17T11:00:43.185392" elapsed="2.161660"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${LOGIN_HEADER_LABEL}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-05-17T11:00:45.347052" elapsed="1.034516"/>
+</kw>
+<status status="PASS" start="2024-05-17T11:00:41.121858" elapsed="5.259710"/>
+</kw>
+<kw name="Login With Valid Credentials" owner="SignIn">
+<kw name="Fill &quot;Email&quot; Field" owner="SignIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-17T11:00:46.383115" level="INFO">Typing text 'victoria.applicant-2' into text field 'id=username'.</msg>
+<arg>${LOGIN_EMAIL_TEXTBOX}</arg>
+<arg>${Email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-17T11:00:46.383115" elapsed="3.344397"/>
+</kw>
+<arg>${Email}</arg>
+<status status="PASS" start="2024-05-17T11:00:46.383115" elapsed="3.344397"/>
+</kw>
+<kw name="Fill &quot;Password&quot; Field" owner="SignIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-17T11:00:49.727512" level="INFO">Typing text 'test' into text field 'id=password'.</msg>
+<arg>${LOGIN_PASSWORD_TEXTBOX}</arg>
+<arg>${Password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-17T11:00:49.727512" elapsed="3.295471"/>
+</kw>
+<arg>${Password}</arg>
+<status status="PASS" start="2024-05-17T11:00:49.727512" elapsed="3.295471"/>
+</kw>
+<kw name="Click &quot;Submit&quot; Button" owner="SignIn">
+<kw name="Ensure Element Is Clickable And Click" owner="bnfinApp">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-17T11:00:53.022983" elapsed="2.051618"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2024-05-17T11:00:55.074816" elapsed="3.048012"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-17T11:00:58.122828" level="INFO">Clicking element 'xpath=//*[@id="app"]/div[4]/div/div[2]/form/button'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-17T11:00:58.122828" elapsed="2.144263"/>
+</kw>
+<arg>${LOGIN_SUBMIT_BUTTON}</arg>
+<status status="PASS" start="2024-05-17T11:00:53.022983" elapsed="7.244108"/>
+</kw>
+<status status="PASS" start="2024-05-17T11:00:53.022983" elapsed="7.244108"/>
+</kw>
+<arg>${email}</arg>
+<arg>${password}</arg>
+<status status="PASS" start="2024-05-17T11:00:46.381568" elapsed="13.885523"/>
+</kw>
+<kw name="Go to &quot;Home&quot; Dashboard" owner="bnfinApp">
+<kw name="Navigate To Dash" owner="HomeDashboard">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-05-17T11:01:00.267091" level="INFO">Opening url 'https://bnfin-staging.curbza.com/home'</msg>
+<arg>${DASH_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-05-17T11:01:00.267091" elapsed="1.358186"/>
+</kw>
+<status status="PASS" start="2024-05-17T11:01:00.267091" elapsed="1.358186"/>
+</kw>
+<kw name="Verify Page Loaded" owner="HomeDashboard">
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>xpath=//*[@id="app"]/div[4]/div[1]/nav/div</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2024-05-17T11:01:01.625277" elapsed="3.074222"/>
+</kw>
+<status status="PASS" start="2024-05-17T11:01:01.625277" elapsed="3.074222"/>
+</kw>
+<status status="PASS" start="2024-05-17T11:01:00.267091" elapsed="4.432408"/>
+</kw>
+<arg>APPLICANT</arg>
+<arg>1</arg>
+<status status="PASS" start="2024-05-17T11:00:41.121858" elapsed="23.577641"/>
+</kw>
+<kw name="Ensure Element Is Clickable And Click" owner="bnfinApp">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-17T11:01:04.699499" elapsed="2.047093"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2024-05-17T11:01:06.748167" elapsed="3.084835"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-17T11:01:09.834499" level="INFO">Clicking element 'xpath=//*[@id="app"]/div[4]/div[1]/nav/div/div/div/div[1]/a[4]'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-17T11:01:09.833451" elapsed="2.128998"/>
+</kw>
+<arg>${SIDE_NAV_GRANTS_LINK_APPLICANT}</arg>
+<status status="PASS" start="2024-05-17T11:01:04.699499" elapsed="7.262950"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Available Grants</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-05-17T11:01:11.962449" elapsed="1.035643"/>
+</kw>
+<status status="PASS" start="2024-05-17T11:00:41.121653" elapsed="31.876439"/>
+</kw>
+<kw name="Start &quot;APPLICATION - STAGE 1&quot;" owner="App_Stage_1">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${APPLICATION_STAGE1_LINK}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2024-05-17T11:01:12.998092" elapsed="2.343259"/>
+</kw>
+<kw name="Ensure Element Is Clickable And Click" owner="bnfinApp">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-17T11:01:15.341351" elapsed="2.046130"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2024-05-17T11:01:17.387481" elapsed="3.060571"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-17T11:01:20.448283" level="INFO">Clicking element 'xpath=(//a[contains(@href, "/eligibility")])[1]'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-17T11:01:20.448283" elapsed="2.219761"/>
+</kw>
+<arg>${APPLICATION_STAGE1_LINK}</arg>
+<status status="PASS" start="2024-05-17T11:01:15.341351" elapsed="7.326936"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Your first step will be to complete Stage 1 of the application process</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-05-17T11:01:22.668287" elapsed="1.035661"/>
+</kw>
+<kw name="Ensure Element Is Clickable And Click" owner="bnfinApp">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-17T11:01:23.704744" elapsed="2.055083"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2024-05-17T11:01:25.759827" elapsed="3.059517"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-17T11:01:28.819344" level="INFO">Clicking element 'xpath=//button[contains(text(), "Begin")]'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-17T11:01:28.819344" elapsed="2.174351"/>
+</kw>
+<arg>${BEGIN_APPLICATION_BUTTON}</arg>
+<status status="PASS" start="2024-05-17T11:01:23.704744" elapsed="7.289256"/>
+</kw>
+<status status="PASS" start="2024-05-17T11:01:12.998092" elapsed="17.995908"/>
+</kw>
+<kw name="Reset All Selects to Default" owner="bnfinApp">
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2024-05-17T11:01:32.027088" level="INFO">@{select_elements} = [ &lt;selenium.webdriver.remote.webelement.WebElement (session="d2f15ee08d01e79b489849cb371480b1", element="f.45FAA0A35EE15354DBE8AA9D34C10213.d.BCC26F22E03A90BEFC125B51F1104559.e.150")&gt; | &lt;selenium.webd...</msg>
+<var>@{select_elements}</var>
+<arg>//select</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2024-05-17T11:01:30.994000" elapsed="1.033088"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2024-05-17T11:01:32.030259" level="INFO">Selecting options from selection list '&lt;selenium.webdriver.remote.webelement.WebElement (session="d2f15ee08d01e79b489849cb371480b1", element="f.45FAA0A35EE15354DBE8AA9D34C10213.d.BCC26F22E03A90BEFC125B51F1104559.e.150")&gt;' by value .</msg>
+<arg>${select}</arg>
+<arg>${EMPTY}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2024-05-17T11:01:32.028882" elapsed="6.194521"/>
+</kw>
+<var name="${select}">&lt;selenium.webdriver.remote.webelement.WebElement (session="d2f15ee08d01e79b489849cb371480b1", element="f.45FAA0A35EE15354DBE8AA9D34C10213.d.BCC26F22E03A90BEFC125B51F1104559.e.150")&gt;</var>
+<status status="PASS" start="2024-05-17T11:01:32.027088" elapsed="6.196315"/>
+</iter>
+<iter>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2024-05-17T11:01:38.230425" level="INFO">Selecting options from selection list '&lt;selenium.webdriver.remote.webelement.WebElement (session="d2f15ee08d01e79b489849cb371480b1", element="f.45FAA0A35EE15354DBE8AA9D34C10213.d.BCC26F22E03A90BEFC125B51F1104559.e.151")&gt;' by value .</msg>
+<arg>${select}</arg>
+<arg>${EMPTY}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2024-05-17T11:01:38.223403" elapsed="6.193954"/>
+</kw>
+<var name="${select}">&lt;selenium.webdriver.remote.webelement.WebElement (session="d2f15ee08d01e79b489849cb371480b1", element="f.45FAA0A35EE15354DBE8AA9D34C10213.d.BCC26F22E03A90BEFC125B51F1104559.e.151")&gt;</var>
+<status status="PASS" start="2024-05-17T11:01:38.223403" elapsed="6.195008"/>
+</iter>
+<iter>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2024-05-17T11:01:44.419441" level="INFO">Selecting options from selection list '&lt;selenium.webdriver.remote.webelement.WebElement (session="d2f15ee08d01e79b489849cb371480b1", element="f.45FAA0A35EE15354DBE8AA9D34C10213.d.BCC26F22E03A90BEFC125B51F1104559.e.152")&gt;' by value .</msg>
+<arg>${select}</arg>
+<arg>${EMPTY}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2024-05-17T11:01:44.419441" elapsed="6.160065"/>
+</kw>
+<var name="${select}">&lt;selenium.webdriver.remote.webelement.WebElement (session="d2f15ee08d01e79b489849cb371480b1", element="f.45FAA0A35EE15354DBE8AA9D34C10213.d.BCC26F22E03A90BEFC125B51F1104559.e.152")&gt;</var>
+<status status="PASS" start="2024-05-17T11:01:44.418411" elapsed="6.161095"/>
+</iter>
+<iter>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2024-05-17T11:01:50.585054" level="INFO">Selecting options from selection list '&lt;selenium.webdriver.remote.webelement.WebElement (session="d2f15ee08d01e79b489849cb371480b1", element="f.45FAA0A35EE15354DBE8AA9D34C10213.d.BCC26F22E03A90BEFC125B51F1104559.e.153")&gt;' by value .</msg>
+<arg>${select}</arg>
+<arg>${EMPTY}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2024-05-17T11:01:50.579506" elapsed="6.174215"/>
+</kw>
+<var name="${select}">&lt;selenium.webdriver.remote.webelement.WebElement (session="d2f15ee08d01e79b489849cb371480b1", element="f.45FAA0A35EE15354DBE8AA9D34C10213.d.BCC26F22E03A90BEFC125B51F1104559.e.153")&gt;</var>
+<status status="PASS" start="2024-05-17T11:01:50.579506" elapsed="6.174215"/>
+</iter>
+<iter>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2024-05-17T11:01:56.757257" level="INFO">Selecting options from selection list '&lt;selenium.webdriver.remote.webelement.WebElement (session="d2f15ee08d01e79b489849cb371480b1", element="f.45FAA0A35EE15354DBE8AA9D34C10213.d.BCC26F22E03A90BEFC125B51F1104559.e.154")&gt;' by value .</msg>
+<arg>${select}</arg>
+<arg>${EMPTY}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2024-05-17T11:01:56.754623" elapsed="6.171542"/>
+</kw>
+<var name="${select}">&lt;selenium.webdriver.remote.webelement.WebElement (session="d2f15ee08d01e79b489849cb371480b1", element="f.45FAA0A35EE15354DBE8AA9D34C10213.d.BCC26F22E03A90BEFC125B51F1104559.e.154")&gt;</var>
+<status status="PASS" start="2024-05-17T11:01:56.754623" elapsed="6.171542"/>
+</iter>
+<iter>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2024-05-17T11:02:02.930680" level="INFO">Selecting options from selection list '&lt;selenium.webdriver.remote.webelement.WebElement (session="d2f15ee08d01e79b489849cb371480b1", element="f.45FAA0A35EE15354DBE8AA9D34C10213.d.BCC26F22E03A90BEFC125B51F1104559.e.155")&gt;' by value .</msg>
+<arg>${select}</arg>
+<arg>${EMPTY}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2024-05-17T11:02:02.926165" elapsed="6.175572"/>
+</kw>
+<var name="${select}">&lt;selenium.webdriver.remote.webelement.WebElement (session="d2f15ee08d01e79b489849cb371480b1", element="f.45FAA0A35EE15354DBE8AA9D34C10213.d.BCC26F22E03A90BEFC125B51F1104559.e.155")&gt;</var>
+<status status="PASS" start="2024-05-17T11:02:02.926165" elapsed="6.175572"/>
+</iter>
+<var>${select}</var>
+<value>@{select_elements}</value>
+<status status="PASS" start="2024-05-17T11:01:32.027088" elapsed="37.074649"/>
+</for>
+<status status="PASS" start="2024-05-17T11:01:30.994000" elapsed="38.108337"/>
+</kw>
+<kw name="Enter Contact Persons Civilities" owner="App_Stage_1">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-17T11:02:09.103937" level="INFO">${end_index} = 4</msg>
+<var>${end_index}</var>
+<arg>${TOTAL_INPUTS} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-17T11:02:09.103391" elapsed="0.000546"/>
+</kw>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-17T11:02:09.107442" level="INFO">${current_xpath} = xpath=//*[@id="app"]/div[4]/div[2]/div/div/div[1]/section/main/div/div[2]/div[2]/div/div[1]/span[3]/div[1]/select</msg>
+<var>${current_xpath}</var>
+<arg>${CONTACT_PERSON_CIVILITY_BASE_XPATH.replace("{index}", "${INDEX}")}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-17T11:02:09.104481" elapsed="0.002961"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${current_xpath}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-17T11:02:09.107442" elapsed="3.260029"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2024-05-17T11:02:12.376811" level="INFO">Selecting options from selection list 'xpath=//*[@id="app"]/div[4]/div[2]/div/div/div[1]/section/main/div/div[2]/div[2]/div/div[1]/span[3]/div[1]/select' by value Other.</msg>
+<arg>${current_xpath}</arg>
+<arg>${civilities_list[${INDEX - 1}]}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2024-05-17T11:02:12.367471" elapsed="8.220157"/>
+</kw>
+<var name="${INDEX}">1</var>
+<status status="PASS" start="2024-05-17T11:02:09.104481" elapsed="11.483310"/>
+</iter>
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-17T11:02:20.589825" level="INFO">${current_xpath} = xpath=//*[@id="app"]/div[4]/div[2]/div/div/div[1]/section/main/div/div[2]/div[2]/div/div[2]/span[3]/div[1]/select</msg>
+<var>${current_xpath}</var>
+<arg>${CONTACT_PERSON_CIVILITY_BASE_XPATH.replace("{index}", "${INDEX}")}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-17T11:02:20.588155" elapsed="0.001670"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${current_xpath}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-17T11:02:20.589825" elapsed="3.275511"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2024-05-17T11:02:23.874559" level="INFO">Selecting options from selection list 'xpath=//*[@id="app"]/div[4]/div[2]/div/div/div[1]/section/main/div/div[2]/div[2]/div/div[2]/span[3]/div[1]/select' by value Ms..</msg>
+<arg>${current_xpath}</arg>
+<arg>${civilities_list[${INDEX - 1}]}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2024-05-17T11:02:23.866106" elapsed="8.209142"/>
+</kw>
+<var name="${INDEX}">2</var>
+<status status="PASS" start="2024-05-17T11:02:20.588155" elapsed="11.487093"/>
+</iter>
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-17T11:02:36.146692" level="INFO">${current_xpath} = xpath=//*[@id="app"]/div[4]/div[2]/div/div/div[1]/section/main/div/div[2]/div[2]/div/div[3]/span[3]/div[1]/select</msg>
+<var>${current_xpath}</var>
+<arg>${CONTACT_PERSON_CIVILITY_BASE_XPATH.replace("{index}", "${INDEX}")}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-17T11:02:32.075248" elapsed="4.071444"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${current_xpath}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-17T11:02:36.146692" elapsed="2.051748"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2024-05-17T11:02:38.205402" level="INFO">Selecting options from selection list 'xpath=//*[@id="app"]/div[4]/div[2]/div/div/div[1]/section/main/div/div[2]/div[2]/div/div[3]/span[3]/div[1]/select' by value Mr..</msg>
+<arg>${current_xpath}</arg>
+<arg>${civilities_list[${INDEX - 1}]}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2024-05-17T11:02:38.198440" elapsed="8.191597"/>
+</kw>
+<var name="${INDEX}">3</var>
+<status status="PASS" start="2024-05-17T11:02:32.075248" elapsed="14.314789"/>
+</iter>
+<var>${INDEX}</var>
+<value>1</value>
+<value>${end_index}</value>
+<status status="PASS" start="2024-05-17T11:02:09.103937" elapsed="37.286100"/>
+</for>
+<arg>${CIVILITIES}</arg>
+<doc>Enter civilities for contact persons in multiple select fields.</doc>
+<status status="PASS" start="2024-05-17T11:02:09.102848" elapsed="37.287189"/>
+</kw>
+<kw name="Unselect Frame" owner="SeleniumLibrary">
+<doc>Sets the main frame as the current frame.</doc>
+<status status="PASS" start="2024-05-17T11:02:46.390037" elapsed="1.009256"/>
+</kw>
+<kw name="Enter Contact Persons Functions" owner="App_Stage_1">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-17T11:02:47.401346" level="INFO">${end_index} = 4</msg>
+<var>${end_index}</var>
+<arg>${TOTAL_INPUTS} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-17T11:02:47.401346" elapsed="0.000000"/>
+</kw>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-17T11:02:47.401346" level="INFO">${current_xpath} = xpath=//*[@id="app"]/div[4]/div[2]/div/div/div[1]/section/main/div/div[2]/div[2]/div/div[1]/span[6]/div[1]/select</msg>
+<var>${current_xpath}</var>
+<arg>${CONTACT_PERSON_FUNCTION_BASE_XPATH.replace("{index}", "${INDEX}")}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-17T11:02:47.401346" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${current_xpath}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-17T11:02:47.401346" elapsed="2.091438"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2024-05-17T11:02:49.498833" level="INFO">Selecting options from selection list 'xpath=//*[@id="app"]/div[4]/div[2]/div/div/div[1]/section/main/div/div[2]/div[2]/div/div[1]/span[6]/div[1]/select' by value president.</msg>
+<arg>${current_xpath}</arg>
+<arg>${functions_list[${INDEX - 1}]}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2024-05-17T11:02:49.492784" elapsed="8.208064"/>
+</kw>
+<var name="${INDEX}">1</var>
+<status status="PASS" start="2024-05-17T11:02:47.401346" elapsed="10.299502"/>
+</iter>
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-17T11:02:57.700848" level="INFO">${current_xpath} = xpath=//*[@id="app"]/div[4]/div[2]/div/div/div[1]/section/main/div/div[2]/div[2]/div/div[2]/span[6]/div[1]/select</msg>
+<var>${current_xpath}</var>
+<arg>${CONTACT_PERSON_FUNCTION_BASE_XPATH.replace("{index}", "${INDEX}")}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-17T11:02:57.700848" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${current_xpath}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-17T11:02:57.708403" elapsed="3.280646"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2024-05-17T11:03:00.997327" level="INFO">Selecting options from selection list 'xpath=//*[@id="app"]/div[4]/div[2]/div/div/div[1]/section/main/div/div[2]/div[2]/div/div[2]/span[6]/div[1]/select' by value coordinator.</msg>
+<arg>${current_xpath}</arg>
+<arg>${functions_list[${INDEX - 1}]}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2024-05-17T11:03:00.989049" elapsed="8.224891"/>
+</kw>
+<var name="${INDEX}">2</var>
+<status status="PASS" start="2024-05-17T11:02:57.700848" elapsed="11.513092"/>
+</iter>
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-17T11:03:09.218858" level="INFO">${current_xpath} = xpath=//*[@id="app"]/div[4]/div[2]/div/div/div[1]/section/main/div/div[2]/div[2]/div/div[3]/span[6]/div[1]/select</msg>
+<var>${current_xpath}</var>
+<arg>${CONTACT_PERSON_FUNCTION_BASE_XPATH.replace("{index}", "${INDEX}")}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-17T11:03:09.214567" elapsed="0.004291"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${current_xpath}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-17T11:03:09.218858" elapsed="3.277957"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2024-05-17T11:03:12.512279" level="INFO">Selecting options from selection list 'xpath=//*[@id="app"]/div[4]/div[2]/div/div/div[1]/section/main/div/div[2]/div[2]/div/div[3]/span[6]/div[1]/select' by value administrator.</msg>
+<arg>${current_xpath}</arg>
+<arg>${functions_list[${INDEX - 1}]}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2024-05-17T11:03:12.497472" elapsed="8.199198"/>
+</kw>
+<var name="${INDEX}">3</var>
+<status status="PASS" start="2024-05-17T11:03:09.214567" elapsed="11.482103"/>
+</iter>
+<var>${INDEX}</var>
+<value>1</value>
+<value>${end_index}</value>
+<status status="PASS" start="2024-05-17T11:02:47.401346" elapsed="33.295324"/>
+</for>
+<arg>${FUNCTIONS}</arg>
+<doc>Enter functions for contact persons in multiple select fields.</doc>
+<status status="PASS" start="2024-05-17T11:02:47.399293" elapsed="33.298076"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-05-17T11:03:20.698317" level="INFO">Clicking button 'xpath=//button[contains(text(), "Next")]'.</msg>
+<arg>${NEXT_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-17T11:03:20.697568" elapsed="5.288776"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-05-17T11:03:28.027262" level="INFO">Current page contains text 'General Information'.</msg>
+<arg>General Information</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-05-17T11:03:25.986344" elapsed="2.040918"/>
+</kw>
+<kw name="End Web Test" owner="Common" type="TEARDOWN">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2024-05-17T11:03:28.027262" elapsed="3.239421"/>
+</kw>
+<kw name="Log Test Case Status" owner="Common">
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${TEST STATUS}' != 'PASS'</arg>
+<arg>Log</arg>
+<arg>Test failed: ${TEST NAME}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-05-17T11:03:31.266683" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2024-05-17T11:03:31.266683" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2024-05-17T11:03:28.027262" elapsed="3.239421"/>
+</kw>
+<doc>This test will check if the select fields are working as intended, then move onto next page</doc>
+<tag>Grants</tag>
+<tag>test1</tag>
+<tag>User-Applicant</tag>
+<status status="PASS" start="2024-05-17T11:00:34.999207" elapsed="176.267476"/>
 </test>
 <doc>This testing suite will check the functionality of the "Application Stage 1" part of the process by the applicant.</doc>
-<status status="FAIL" start="2024-05-15T10:06:24.402267" elapsed="64.792695"/>
+<status status="FAIL" start="2024-05-17T10:59:22.460483" elapsed="248.806200"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="1" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="0" fail="1" skip="0">Grants</stat>
-<stat pass="0" fail="1" skip="0">Run</stat>
-<stat pass="0" fail="1" skip="0">User-Applicant</stat>
-<stat pass="0" fail="1" skip="0">Valid</stat>
+<stat pass="1" fail="1" skip="0">Grants</stat>
+<stat pass="1" fail="1" skip="0">test1</stat>
+<stat pass="1" fail="1" skip="0">User-Applicant</stat>
 </tag>
 <suite>
-<stat pass="0" fail="1" skip="0" id="s1" name="Application-Stage-1">Application-Stage-1</stat>
+<stat pass="1" fail="1" skip="0" id="s1" name="Application-Stage-1">Application-Stage-1</stat>
 </suite>
 </statistics>
 <errors>
-<msg time="2024-05-15T10:06:25.434601" level="ERROR">Error in file 'F:\NSCC-Courses\Semester-2\Work Placement\Automated Tests\BNFIN\Resources\PO\App_Stage_1.robot' on line 2: Resource file '..\Resources\PO\SignIn.robot' does not exist.</msg>
+<msg time="2024-05-17T10:59:22.937098" level="ERROR">Error in file 'F:\NSCC-Courses\Semester-2\Work Placement\Automated Tests\BNFIN\Resources\PO\App_Stage_1.robot' on line 2: Resource file '..\Resources\PO\SignIn.robot' does not exist.</msg>
+<msg time="2024-05-17T10:59:24.410878" level="WARN">The chromedriver version (124.0.6367.78) detected in PATH at C:\bin\chromedriver.exe might not be compatible with the detected chrome version (125.0.6422.61); currently, chromedriver 125.0.6422.60 is recommended for chrome 125.*, so it is advised to delete the driver in PATH and retry</msg>
+<msg time="2024-05-17T11:00:35.921786" level="WARN">The chromedriver version (124.0.6367.78) detected in PATH at C:\bin\chromedriver.exe might not be compatible with the detected chrome version (125.0.6422.61); currently, chromedriver 125.0.6422.60 is recommended for chrome 125.*, so it is advised to delete the driver in PATH and retry</msg>
 </errors>
 </robot>
